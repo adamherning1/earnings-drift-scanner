@@ -1,0 +1,180 @@
+//@version=5
+strategy("Momentum + Mean Reversion Hybrid", 
+     overlay=true, 
+     pyramiding=0, 
+     initial_capital=5500, 
+     default_qty_type=strategy.fixed, 
+     default_qty_value=1,
+     commission_type=strategy.commission.cash_per_contract, 
+     commission_value=1.25,
+     slippage=1)
+
+// ============================================================================
+// INPUTS
+// ============================================================================
+
+// --- Direction Bias ---
+i_lookback      = input.int(20, "Donchian Lookback", minval=5, group="Direction")
+i_emaLen        = input.int(50, "Trend EMA Length", minval=10, group="Direction")
+
+// --- Pullback Entry ---
+i_rsiLen        = input.int(14, "RSI Length", minval=5, group="Entry")
+i_rsiEntry      = input.float(40.0, "RSI Entry Threshold", minval=20, maxval=50, group="Entry")
+i_rsiOB         = input.float(75.0, "RSI Overbought (skip)", minval=60, maxval=90, group="Entry")
+i_pullbackBars  = input.int(10, "Max bars to wait for pullback", minval=3, maxval=30, group="Entry")
+
+// --- Session Filter ---
+i_useSession    = input.bool(true, "Use Session Filter", group="Session")
+i_sessStart     = input.int(8, "Session Start Hour (UTC)", minval=0, maxval=23, group="Session")
+i_sessEnd       = input.int(17, "Session End Hour (UTC)", minval=0, maxval=23, group="Session")
+
+// --- Risk ---
+i_atrPeriod     = input.int(14, "ATR Period", minval=1, group="Risk")
+i_stopMult      = input.float(1.0, "Stop ATR Multiplier", minval=0.5, step=0.1, group="Risk")
+i_targetR       = input.float(3.0, "Take Profit (R-multiple)", minval=1.0, step=0.5, group="Risk")
+i_riskPct       = input.float(1.5, "Risk Per Trade (%)", minval=0.1, step=0.1, group="Risk") / 100.0
+i_pointValue    = input.float(10.0, "Point Value (MGC=$10)", group="Risk")
+i_trailAfterR   = input.float(1.5, "Start trailing after R", minval=0.5, step=0.5, group="Risk")
+i_trailMult     = input.float(1.5, "Trail ATR Mult", minval=0.5, step=0.1, group="Risk")
+
+// ============================================================================
+// CALCULATIONS
+// ============================================================================
+
+atrVal      = ta.atr(i_atrPeriod)
+rsiVal      = ta.rsi(close, i_rsiLen)
+ema         = ta.ema(close, i_emaLen)
+highestHigh = ta.highest(high[1], i_lookback)
+
+// Session filter (UTC hours)
+utcHour     = hour(time, "UTC")
+inSession   = i_useSession ? (utcHour >= i_sessStart and utcHour < i_sessEnd) : true
+
+// MACD for momentum confirmation
+[macdLine, sigLine, histLine] = ta.macd(close, 12, 26, 9)
+momentumOk  = macdLine > sigLine
+
+// ============================================================================
+// BREAKOUT BIAS + PULLBACK ENTRY
+// ============================================================================
+
+// Fresh breakout establishes bullish bias
+breakoutOccurred = close > highestHigh and close > ema
+
+// Track bias
+var bool  bullBias      = false
+var int   barsSinceBO   = 0
+var float biasHigh      = na
+
+if breakoutOccurred and momentumOk
+    bullBias    := true
+    barsSinceBO := 0
+    biasHigh    := high
+
+if bullBias
+    barsSinceBO += 1
+    biasHigh    := math.max(biasHigh, high)
+    // Invalidate bias if price drops below EMA or too many bars pass
+    if close < ema or barsSinceBO > i_pullbackBars
+        bullBias := false
+
+// Pullback entry: RSI dips while bias is bullish
+pullbackReady   = bullBias and rsiVal < i_rsiEntry and rsiVal[1] >= i_rsiEntry  // RSI crossing below threshold
+entrySignal     = pullbackReady and close > ema and inSession and strategy.position_size == 0
+
+// Alternative: if RSI was below and now turning up (confirmation)
+rsiTurnUp       = bullBias and rsiVal[1] < i_rsiEntry and rsiVal > rsiVal[1] and rsiVal < i_rsiOB and close > ema
+entrySignal2    = rsiTurnUp and inSession and strategy.position_size == 0 and barsSinceBO >= 2
+
+finalEntry      = entrySignal or entrySignal2
+
+// ============================================================================
+// POSITION SIZING
+// ============================================================================
+
+stopDist        = atrVal * i_stopMult
+riskDollars     = strategy.equity * i_riskPct
+riskPerContract = stopDist * i_pointValue
+lotSize         = math.max(1, math.floor(riskDollars / riskPerContract))
+
+// ============================================================================
+// TRADE MANAGEMENT
+// ============================================================================
+
+var float entryPrice    = na
+var float currentStop   = na
+var float initialRisk   = na
+var float targetPrice   = na
+
+if finalEntry
+    stp = close - stopDist
+    tgt = close + stopDist * i_targetR
+    strategy.entry("Long", strategy.long, qty=lotSize, comment="PBEntry")
+    strategy.exit("Exit", from_entry="Long", stop=stp, limit=tgt, comment="SL/TP")
+    entryPrice  := close
+    currentStop := stp
+    initialRisk := stopDist
+    targetPrice := tgt
+    bullBias    := false
+
+// Trailing stop after reaching trailAfterR
+if strategy.position_size > 0 and not na(initialRisk) and not na(entryPrice)
+    profitR = (close - entryPrice) / initialRisk
+    
+    if profitR >= i_trailAfterR
+        trailStop = close - atrVal * i_trailMult
+        trailStop := math.max(trailStop, currentStop)
+        // At minimum lock in breakeven + small profit
+        trailStop := math.max(trailStop, entryPrice + initialRisk * 0.5)
+        
+        if trailStop > currentStop
+            strategy.exit("Exit", from_entry="Long", stop=trailStop, limit=targetPrice, comment="TrailSL")
+            currentStop := trailStop
+
+if strategy.position_size == 0
+    entryPrice  := na
+    currentStop := na
+    initialRisk := na
+    targetPrice := na
+
+// ============================================================================
+// PLOTTING
+// ============================================================================
+
+plot(strategy.position_size > 0 ? currentStop : na, "Stop", color=color.red, style=plot.style_linebr, linewidth=2)
+plot(strategy.position_size > 0 ? targetPrice : na, "Target", color=color.green, style=plot.style_linebr, linewidth=2)
+plot(ema, "EMA", color=color.orange)
+plot(highestHigh, "Breakout", color=color.blue, linewidth=1)
+
+// RSI in separate pane would need indicator; show via bgcolor
+bgcolor(bullBias ? color.new(color.teal, 90) : na)
+bgcolor(rsiVal < i_rsiEntry and bullBias ? color.new(color.green, 80) : na)
+
+// ============================================================================
+// INFO TABLE
+// ============================================================================
+
+if barstate.islastconfirmedhistory
+    var table infoTbl = table.new(position.top_right, 2, 7, bgcolor=color.new(color.black, 80), border_width=1)
+    table.cell(infoTbl, 0, 0, "Strategy", text_color=color.white)
+    table.cell(infoTbl, 1, 0, "Mom+MR Hybrid", text_color=color.teal)
+    table.cell(infoTbl, 0, 1, "Equity", text_color=color.white)
+    table.cell(infoTbl, 1, 1, str.tostring(strategy.equity, "#.##"), text_color=color.green)
+    table.cell(infoTbl, 0, 2, "Net Profit", text_color=color.white)
+    table.cell(infoTbl, 1, 2, str.tostring(strategy.netprofit, "#.##"), text_color=color.green)
+    table.cell(infoTbl, 0, 3, "Trades", text_color=color.white)
+    table.cell(infoTbl, 1, 3, str.tostring(strategy.closedtrades), text_color=color.white)
+    table.cell(infoTbl, 0, 4, "Win Rate", text_color=color.white)
+    wr = strategy.closedtrades > 0 ? strategy.wintrades / strategy.closedtrades * 100 : 0.0
+    table.cell(infoTbl, 1, 4, str.tostring(wr, "#.#") + "%", text_color=color.white)
+    table.cell(infoTbl, 0, 5, "RSI", text_color=color.white)
+    table.cell(infoTbl, 1, 5, str.tostring(rsiVal, "#.#"), text_color=color.white)
+    table.cell(infoTbl, 0, 6, "Session", text_color=color.white)
+    table.cell(infoTbl, 1, 6, inSession ? "ACTIVE" : "CLOSED", text_color=inSession ? color.green : color.red)
+
+// ============================================================================
+// ALERTS
+// ============================================================================
+
+alertcondition(finalEntry, title="Long Entry", message="Momentum Hybrid: Pullback Long Entry")
+alertcondition(bullBias and not bullBias[1], title="Bullish Bias", message="Momentum Hybrid: Bullish bias established")

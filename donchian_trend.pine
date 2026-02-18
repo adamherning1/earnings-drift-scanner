@@ -1,0 +1,129 @@
+// Donchian Channel Trend Following Strategy for Micro Gold Futures (MGC1!)
+// Classic Turtle-style breakout with EMA trend filter
+// Timeframe: Daily recommended (also works on 4h)
+//@version=5
+strategy("Donchian Trend Following - MGC", overlay=true, initial_capital=10000,
+     default_qty_type=strategy.fixed, default_qty_value=1,
+     commission_type=strategy.commission.cash_per_contract, commission_value=1.25,
+     slippage=1, currency=currency.USD, calc_on_every_tick=false)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// INPUTS
+// ──────────────────────────────────────────────────────────────────────────────
+grpDonchian = "Donchian Channel"
+entryPeriod = input.int(20, "Entry Channel Period", minval=5, maxval=100, group=grpDonchian, tooltip="Breakout above/below this many bars high/low to enter")
+exitPeriod  = input.int(10, "Exit Channel Period", minval=3, maxval=50, group=grpDonchian, tooltip="Close crosses this channel to exit")
+
+grpFilter = "Trend Filter"
+useEmaFilter = input.bool(true, "Use EMA Trend Filter", group=grpFilter)
+emaPeriod    = input.int(50, "EMA Period", minval=10, maxval=200, group=grpFilter)
+
+grpRisk = "Risk Management"
+atrPeriod    = input.int(14, "ATR Period", minval=1, group=grpRisk)
+riskPct      = input.float(2.0, "Risk % Per Trade", minval=0.5, maxval=10.0, step=0.5, group=grpRisk, tooltip="% of equity risked per trade for position sizing")
+useAtrSizing = input.bool(true, "ATR-Based Position Sizing", group=grpRisk)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// INDICATORS
+// ──────────────────────────────────────────────────────────────────────────────
+// Entry channels (exclude current bar)
+entryUpper = ta.highest(high[1], entryPeriod)
+entryLower = ta.lowest(low[1], entryPeriod)
+
+// Exit channels (exclude current bar)
+exitUpper = ta.highest(high[1], exitPeriod)
+exitLower = ta.lowest(low[1], exitPeriod)
+
+// Trend filter
+emaVal = ta.ema(close, emaPeriod)
+
+// ATR for position sizing and stops
+atrVal = ta.atr(atrPeriod)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// POSITION SIZING
+// ──────────────────────────────────────────────────────────────────────────────
+// MGC multiplier = $10 per point
+mgcMultiplier = 10.0
+riskDollars   = strategy.equity * (riskPct / 100.0)
+dollarRiskPerContract = atrVal * 2 * mgcMultiplier
+calcQty = useAtrSizing and dollarRiskPerContract > 0 ? math.max(1, math.floor(riskDollars / dollarRiskPerContract)) : 1
+
+// ──────────────────────────────────────────────────────────────────────────────
+// ENTRY CONDITIONS
+// ──────────────────────────────────────────────────────────────────────────────
+trendUp   = not useEmaFilter or close > emaVal
+trendDown = not useEmaFilter or close < emaVal
+
+longEntry  = close > entryUpper and trendUp and strategy.position_size == 0
+shortEntry = close < entryLower and trendDown and strategy.position_size == 0
+
+// ──────────────────────────────────────────────────────────────────────────────
+// EXIT CONDITIONS
+// ──────────────────────────────────────────────────────────────────────────────
+longExit  = strategy.position_size > 0 and close < exitLower
+shortExit = strategy.position_size < 0 and close > exitUpper
+
+// ──────────────────────────────────────────────────────────────────────────────
+// ENTRIES
+// ──────────────────────────────────────────────────────────────────────────────
+if longEntry
+    strategy.entry("Long", strategy.long, qty=calcQty)
+
+if shortEntry
+    strategy.entry("Short", strategy.short, qty=calcQty)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// EXITS
+// ──────────────────────────────────────────────────────────────────────────────
+if longExit
+    strategy.close("Long", comment="Exit Long")
+
+if shortExit
+    strategy.close("Short", comment="Exit Short")
+
+// ──────────────────────────────────────────────────────────────────────────────
+// PLOTS
+// ──────────────────────────────────────────────────────────────────────────────
+// Entry channels
+p1 = plot(entryUpper, "Entry Upper", color=color.new(color.green, 60), linewidth=1)
+p2 = plot(entryLower, "Entry Lower", color=color.new(color.red, 60), linewidth=1)
+fill(p1, p2, color=color.new(color.gray, 95), title="Entry Channel Fill")
+
+// Exit channels
+plot(exitUpper, "Exit Upper", color=color.new(color.green, 80), linewidth=1, style=plot.style_circles)
+plot(exitLower, "Exit Lower", color=color.new(color.red, 80), linewidth=1, style=plot.style_circles)
+
+// EMA
+plot(useEmaFilter ? emaVal : na, "EMA Filter", color=color.new(color.orange, 30), linewidth=2)
+
+// Entry markers
+plotshape(longEntry,  title="Long Entry",  location=location.belowbar, style=shape.triangleup,   color=color.green, size=size.small, text="BUY")
+plotshape(shortEntry, title="Short Entry", location=location.abovebar, style=shape.triangledown, color=color.red,   size=size.small, text="SELL")
+
+// Exit markers
+plotshape(longExit or shortExit, title="Exit", location=location.absolute, style=shape.xcross, color=color.orange, size=size.tiny)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// INFO TABLE
+// ──────────────────────────────────────────────────────────────────────────────
+var table infoTbl = table.new(position.top_right, 2, 5, bgcolor=color.new(color.gray, 85))
+if barstate.islast
+    table.cell(infoTbl, 0, 0, "Channel High",  text_color=color.white)
+    table.cell(infoTbl, 1, 0, str.tostring(entryUpper, format.mintick), text_color=color.green)
+    table.cell(infoTbl, 0, 1, "Channel Low",   text_color=color.white)
+    table.cell(infoTbl, 1, 1, str.tostring(entryLower, format.mintick), text_color=color.red)
+    table.cell(infoTbl, 0, 2, "EMA",           text_color=color.white)
+    table.cell(infoTbl, 1, 2, str.tostring(emaVal, format.mintick), text_color=color.orange)
+    table.cell(infoTbl, 0, 3, "ATR",           text_color=color.white)
+    table.cell(infoTbl, 1, 3, str.tostring(atrVal, format.mintick), text_color=color.yellow)
+    table.cell(infoTbl, 0, 4, "Position",      text_color=color.white)
+    table.cell(infoTbl, 1, 4, str.tostring(strategy.position_size), text_color=color.white)
+
+// ──────────────────────────────────────────────────────────────────────────────
+// ALERT CONDITIONS
+// ──────────────────────────────────────────────────────────────────────────────
+alertcondition(longEntry,  title="Donchian Long",  message="Donchian Trend: BUY — Breakout above channel")
+alertcondition(shortEntry, title="Donchian Short", message="Donchian Trend: SELL — Breakout below channel")
+alertcondition(longExit,   title="Donchian Exit Long",  message="Donchian Trend: EXIT LONG — Close below exit channel")
+alertcondition(shortExit,  title="Donchian Exit Short", message="Donchian Trend: EXIT SHORT — Close above exit channel")

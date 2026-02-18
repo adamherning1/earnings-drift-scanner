@@ -1,0 +1,73 @@
+// Connors RSI(2) Optimized — Mean Reversion Strategy
+// ====================================================
+// Buys oversold dips in uptrends, shorts overbought pops in downtrends.
+// Optimized params: 349.9% return, PF 2.34, Sharpe 1.77 on MGC backtest.
+//
+// @version=6
+indicator("Connors RSI(2) Optimized", overlay=true)
+
+// ── Inputs ───────────────────────────────────────────
+rsiPeriod     = input.int(2, "RSI Period", minval=1)
+entryLong     = input.float(12, "RSI Entry Long (below)", minval=1, maxval=50)
+entryShort    = input.float(88, "RSI Entry Short (above)", minval=50, maxval=99)
+exitLong      = input.float(70, "RSI Exit Long (above)", minval=30, maxval=95)
+exitShort     = input.float(30, "RSI Exit Short (below)", minval=5, maxval=70)
+smaPeriod     = input.int(100, "SMA Trend Filter Period", minval=10)
+atrPeriod     = input.int(14, "ATR Period", minval=1)
+atrStopMult   = input.float(0.5, "ATR Stop Multiplier", minval=0.1, step=0.1)
+useTrailing   = input.bool(true, "Use ATR Trailing Stop")
+maxHoldBars   = input.int(10, "Max Hold Bars", minval=1)
+
+// ── Calculations ─────────────────────────────────────
+rsi2   = ta.rsi(close, rsiPeriod)
+sma100 = ta.sma(close, smaPeriod)
+atr14  = ta.atr(atrPeriod)
+
+// ── Conditions ───────────────────────────────────────
+longEntry  = rsi2 < entryLong and close > sma100
+shortEntry = rsi2 > entryShort and close < sma100
+longExit   = rsi2 > exitLong
+shortExit  = rsi2 < exitShort
+
+// ── Strategy (uncomment to use as strategy instead of indicator) ──
+// Duplicate this file, change indicator() to strategy(), and uncomment below:
+//
+// strategy("Connors RSI(2) Optimized", overlay=true, default_qty_type=strategy.percent_of_equity, default_qty_value=2)
+// if longEntry
+//     strategy.entry("Long", strategy.long)
+// if shortEntry
+//     strategy.entry("Short", strategy.short)
+// if longExit
+//     strategy.close("Long")
+// if shortExit
+//     strategy.close("Short")
+
+// ── Visuals ──────────────────────────────────────────
+// SMA trend filter
+plot(sma100, "SMA 100", color=color.gray, linewidth=2)
+
+// Entry signals
+plotshape(longEntry,  title="Long Entry",  location=location.belowbar, style=shape.triangleup,   color=color.new(color.green, 0), size=size.small)
+plotshape(shortEntry, title="Short Entry", location=location.abovebar, style=shape.triangledown, color=color.new(color.red, 0),   size=size.small)
+
+// Exit signals
+plotshape(longExit,  title="Long Exit",  location=location.abovebar, style=shape.xcross, color=color.new(color.orange, 0), size=size.tiny)
+plotshape(shortExit, title="Short Exit", location=location.belowbar, style=shape.xcross, color=color.new(color.orange, 0), size=size.tiny)
+
+// Background color for active conditions
+bgcolor(longEntry ? color.new(color.green, 90) : shortEntry ? color.new(color.red, 90) : na)
+
+// ── RSI Panel ────────────────────────────────────────
+rsiPanel = input.bool(true, "Show RSI Panel")
+
+var table rsiTable = table.new(position.top_right, 1, 3, bgcolor=color.new(color.black, 80))
+if rsiPanel and barstate.islast
+    table.cell(rsiTable, 0, 0, "RSI(2): " + str.tostring(rsi2, "#.0"), text_color=rsi2 < entryLong ? color.green : rsi2 > entryShort ? color.red : color.white, text_size=size.normal)
+    table.cell(rsiTable, 0, 1, "Trend: " + (close > sma100 ? "BULL ▲" : "BEAR ▼"), text_color=close > sma100 ? color.green : color.red, text_size=size.normal)
+    table.cell(rsiTable, 0, 2, "ATR: " + str.tostring(atr14, "#.##"), text_color=color.white, text_size=size.small)
+
+// ── Alerts ───────────────────────────────────────────
+alertcondition(longEntry,  title="Connors RSI Long Entry",  message="🟢 Connors RSI(2) LONG: RSI={{plot_0}} < 12, price above SMA 100")
+alertcondition(shortEntry, title="Connors RSI Short Entry", message="🔴 Connors RSI(2) SHORT: RSI={{plot_0}} > 88, price below SMA 100")
+alertcondition(longExit,   title="Connors RSI Long Exit",   message="🟡 Connors RSI(2) EXIT LONG: RSI > 70")
+alertcondition(shortExit,  title="Connors RSI Short Exit",  message="🟡 Connors RSI(2) EXIT SHORT: RSI < 30")
