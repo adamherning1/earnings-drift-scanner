@@ -1,0 +1,10 @@
+{
+  "position_size": 2,
+  "kc_length": 20,
+  "kc_mult": 1.5,
+  "atr_stop": 1.5,
+  "take_profit_r": 1.2,
+  "adx_threshold": 20,
+  "max_daily_loss": 1200,
+  "max_trades_day": 15
+}

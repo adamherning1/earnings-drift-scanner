@@ -1,0 +1,142 @@
+2026-04-06 07:34:06,188 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:34:06,190 - __main__ - INFO - Connecting to IB Gateway at 192.168.0.58:4002...
+2026-04-06 07:34:06,191 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:34:06,220 - ib_insync.client - INFO - Connected
+2026-04-06 07:34:06,231 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:34:06,279 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:34:06,281 - ib_insync.wrapper - INFO - Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-04-06 07:34:06,282 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:34:06,283 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:34:06,697 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:34:06,698 - __main__ - INFO - ✅ Connected successfully!
+2026-04-06 07:34:06,874 - __main__ - INFO - Contract qualified: MGCJ6
+2026-04-06 07:34:06,896 - ib_insync.wrapper - INFO - Warning 2119, reqId -1: Market data farm is connecting:usfuture
+2026-04-06 07:34:07,641 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfuture
+2026-04-06 07:34:07,848 - ib_insync.wrapper - ERROR - Error 354, reqId 4: Requested market data is not subscribed. Check API status by selecting the Account menu then under Management choose Market Data Subscription Manager and/or availability of delayed data.Delayed market data is available.MGC APR'26 (MGCJ6) /TOP/ALL, contract: Future(conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-04-06 07:34:08,891 - __main__ - INFO - Bot is monitoring MGC market...
+2026-04-06 07:34:08,893 - __main__ - INFO - ============================================================
+2026-04-06 07:34:08,893 - __main__ - INFO - MGC Price: $nan | Bid: $nan | Ask: $nan | Volume: nan
+2026-04-06 07:34:08,894 - __main__ - INFO - Position: No active position
+2026-04-06 07:34:08,894 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:34:08,894 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:34:40,582 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:34:40,583 - __main__ - INFO - Connecting to IB Gateway at 192.168.0.58:4002...
+2026-04-06 07:34:40,584 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:34:40,587 - ib_insync.client - INFO - Connected
+2026-04-06 07:34:40,591 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:34:40,638 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfuture
+2026-04-06 07:34:40,639 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:34:40,639 - ib_insync.wrapper - INFO - Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-04-06 07:34:40,639 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:34:40,640 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:34:41,052 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:34:41,053 - __main__ - INFO - ✅ Connected successfully!
+2026-04-06 07:34:41,226 - __main__ - INFO - Contract qualified: MGCJ6
+2026-04-06 07:34:41,560 - ib_insync.wrapper - INFO - Warning 10167, reqId 4: Requested market data is not subscribed. Displaying delayed market data., contract: Future(conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-04-06 07:34:43,242 - __main__ - INFO - Bot is monitoring MGC market...
+2026-04-06 07:34:43,243 - __main__ - INFO - ============================================================
+2026-04-06 07:34:43,244 - __main__ - INFO - MGC Price: $4681.35 | Bid: $4681.10 | Ask: $4681.60 | Volume: 24.0
+2026-04-06 07:34:43,244 - __main__ - INFO - Position: No active position
+2026-04-06 07:34:43,245 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:34:43,245 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:35:13,256 - __main__ - INFO - MGC Price: $4684.00 | Bid: $4683.80 | Ask: $4684.20 | Volume: 24.0
+2026-04-06 07:35:13,256 - __main__ - INFO - Position: No active position
+2026-04-06 07:35:13,256 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:35:13,257 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:35:27,729 - ib_insync.wrapper - INFO - Warning 2107, reqId -1: HMDS data farm connection is inactive but should be available upon demand.ushmds
+2026-04-06 07:35:43,262 - __main__ - INFO - MGC Price: $4683.25 | Bid: $4683.00 | Ask: $4683.50 | Volume: 24.0
+2026-04-06 07:35:43,262 - __main__ - INFO - Position: No active position
+2026-04-06 07:35:43,262 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:35:43,263 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:36:13,273 - __main__ - INFO - MGC Price: $4683.60 | Bid: $4683.40 | Ask: $4683.80 | Volume: 24.0
+2026-04-06 07:36:13,273 - __main__ - INFO - Position: No active position
+2026-04-06 07:36:13,274 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:36:13,274 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:36:43,284 - __main__ - INFO - MGC Price: $4683.55 | Bid: $4683.30 | Ask: $4683.80 | Volume: 24.0
+2026-04-06 07:36:43,284 - __main__ - INFO - Position: No active position
+2026-04-06 07:36:43,285 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:36:43,285 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:37:13,298 - __main__ - INFO - MGC Price: $4684.70 | Bid: $4684.50 | Ask: $4684.90 | Volume: 24.0
+2026-04-06 07:37:13,298 - __main__ - INFO - Position: No active position
+2026-04-06 07:37:13,299 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:37:13,299 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:37:43,309 - __main__ - INFO - MGC Price: $4684.90 | Bid: $4684.70 | Ask: $4685.10 | Volume: 24.0
+2026-04-06 07:37:43,310 - __main__ - INFO - Position: No active position
+2026-04-06 07:37:43,310 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:37:43,310 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:38:13,325 - __main__ - INFO - MGC Price: $4682.95 | Bid: $4682.80 | Ask: $4683.10 | Volume: 24.0
+2026-04-06 07:38:13,326 - __main__ - INFO - Position: No active position
+2026-04-06 07:38:13,327 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:38:13,327 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:39:19,392 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:39:19,393 - __main__ - INFO - Connecting to IB Gateway at 192.168.0.58:4002...
+2026-04-06 07:39:19,394 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:39:19,399 - ib_insync.client - INFO - Connected
+2026-04-06 07:39:19,403 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:39:19,460 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfuture
+2026-04-06 07:39:19,461 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:39:19,461 - ib_insync.wrapper - INFO - Warning 2107, reqId -1: HMDS data farm connection is inactive but should be available upon demand.ushmds
+2026-04-06 07:39:19,461 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:39:19,462 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:39:19,877 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:39:19,877 - __main__ - INFO - ✅ Connected successfully!
+2026-04-06 07:39:20,050 - __main__ - INFO - Contract qualified: MGCM6
+2026-04-06 07:39:20,277 - ib_insync.wrapper - INFO - Warning 10167, reqId 4: Requested market data is not subscribed. Displaying delayed market data., contract: Future(conId=712565978, symbol='MGC', lastTradeDateOrContractMonth='20260626', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCM6', tradingClass='MGC')
+2026-04-06 07:39:22,062 - __main__ - INFO - Bot is monitoring MGC market...
+2026-04-06 07:39:22,062 - __main__ - INFO - ============================================================
+2026-04-06 07:39:22,062 - __main__ - INFO - MGC Price: $4711.90 | Bid: $4711.80 | Ask: $4712.10 | Volume: 240879.0
+2026-04-06 07:39:22,063 - __main__ - INFO - Position: No active position
+2026-04-06 07:39:22,063 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:39:22,063 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:39:52,080 - __main__ - INFO - MGC Price: $4712.50 | Bid: $4712.50 | Ask: $4712.80 | Volume: 240972.0
+2026-04-06 07:39:52,081 - __main__ - INFO - Position: No active position
+2026-04-06 07:39:52,081 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:39:52,082 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:40:22,095 - __main__ - INFO - MGC Price: $4713.20 | Bid: $4713.10 | Ask: $4713.40 | Volume: 241108.0
+2026-04-06 07:40:22,096 - __main__ - INFO - Position: No active position
+2026-04-06 07:40:22,096 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:40:22,096 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:40:52,104 - __main__ - INFO - MGC Price: $4714.50 | Bid: $4714.40 | Ask: $4714.70 | Volume: 241326.0
+2026-04-06 07:40:52,105 - __main__ - INFO - Position: No active position
+2026-04-06 07:40:52,105 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:40:52,105 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:41:22,117 - __main__ - INFO - MGC Price: $4714.50 | Bid: $4714.50 | Ask: $4714.70 | Volume: 241569.0
+2026-04-06 07:41:22,118 - __main__ - INFO - Position: No active position
+2026-04-06 07:41:22,119 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:41:22,119 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:41:52,132 - __main__ - INFO - MGC Price: $4713.40 | Bid: $4713.30 | Ask: $4713.50 | Volume: 241737.0
+2026-04-06 07:41:52,132 - __main__ - INFO - Position: No active position
+2026-04-06 07:41:52,133 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:41:52,133 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:42:22,149 - __main__ - INFO - MGC Price: $4713.90 | Bid: $4713.70 | Ask: $4713.90 | Volume: 241900.0
+2026-04-06 07:42:22,149 - __main__ - INFO - Position: No active position
+2026-04-06 07:42:22,150 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:42:22,150 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:42:52,164 - __main__ - INFO - MGC Price: $4713.40 | Bid: $4713.10 | Ask: $4713.40 | Volume: 242159.0
+2026-04-06 07:42:52,165 - __main__ - INFO - Position: No active position
+2026-04-06 07:42:52,166 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:42:52,166 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:43:22,179 - __main__ - INFO - MGC Price: $4711.70 | Bid: $4711.60 | Ask: $4711.90 | Volume: 242300.0
+2026-04-06 07:43:22,180 - __main__ - INFO - Position: No active position
+2026-04-06 07:43:22,181 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:43:22,181 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:43:52,189 - __main__ - INFO - MGC Price: $4711.30 | Bid: $4711.20 | Ask: $4711.50 | Volume: 242574.0
+2026-04-06 07:43:52,190 - __main__ - INFO - Position: No active position
+2026-04-06 07:43:52,191 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:43:52,191 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:44:22,202 - __main__ - INFO - MGC Price: $4715.50 | Bid: $4715.30 | Ask: $4715.60 | Volume: 242719.0
+2026-04-06 07:44:22,203 - __main__ - INFO - Position: No active position
+2026-04-06 07:44:22,203 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:44:22,203 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:44:52,216 - __main__ - INFO - MGC Price: $4717.10 | Bid: $4716.90 | Ask: $4717.20 | Volume: 242960.0
+2026-04-06 07:44:52,217 - __main__ - INFO - Position: No active position
+2026-04-06 07:44:52,217 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:44:52,218 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:45:22,231 - __main__ - INFO - MGC Price: $4719.00 | Bid: $4718.80 | Ask: $4719.10 | Volume: 243469.0
+2026-04-06 07:45:22,232 - __main__ - INFO - Position: No active position
+2026-04-06 07:45:22,232 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:45:22,232 - __main__ - INFO - ------------------------------------------------------------
+2026-04-06 07:45:52,248 - __main__ - INFO - MGC Price: $4722.50 | Bid: $4722.50 | Ask: $4722.80 | Volume: 244246.0
+2026-04-06 07:45:52,249 - __main__ - INFO - Position: No active position
+2026-04-06 07:45:52,250 - __main__ - INFO - Market OPEN - Ready to trade
+2026-04-06 07:45:52,250 - __main__ - INFO - ------------------------------------------------------------

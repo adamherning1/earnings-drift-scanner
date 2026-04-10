@@ -1,0 +1,38 @@
+# Ollama Commands for Trading Bot Monitoring
+
+## 1. Check what models you have:
+ollama list
+
+## 2. If you need models, pull them:
+ollama pull llama3        # Best general purpose (8B)
+ollama pull mistral       # Good for coding (7B)
+ollama pull phi3          # Fast and small (3.8B)
+
+## 3. Test it's working:
+ollama run llama3 "What is 2+2?"
+
+## 4. Create an alias for easy monitoring (add to .bashrc):
+alias check-bot="cd /path/to/mgc_trader && python local_ai_monitor.py"
+
+## 5. Run the monitor script:
+python local_ai_monitor.py
+
+## 6. For realtime monitoring:
+# Create a simple query
+echo "Check if any errors in trading bot log" | ollama run llama3
+
+## 7. Advanced - Create API endpoint:
+ollama serve  # Runs on port 11434
+# Then use from Python:
+# requests.post('http://localhost:11434/api/generate', json={...})
+
+## Cost Comparison:
+- Claude Opus query: $0.50-2.00
+- Local Ollama query: $0.00 (just electricity)
+- Monthly savings: $600-1500+
+
+## Recommended Models for Trading:
+1. llama3 - Best overall intelligence
+2. mistral - Good for code analysis
+3. phi3 - Super fast for quick checks
+4. codellama - If analyzing Python code

@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MGC Trading - Live Status</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="refresh" content="30">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, Arial, sans-serif;
+            margin: 0;
+            padding: 15px;
+            background: #1a1a1a;
+            color: white;
+        }
+        .container {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        .header {
+            background: #2563eb;
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        h1 {
+            margin: 0;
+            font-size: 26px;
+        }
+        .status-card {
+            background: #10b981;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+        .bullish {
+            background: #10b981;
+        }
+        .info-card {
+            background: #374151;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            margin: 10px 0;
+            font-size: 18px;
+        }
+        .value {
+            font-weight: bold;
+            color: #60a5fa;
+        }
+        .update-time {
+            text-align: center;
+            color: #9ca3af;
+            margin-top: 20px;
+        }
+        .alert {
+            background: #ef4444;
+            padding: 15px;
+            border-radius: 8px;
+            margin: 10px 0;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MGC Trading Dashboard</h1>
+            <p style="margin: 10px 0 0 0;">Wednesday, April 8, 2026</p>
+        </div>
+        
+        <div class="status-card bullish">
+            <h2 style="margin: 0;">🟢 BOT ACTIVE</h2>
+            <p style="font-size: 20px; margin: 10px 0;">Market is OPEN</p>
+            <p style="font-size: 18px; margin: 0;">4H Bias: <strong>STRONG BULLISH (5/5)</strong></p>
+        </div>
+        
+        <div class="info-card">
+            <h3 style="margin: 0 0 15px 0;">Account Status</h3>
+            <div class="metric">
+                <span>Balance:</span>
+                <span class="value">$999,243</span>
+            </div>
+            <div class="metric">
+                <span>Yesterday's P&L:</span>
+                <span class="value" style="color: #10b981;">+$1,555</span>
+            </div>
+            <div class="metric">
+                <span>Phase 1 Progress:</span>
+                <span class="value">3/50 trades</span>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <h3 style="margin: 0 0 15px 0;">Current Activity</h3>
+            <div class="metric">
+                <span>Position:</span>
+                <span class="value">No open positions</span>
+            </div>
+            <div class="metric">
+                <span>Bot Status:</span>
+                <span class="value">Scanning for LONGS</span>
+            </div>
+            <div class="metric">
+                <span>Last Check:</span>
+                <span class="value">6:57 AM PT</span>
+            </div>
+        </div>
+        
+        <div class="info-card">
+            <h3 style="margin: 0 0 15px 0;">Market Info</h3>
+            <div class="metric">
+                <span>Session:</span>
+                <span class="value">Regular Hours</span>
+            </div>
+            <div class="metric">
+                <span>Close Time:</span>
+                <span class="value">2:00 PM PT</span>
+            </div>
+            <div class="metric">
+                <span>Time Remaining:</span>
+                <span class="value">7 hours</span>
+            </div>
+        </div>
+        
+        <div class="update-time">
+            <p>Auto-refreshes every 30 seconds</p>
+            <p>Direct access: http://192.168.0.57:8080</p>
+        </div>
+    </div>
+</body>
+</html>

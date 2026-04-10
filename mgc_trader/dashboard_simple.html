@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>MGC Trading Dashboard</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: #0d1117;
+            color: #c9d1d9;
+            padding: 20px;
+            margin: 0;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            background: linear-gradient(135deg, #1e40af 0%, #3730a3 100%);
+            padding: 30px;
+            border-radius: 12px;
+            margin-bottom: 30px;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        .header h1 {
+            margin: 0;
+            font-size: 32px;
+            font-weight: 700;
+        }
+        .status {
+            display: inline-block;
+            padding: 8px 16px;
+            background: #22c55e;
+            color: white;
+            border-radius: 20px;
+            font-weight: 600;
+            margin-top: 10px;
+        }
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+            margin-bottom: 30px;
+        }
+        .card {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            position: relative;
+            overflow: hidden;
+        }
+        .card-title {
+            color: #8b949e;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 8px;
+        }
+        .card-value {
+            font-size: 32px;
+            font-weight: 700;
+            margin-bottom: 8px;
+        }
+        .card-detail {
+            color: #8b949e;
+            font-size: 14px;
+        }
+        .position-card {
+            background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+            border: none;
+            grid-column: span 2;
+        }
+        .position-card .card-title {
+            color: #d1fae5;
+        }
+        .position-card .card-value {
+            color: white;
+            font-size: 36px;
+        }
+        .position-details {
+            display: flex;
+            gap: 40px;
+            margin-top: 16px;
+        }
+        .detail-item {
+            flex: 1;
+        }
+        .detail-label {
+            color: #a7f3d0;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        .detail-value {
+            color: white;
+            font-size: 20px;
+            font-weight: 600;
+            margin-top: 4px;
+        }
+        .pnl-positive {
+            color: #22c55e;
+        }
+        .pnl-negative {
+            color: #ef4444;
+        }
+        .info-section {
+            background: #161b22;
+            border: 1px solid #30363d;
+            border-radius: 12px;
+            padding: 24px;
+            margin-bottom: 20px;
+        }
+        .info-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 16px;
+        }
+        .info-item {
+            text-align: center;
+            padding: 16px;
+            background: #0d1117;
+            border-radius: 8px;
+        }
+        .info-value {
+            font-size: 24px;
+            font-weight: 600;
+            color: #58a6ff;
+        }
+        .info-label {
+            color: #8b949e;
+            font-size: 12px;
+            text-transform: uppercase;
+            margin-top: 4px;
+        }
+        .update-time {
+            text-align: center;
+            color: #8b949e;
+            font-size: 14px;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .position-card {
+                grid-column: span 1;
+            }
+            .position-details {
+                flex-direction: column;
+                gap: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>MGC Trading Dashboard</h1>
+            <span class="status">● BOT ACTIVE</span>
+        </div>
+        
+        <div class="position-card card">
+            <div class="card-title">Current Position - MGCM6 (June 2026 Gold)</div>
+            <div class="card-value">2 LONG CONTRACTS</div>
+            <div class="position-details">
+                <div class="detail-item">
+                    <div class="detail-label">Entry Price</div>
+                    <div class="detail-value">$4,686.50</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Entry Time</div>
+                    <div class="detail-value">9:28 AM PT</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Strategy</div>
+                    <div class="detail-value">Adaptive Bot</div>
+                </div>
+                <div class="detail-item">
+                    <div class="detail-label">Stop Loss</div>
+                    <div class="detail-value">Protected ✓</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="grid">
+            <div class="card">
+                <div class="card-title">Account Balance</div>
+                <div class="card-value">$997,687.91</div>
+                <div class="card-detail">Paper Account</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Today's Trades</div>
+                <div class="card-value">1</div>
+                <div class="card-detail">First Phase 1 Trade</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-title">Win Rate</div>
+                <div class="card-value">0%</div>
+                <div class="card-detail">0 Wins / 1 Loss (Previous)</div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3 style="margin-top: 0;">Trading System Status</h3>
+            <div class="info-grid">
+                <div class="info-item">
+                    <div class="info-value">Phase 1</div>
+                    <div class="info-label">Current Phase</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">2 / 50</div>
+                    <div class="info-label">Trades Progress</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">14 Days</div>
+                    <div class="info-label">Until Phase 2</div>
+                </div>
+                <div class="info-item">
+                    <div class="info-value">Active</div>
+                    <div class="info-label">Auto-Reconnect</div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="info-section">
+            <h3 style="margin-top: 0;">Previous Trade (Yesterday)</h3>
+            <div style="display: flex; justify-content: space-between; align-items: center;">
+                <div>
+                    <strong>MGCM6 SHORT</strong> - April 6, 2026<br>
+                    Entry: $4,673.90 | Exit: $4,688.40<br>
+                    Result: <span class="pnl-negative">-$293.88</span> (Stop order issue - now fixed)
+                </div>
+            </div>
+        </div>
+        
+        <div class="update-time">
+            <p>Dashboard displays current live position | Bot scanning every 15 seconds</p>
+            <p>Market Hours: 6:00 AM - 5:00 PM ET | <span id="time"></span></p>
+        </div>
+    </div>
+    
+    <script>
+        function updateTime() {
+            const now = new Date();
+            const timeStr = now.toLocaleTimeString('en-US', { 
+                hour: 'numeric', 
+                minute: '2-digit',
+                second: '2-digit',
+                hour12: true 
+            });
+            document.getElementById('time').textContent = timeStr + ' PT';
+        }
+        
+        updateTime();
+        setInterval(updateTime, 1000);
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+2026-04-06 07:17:42,173 - __main__ - INFO - Connecting to IB Gateway at 192.168.0.58:4002
+2026-04-06 07:17:42,174 - __main__ - ERROR - Connection failed: This event loop is already running
+2026-04-06 07:17:42,175 - __main__ - INFO - Stopping MGC Trading Bot...
+2026-04-06 07:17:42,176 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 1...
+2026-04-06 07:17:42,178 - ib_insync.client - INFO - Disconnecting
+2026-04-06 07:17:42,179 - ib_insync.client - ERROR - API connection failed: CancelledError()
+2026-04-06 07:19:26,155 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:19:26,167 - trading_bot - INFO - Connecting to IB Gateway at 192.168.0.58:4002
+2026-04-06 07:19:26,168 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 1...
+2026-04-06 07:19:30,185 - ib_insync.client - INFO - Disconnecting
+2026-04-06 07:19:30,185 - ib_insync.client - ERROR - API connection failed: TimeoutError()
+2026-04-06 07:19:30,186 - trading_bot - ERROR - Connection failed: 
+2026-04-06 07:19:30,187 - __main__ - ERROR - Failed to connect to IB Gateway
+2026-04-06 07:30:20,724 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:30:20,730 - trading_bot - INFO - Connecting to IB Gateway at 192.168.0.58:4002
+2026-04-06 07:30:20,731 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:30:20,735 - ib_insync.client - INFO - Connected
+2026-04-06 07:30:20,740 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:30:20,797 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:30:20,798 - ib_insync.wrapper - INFO - Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-04-06 07:30:20,799 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:30:20,799 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:30:21,211 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:30:21,442 - ib_insync.wrapper - ERROR - Error 200, reqId 3: No security definition has been found for the request, contract: Future(symbol='MGC', lastTradeDateOrContractMonth='202604', exchange='NYMEX')
+2026-04-06 07:30:21,443 - ib_insync.ib - WARNING - Unknown contract: Future(symbol='MGC', lastTradeDateOrContractMonth='202604', exchange='NYMEX')
+2026-04-06 07:30:21,444 - trading_bot - INFO - Contract qualified: 
+2026-04-06 07:30:21,445 - trading_bot - INFO - Starting strategy loop...
+2026-04-06 07:30:21,445 - trading_bot - INFO - Running daily learning routine...
+2026-04-06 07:30:21,533 - trading_bot - INFO - Stopping MGC Trading Bot...
+2026-04-06 07:30:21,534 - ib_insync.ib - INFO - reqGlobalCancel
+2026-04-06 07:30:21,535 - ib_insync.ib - INFO - Disconnecting from 192.168.0.58:4002, 175 B sent in 10 messages, 18.7 kB received in 395 messages, session time 809 ms.
+2026-04-06 07:30:21,535 - ib_insync.client - INFO - Disconnecting
+2026-04-06 07:30:21,535 - trading_bot - INFO - MGC Trading Bot stopped
+2026-04-06 07:30:21,536 - __main__ - INFO - Bot stopped
+2026-04-06 07:30:45,630 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:30:45,634 - trading_bot - INFO - Connecting to IB Gateway at 192.168.0.58:4002
+2026-04-06 07:30:45,635 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:30:45,639 - ib_insync.client - INFO - Connected
+2026-04-06 07:30:45,644 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:30:45,694 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:30:45,695 - ib_insync.wrapper - INFO - Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-04-06 07:30:45,695 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:30:45,695 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:30:46,009 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:30:46,154 - ib_insync.wrapper - ERROR - Error 200, reqId 3: No security definition has been found for the request, contract: Future(symbol='MGC', lastTradeDateOrContractMonth='202606', exchange='NYMEX')
+2026-04-06 07:30:46,155 - ib_insync.ib - WARNING - Unknown contract: Future(symbol='MGC', lastTradeDateOrContractMonth='202606', exchange='NYMEX')
+2026-04-06 07:30:46,156 - trading_bot - INFO - Contract qualified: 
+2026-04-06 07:30:46,157 - trading_bot - INFO - Starting strategy loop...
+2026-04-06 07:30:46,157 - trading_bot - INFO - Running daily learning routine...
+2026-04-06 07:30:46,197 - trading_bot - INFO - Stopping MGC Trading Bot...
+2026-04-06 07:30:46,197 - ib_insync.ib - INFO - reqGlobalCancel
+2026-04-06 07:30:46,198 - ib_insync.ib - INFO - Disconnecting from 192.168.0.58:4002, 175 B sent in 10 messages, 18.7 kB received in 395 messages, session time 566 ms.
+2026-04-06 07:30:46,198 - ib_insync.client - INFO - Disconnecting
+2026-04-06 07:30:46,198 - trading_bot - INFO - MGC Trading Bot stopped
+2026-04-06 07:30:46,199 - __main__ - INFO - Bot stopped
+2026-04-06 07:31:58,858 - __main__ - INFO - Starting MGC Trading Bot...
+2026-04-06 07:31:58,864 - trading_bot - INFO - Connecting to IB Gateway at 192.168.0.58:4002
+2026-04-06 07:31:58,866 - ib_insync.client - INFO - Connecting to 192.168.0.58:4002 with clientId 99...
+2026-04-06 07:31:58,869 - ib_insync.client - INFO - Connected
+2026-04-06 07:31:58,880 - ib_insync.client - INFO - Logged on to server version 176
+2026-04-06 07:31:58,931 - ib_insync.wrapper - INFO - Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-04-06 07:31:58,932 - ib_insync.wrapper - INFO - Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-04-06 07:31:58,933 - ib_insync.wrapper - INFO - Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-04-06 07:31:58,933 - ib_insync.client - INFO - API connection ready
+2026-04-06 07:31:59,144 - ib_insync.ib - INFO - Synchronization complete
+2026-04-06 07:31:59,325 - trading_bot - INFO - Contract qualified: MGCJ6
+2026-04-06 07:31:59,326 - trading_bot - INFO - Starting strategy loop...
+2026-04-06 07:31:59,326 - trading_bot - INFO - Running daily learning routine...
+2026-04-06 07:31:59,367 - trading_bot - INFO - Stopping MGC Trading Bot...
+2026-04-06 07:31:59,368 - ib_insync.ib - INFO - reqGlobalCancel
+2026-04-06 07:31:59,368 - ib_insync.ib - INFO - Disconnecting from 192.168.0.58:4002, 177 B sent in 10 messages, 19.4 kB received in 396 messages, session time 509 ms.
+2026-04-06 07:31:59,369 - ib_insync.client - INFO - Disconnecting
+2026-04-06 07:31:59,369 - trading_bot - INFO - MGC Trading Bot stopped
+2026-04-06 07:31:59,369 - __main__ - INFO - Bot stopped

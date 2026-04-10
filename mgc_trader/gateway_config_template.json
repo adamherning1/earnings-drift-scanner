@@ -1,0 +1,10 @@
+{
+  "username": "YOUR_IB_USERNAME",
+  "password": "YOUR_IB_PASSWORD",
+  "trading_mode": "paper",
+  "gateway_path": "C:\\Jts\\ibgateway.exe",
+  "host": "192.168.0.58",
+  "port": 4002,
+  "auto_restart_time": "23:45",
+  "java_path": "C:\\Program Files\\Java\\jre1.8.0_202\\bin\\java.exe"
+}
