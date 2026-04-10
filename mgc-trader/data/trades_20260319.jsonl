@@ -1,0 +1,2 @@
+{"event": "entry", "ts": "2026-03-19T06:05:31.762546", "trade_id": "ORB_060531_0", "strategy": "ORB", "action": "SELL", "contracts": 1, "entry_price": 4579.1, "stop_price": 4645.6, "tp_price": 4444.35, "risk_per_contract": 665.01, "total_risk": 665.01, "trade_num": 1}
+{"event": "exit", "ts": "2026-03-19T10:31:01.941872", "trade_id": "ORB_060531_0", "strategy": "ORB", "action": "SELL", "entry_price": 4579.1, "exit_price": 4562.7, "contracts": 1, "pnl_per_contract": 164.0, "total_pnl": 164.0, "exit_reason": "eod_flatten", "duration_s": null, "won": true}

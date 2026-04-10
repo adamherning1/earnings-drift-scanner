@@ -1,0 +1,445 @@
+2026-02-19 04:55:32,136 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 04:55:32,138 [mgc-trader] INFO: ============================================================
+2026-02-19 04:55:32,139 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 04:55:32,139 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 04:55:32,139 [mgc-trader] INFO: ============================================================
+2026-02-19 04:55:32,139 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 04:55:32,144 [ib_insync.client] INFO: Connected
+2026-02-19 04:55:32,314 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 04:55:32,447 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 04:55:32,448 [ib_insync.wrapper] INFO: Warning 2107, reqId -1: HMDS data farm connection is inactive but should be available upon demand.ushmds
+2026-02-19 04:55:32,448 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 04:55:32,448 [ib_insync.client] INFO: API connection ready
+2026-02-19 04:55:32,893 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 04:55:32,894 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 04:55:32,899 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 04:55:34,782 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 04:55:35,587 [ib_insync.ib] INFO: Disconnecting from 127.0.0.1:4002, 837 B sent in 12 messages, 29.0 kB received in 409 messages, session time 3.46 s.
+2026-02-19 04:55:35,592 [ib_insync.client] INFO: Disconnecting
+2026-02-19 10:35:55,683 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 10:35:55,686 [mgc-trader] INFO: ============================================================
+2026-02-19 10:35:55,687 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 10:35:55,687 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 10:35:55,687 [mgc-trader] INFO: ============================================================
+2026-02-19 10:35:55,691 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 10:35:55,691 [ib_insync.client] INFO: Disconnecting
+2026-02-19 10:35:55,691 [ib_insync.client] ERROR: API connection failed: RuntimeError('Timeout should be used inside a task')
+2026-02-19 10:35:55,692 [mgc-trader.ib] ERROR: Failed to connect to IB: Timeout should be used inside a task
+2026-02-19 10:35:55,818 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 10:37:52,482 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 10:37:52,484 [mgc-trader] INFO: ============================================================
+2026-02-19 10:37:52,484 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 10:37:52,484 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 10:37:52,484 [mgc-trader] INFO: ============================================================
+2026-02-19 10:37:52,485 [mgc-trader.ib] ERROR: Failed to connect to IB: This event loop is already running
+2026-02-19 10:37:52,485 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 10:37:52,485 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 10:39:43,009 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 10:39:43,010 [mgc-trader] INFO: ============================================================
+2026-02-19 10:39:43,011 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 10:39:43,011 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 10:39:43,011 [mgc-trader] INFO: ============================================================
+2026-02-19 10:39:43,012 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 10:39:43,013 [ib_insync.client] INFO: Disconnecting
+2026-02-19 10:39:43,013 [ib_insync.client] ERROR: API connection failed: RuntimeError('Timeout should be used inside a task')
+2026-02-19 10:39:43,013 [mgc-trader.ib] ERROR: Failed to connect to IB: Timeout should be used inside a task
+2026-02-19 10:39:43,044 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 10:42:02,748 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 10:42:02,749 [mgc-trader] INFO: ============================================================
+2026-02-19 10:42:02,750 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 10:42:02,750 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 10:42:02,750 [mgc-trader] INFO: ============================================================
+2026-02-19 10:42:02,751 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 10:42:02,755 [ib_insync.client] INFO: Connected
+2026-02-19 10:42:02,819 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 10:42:02,820 [ib_insync.wrapper] ERROR: Error 10141, reqId -1: Paper trading disclaimer must first be accepted for API connection.
+2026-02-19 10:42:03,317 [ib_insync.client] ERROR: Peer closed connection. clientId 1 already in use?
+2026-02-19 10:42:03,319 [asyncio] ERROR: Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Python314\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-19 10:42:22,820 [ib_insync.client] INFO: Disconnecting
+2026-02-19 10:42:22,820 [ib_insync.client] ERROR: API connection failed: TimeoutError()
+2026-02-19 10:42:22,821 [mgc-trader.ib] ERROR: Failed to connect to IB: 
+2026-02-19 10:42:22,821 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 11:41:29,240 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 11:41:29,240 [mgc-trader] INFO: ============================================================
+2026-02-19 11:41:29,241 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 11:41:29,241 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 11:41:29,241 [mgc-trader] INFO: ============================================================
+2026-02-19 11:41:29,243 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 11:41:29,246 [ib_insync.client] INFO: Connected
+2026-02-19 11:41:29,253 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 11:41:29,253 [ib_insync.wrapper] ERROR: Error 10141, reqId -1: Paper trading disclaimer must first be accepted for API connection.
+2026-02-19 11:41:29,761 [ib_insync.client] ERROR: Peer closed connection. clientId 1 already in use?
+2026-02-19 11:41:29,762 [asyncio] ERROR: Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Python314\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-19 11:41:49,252 [ib_insync.client] INFO: Disconnecting
+2026-02-19 11:41:49,253 [ib_insync.client] ERROR: API connection failed: TimeoutError()
+2026-02-19 11:41:49,253 [mgc-trader.ib] ERROR: Failed to connect to IB: 
+2026-02-19 11:41:49,253 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 11:49:24,055 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 11:49:24,057 [mgc-trader] INFO: ============================================================
+2026-02-19 11:49:24,058 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 11:49:24,058 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 11:49:24,059 [mgc-trader] INFO: ============================================================
+2026-02-19 11:49:24,059 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 11:49:24,061 [ib_insync.client] INFO: Connected
+2026-02-19 11:49:24,069 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 11:49:24,070 [ib_insync.wrapper] ERROR: Error 10141, reqId -1: Paper trading disclaimer must first be accepted for API connection.
+2026-02-19 11:49:24,572 [ib_insync.client] ERROR: Peer closed connection. clientId 1 already in use?
+2026-02-19 11:49:24,579 [asyncio] ERROR: Exception in callback _ProactorBasePipeTransport._call_connection_lost()
+handle: <Handle _ProactorBasePipeTransport._call_connection_lost()>
+Traceback (most recent call last):
+  File "C:\Python314\Lib\asyncio\events.py", line 94, in _run
+    self._context.run(self._callback, *self._args)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Python314\Lib\asyncio\proactor_events.py", line 165, in _call_connection_lost
+    self._sock.shutdown(socket.SHUT_RDWR)
+    ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^
+ConnectionResetError: [WinError 10054] An existing connection was forcibly closed by the remote host
+2026-02-19 11:49:44,067 [ib_insync.client] INFO: Disconnecting
+2026-02-19 11:49:44,068 [ib_insync.client] ERROR: API connection failed: TimeoutError()
+2026-02-19 11:49:44,068 [mgc-trader.ib] ERROR: Failed to connect to IB: 
+2026-02-19 11:49:44,068 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-02-19 18:12:00,174 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 18:12:00,175 [mgc-trader] INFO: ============================================================
+2026-02-19 18:12:00,176 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 18:12:00,176 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 18:12:00,176 [mgc-trader] INFO: ============================================================
+2026-02-19 18:12:00,177 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 18:12:00,179 [ib_insync.client] INFO: Connected
+2026-02-19 18:12:00,341 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 18:12:00,497 [ib_insync.client] INFO: API connection ready
+2026-02-19 18:12:00,561 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 18:12:00,561 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 18:12:00,562 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 18:12:01,074 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 18:12:01,074 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 18:12:01,078 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 18:12:02,590 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 18:12:03,258 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 18:12:03,259 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 18:12:03,259 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 18:12:03,259 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 18:12:03,259 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 18:12:03,260 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 18:12:03,260 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 18:12:11,280 [mgc-trader] INFO: Warmed up with 313 historical bars
+2026-02-19 18:12:11,280 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 18:12:11,281 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 18:12:15,147 [ib_insync.wrapper] ERROR: Error 420, reqId 7: Invalid Real-time Query:No market data permissions for COMEX FUT, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 18:15:51,069 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 18:15:51,070 [mgc-trader] INFO: ============================================================
+2026-02-19 18:15:51,070 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 18:15:51,070 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 18:15:51,071 [mgc-trader] INFO: ============================================================
+2026-02-19 18:15:51,072 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 18:15:51,074 [ib_insync.client] INFO: Connected
+2026-02-19 18:15:51,082 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 18:15:51,087 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 18:15:51,088 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 18:15:51,088 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 18:15:51,090 [ib_insync.client] INFO: API connection ready
+2026-02-19 18:15:51,341 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 18:15:51,342 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 18:15:51,343 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 18:15:54,140 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 18:15:56,243 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 18:15:56,243 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 18:15:56,244 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 18:15:56,244 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 18:15:56,244 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 18:15:56,244 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 18:15:56,244 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 18:15:58,032 [mgc-trader] INFO: Warmed up with 314 historical bars
+2026-02-19 18:15:58,033 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 18:15:58,333 [ib_insync.wrapper] ERROR: Error 420, reqId 7: Invalid Real-time Query:No market data permissions for COMEX FUT, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 18:16:01,044 [mgc-trader] INFO: Using real-time bar subscription
+2026-02-19 18:16:01,045 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 18:19:34,619 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 18:19:34,620 [mgc-trader] INFO: ============================================================
+2026-02-19 18:19:34,620 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 18:19:34,621 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 18:19:34,621 [mgc-trader] INFO: ============================================================
+2026-02-19 18:19:34,622 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 18:19:34,625 [ib_insync.client] INFO: Connected
+2026-02-19 18:19:34,636 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 18:19:34,641 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 18:19:34,641 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 18:19:34,642 [ib_insync.client] INFO: API connection ready
+2026-02-19 18:19:34,644 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 18:19:35,062 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 18:19:35,064 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 18:19:35,065 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 18:19:37,840 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 18:19:38,645 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 18:19:38,645 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 18:19:38,646 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 18:19:38,646 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 18:19:38,646 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 18:19:38,646 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 18:19:38,646 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 18:19:40,407 [mgc-trader] INFO: Warmed up with 314 historical bars
+2026-02-19 18:19:40,408 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 18:19:40,409 [mgc-trader] INFO: Polling mode: fetching 5-min bars every 30 seconds (delayed data)
+2026-02-19 18:19:40,409 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 19:39:48,189 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 19:39:48,191 [mgc-trader] INFO: ============================================================
+2026-02-19 19:39:48,191 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 19:39:48,192 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 19:39:48,192 [mgc-trader] INFO: ============================================================
+2026-02-19 19:39:48,192 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 19:39:48,194 [ib_insync.client] INFO: Connected
+2026-02-19 19:39:48,201 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 19:39:48,204 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfuture
+2026-02-19 19:39:48,205 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 19:39:48,205 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 19:39:48,205 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 19:39:48,206 [ib_insync.client] INFO: API connection ready
+2026-02-19 19:39:48,426 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 19:39:48,427 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 19:39:48,429 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 19:39:50,213 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 19:39:51,745 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 19:39:51,745 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 19:39:51,745 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 19:39:51,746 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 19:39:51,746 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 19:39:51,746 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 19:39:51,746 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 19:39:54,783 [mgc-trader] INFO: Warmed up with 330 historical bars
+2026-02-19 19:39:54,784 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 19:39:55,105 [ib_insync.wrapper] ERROR: Error 420, reqId 7: Invalid Real-time Query:No market data permissions for COMEX FUT, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 19:39:59,809 [mgc-trader] INFO: Using real-time bar subscription (COMEX live data)
+2026-02-19 19:39:59,810 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 19:41:05,006 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 19:41:05,007 [mgc-trader] INFO: ============================================================
+2026-02-19 19:41:05,007 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 19:41:05,007 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 19:41:05,007 [mgc-trader] INFO: ============================================================
+2026-02-19 19:41:05,007 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 19:41:05,009 [ib_insync.client] INFO: Connected
+2026-02-19 19:41:05,021 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 19:41:05,026 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfuture
+2026-02-19 19:41:05,026 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 19:41:05,027 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 19:41:05,027 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 19:41:05,027 [ib_insync.client] INFO: API connection ready
+2026-02-19 19:41:05,159 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 19:41:05,160 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 19:41:05,161 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 19:41:06,502 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 19:41:07,888 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 19:41:07,888 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 19:41:07,889 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 19:41:07,889 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 19:41:07,894 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 19:41:07,895 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 19:41:07,895 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 19:41:11,104 [mgc-trader] INFO: Warmed up with 331 historical bars
+2026-02-19 19:41:11,105 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 19:41:11,105 [mgc-trader] INFO: Polling mode: fetching 5-min bars every 30 seconds
+2026-02-19 19:41:11,106 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 19:42:20,765 [ib_insync.wrapper] INFO: Warning 2108, reqId -1: Market data farm connection is inactive but should be available upon demand.usfuture
+2026-02-19 19:42:20,766 [ib_insync.wrapper] INFO: Warning 2108, reqId -1: Market data farm connection is inactive but should be available upon demand.usfuture
+2026-02-19 19:58:11,592 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-02-19 19:58:11,593 [mgc-trader] INFO: ============================================================
+2026-02-19 19:58:11,594 [mgc-trader] INFO: MGC Day Trader starting up
+2026-02-19 19:58:11,594 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=5
+2026-02-19 19:58:11,594 [mgc-trader] INFO: ============================================================
+2026-02-19 19:58:11,595 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-02-19 19:58:11,597 [ib_insync.client] INFO: Connected
+2026-02-19 19:58:11,608 [ib_insync.client] INFO: Logged on to server version 176
+2026-02-19 19:58:11,612 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 19:58:11,613 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 19:58:11,613 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 19:58:11,613 [ib_insync.client] INFO: API connection ready
+2026-02-19 19:58:11,938 [ib_insync.ib] INFO: Synchronization complete
+2026-02-19 19:58:11,938 [mgc-trader.ib] INFO: Connected to IB at 127.0.0.1:4002
+2026-02-19 19:58:11,940 [mgc-trader.ib] INFO: Requesting delayed market data (fallback if no real-time sub)
+2026-02-19 19:58:13,429 [mgc-trader.ib] INFO: Trading contract: MGCJ6
+2026-02-19 19:58:13,878 [mgc-trader] INFO: Account: {
+  "BuyingPower": 4000000.0,
+  "NetLiquidation": 1000000.0,
+  "TotalCashValue": 1000000.0,
+  "UnrealizedPnL": 0.0,
+  "RealizedPnL": 0.0
+}
+2026-02-19 19:58:13,878 [mgc-trader.strategy] INFO: Loaded strategy: ORB
+2026-02-19 19:58:13,879 [mgc-trader.strategy] INFO: Loaded strategy: VWAP Bounce
+2026-02-19 19:58:13,879 [mgc-trader.strategy] INFO: Loaded strategy: EMA Momentum
+2026-02-19 19:58:13,879 [mgc-trader.strategy] INFO: Loaded strategy: Level Scalp
+2026-02-19 19:58:13,880 [mgc-trader] INFO: Loaded 4 strategies
+2026-02-19 19:58:13,880 [mgc-trader] INFO: Warming up indicators with historical data...
+2026-02-19 19:58:15,289 [mgc-trader] INFO: Warmed up with 334 historical bars
+2026-02-19 19:58:15,290 [mgc-trader] INFO: Entering main trading loop...
+2026-02-19 19:58:15,290 [mgc-trader] INFO: Polling mode: fetching 5-min bars every 30 seconds
+2026-02-19 19:58:15,291 [mgc-trader] INFO: New trading day: 2026-02-19
+2026-02-19 20:45:18,046 [ib_insync.wrapper] INFO: Warning 2157, reqId -1: Sec-def data farm connection is broken:secdefnj
+2026-02-19 20:45:19,245 [ib_insync.wrapper] INFO: Warning 2158, reqId -1: Sec-def data farm connection is OK:secdefnj
+2026-02-19 21:00:05,277 [mgc-trader] INFO: New trading day: 2026-02-20
+2026-02-19 21:01:20,959 [ib_insync.wrapper] INFO: Warning 2105, reqId -1: HMDS data farm connection is broken:ushmds
+2026-02-19 21:01:22,773 [ib_insync.wrapper] INFO: Warning 2106, reqId -1: HMDS data farm connection is OK:ushmds
+2026-02-19 21:14:15,619 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:16,694 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:24,945 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:31,739 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:36,183 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:41,123 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:14:52,733 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:15:00,313 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:15:18,100 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:15:38,973 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:15:44,326 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:15:44,327 [ib_insync.wrapper] ERROR: Error 366, reqId 158: No historical data query found for ticker id:158, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:16:04,576 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:16:34,863 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:17:08,273 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:17:14,348 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:17:14,350 [ib_insync.wrapper] ERROR: Error 366, reqId 159: No historical data query found for ticker id:159, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:17:40,165 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:18:25,073 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:18:44,369 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:18:44,370 [ib_insync.wrapper] ERROR: Error 366, reqId 160: No historical data query found for ticker id:160, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:19:02,495 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:19:39,563 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:20:14,403 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:20:14,405 [ib_insync.wrapper] ERROR: Error 366, reqId 161: No historical data query found for ticker id:161, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:20:15,898 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:20:55,594 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:21:33,569 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:21:44,440 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:21:44,441 [ib_insync.wrapper] ERROR: Error 366, reqId 162: No historical data query found for ticker id:162, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:22:07,984 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:22:46,146 [ib_insync.wrapper] INFO: Warning 2103, reqId -1: Market data farm connection is broken:usfarm
+2026-02-19 21:23:12,352 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:23:14,533 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:23:14,536 [ib_insync.wrapper] ERROR: Error 366, reqId 163: No historical data query found for ticker id:163, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:23:36,627 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:24:14,779 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:24:44,570 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:24:44,573 [ib_insync.wrapper] ERROR: Error 366, reqId 164: No historical data query found for ticker id:164, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:24:57,137 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:25:30,180 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:26:11,005 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:26:14,598 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:26:14,599 [ib_insync.wrapper] ERROR: Error 366, reqId 165: No historical data query found for ticker id:165, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:26:50,434 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:27:29,632 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:27:44,623 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:27:44,624 [ib_insync.wrapper] ERROR: Error 366, reqId 166: No historical data query found for ticker id:166, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:28:02,901 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:28:42,214 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:29:14,659 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:29:14,660 [ib_insync.wrapper] ERROR: Error 366, reqId 167: No historical data query found for ticker id:167, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:29:22,250 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:30:01,161 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:30:33,989 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:30:44,673 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:30:44,675 [ib_insync.wrapper] ERROR: Error 366, reqId 168: No historical data query found for ticker id:168, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:31:07,828 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:31:46,427 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:32:14,692 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:32:14,695 [ib_insync.wrapper] ERROR: Error 366, reqId 169: No historical data query found for ticker id:169, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:32:26,273 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:33:04,677 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:33:43,258 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:33:44,711 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:33:44,713 [ib_insync.wrapper] ERROR: Error 366, reqId 170: No historical data query found for ticker id:170, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:34:21,401 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:35:02,436 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:35:14,736 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:35:14,738 [ib_insync.wrapper] ERROR: Error 366, reqId 171: No historical data query found for ticker id:171, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:35:35,696 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:36:13,661 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:36:44,760 [ib_insync.ib] WARNING: reqHistoricalData: Timeout for Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:36:44,763 [ib_insync.wrapper] ERROR: Error 366, reqId 172: No historical data query found for ticker id:172, contract: Contract(secType='FUT', conId=706903676, symbol='MGC', lastTradeDateOrContractMonth='20260428', multiplier='10', exchange='COMEX', currency='USD', localSymbol='MGCJ6', tradingClass='MGC')
+2026-02-19 21:36:52,507 [ib_insync.wrapper] ERROR: Error 1100, reqId -1: Connectivity between IBKR and Trader Workstation has been lost.
+2026-02-19 21:37:28,110 [ib_insync.wrapper] INFO: Warning 2104, reqId -1: Market data farm connection is OK:usfarm
+2026-02-19 21:37:29,006 [ib_insync.wrapper] ERROR: Error 1102, reqId -1: Connectivity between IBKR and Trader Workstation has been restored - data maintained. All data farms are connected: usfarm; ushmds; secdefnj.
+2026-02-19 21:37:29,413 [ib_insync.Decoder] ERROR: Error handling fields: ['10', '4', 'MGC', 'FUT', '20260428 13:30:00 US/Eastern', '0', '', 'COMEX', 'USD', 'MGCJ6', 'MGC', 'MGC', '706903676', '0.1', '10', 'ACTIVETIM,AD,ADJUST,ALERT,ALGO,ALLOC,AVGCOST,BASKET,BENCHPX,COND,CONDORDER,DAY,DEACT,DEACTDIS,DEACTEOD,GAT,GTC,GTD,GTT,HID,ICE,IOC,LIT,LMT,LTH,MIT,MKT,MTL,NGCOMB,NONALGO,OCA,PEGBENCH,SCALE,SCALERST,SIZECHK,SNAPMID,SNAPMKT,SNAPREL,STP,STPLMT,TRAIL,TRAILLIT,TRAILLMT,TRAILMIT,WHATIF', 'COMEX', '1', '79702479', 'E-Micro Gold ', '', '202604', '', '', '', 'US/Eastern', '20260218:1800-20260219:1700;20260219:1800-20260220:1700;20260221:CLOSED;20260222:1800-20260223:1700;20260223:1800-20260224:1700;20260224:1800-20260225:1700', '20260219:0930-20260219:1700;20260220:0930-20260220:1700;20260221:CLOSED;20260222:CLOSED;20260223:0930-20260223:1700;20260224:0930-20260224:1700;20260224:1800-20260225:1700', '', '', '0', '2147483647', 'MGC', 'IND', '65', '20260428', '', '1', '1', '1']
+Traceback (most recent call last):
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\decoder.py", line 198, in interpret
+    handler(fields)
+    ~~~~~~~^^^^^^^^
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\decoder.py", line 336, in contractDetails
+    self.wrapper.contractDetails(int(reqId), cd)
+    ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\wrapper.py", line 521, in contractDetails
+    self._results[reqId].append(contractDetails)
+    ~~~~~~~~~~~~~^^^^^^^
+KeyError: 4
+2026-02-19 23:45:01,243 [ib_insync.client] ERROR: Peer closed connection.
+2026-02-19 23:45:01,244 [mgc-trader] ERROR: Error in main loop: Socket disconnect
+Traceback (most recent call last):
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\util.py", line 341, in run
+    result = loop.run_until_complete(task)
+  File "C:\Python314\Lib\asyncio\base_events.py", line 719, in run_until_complete
+    return future.result()
+           ~~~~~~~~~~~~~^^
+  File "C:\Python314\Lib\asyncio\tasks.py", line 702, in sleep
+    return await future
+           ^^^^^^^^^^^^
+asyncio.exceptions.CancelledError
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\adamh\.openclaw\workspace\mgc-trader\trader.py", line 147, in _run_loop
+    self.ib.ib.sleep(30 if not use_realtime else 5)
+    ~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\util.py", line 386, in sleep
+    run(asyncio.sleep(secs))
+    ~~~^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\adamh\AppData\Roaming\Python\Python314\site-packages\ib_insync\util.py", line 343, in run
+    raise globalErrorEvent.value() or e
+ConnectionError: Socket disconnect
+2026-02-19 23:45:04,885 [mgc-trader] INFO: Shutting down...
+2026-02-19 23:45:04,899 [mgc-trader.data] INFO: Data collector closed
+2026-02-19 23:45:04,899 [mgc-trader.ib] INFO: Disconnected from IB
+2026-02-19 23:45:04,899 [mgc-trader] INFO: MGC Day Trader stopped

@@ -1,0 +1,65 @@
+MES 4H Strategy Backtest Results
+=================================
+Data: Feb 2025 - Feb 2026 (1340 bars, ~1 year of 4H data)
+Contracts: MESH6, MESM6, MESU6, MESZ6, MESH7 (stitched with ratio adjustment)
+Assumptions: $5/pt, $1.24 RT commission, 0.25pt slippage, 1 contract
+
+TARGET BENCHMARK (Keltner on MGC 4H):
+  2yr: $16,926 | 115 trades | 82.61% WR | PF 2.509 | DD 14.49%
+
+============================================================
+TOP STRATEGIES (sorted by composite score)
+============================================================
+
+1. *** GRID SEARCH WINNER ***
+   KC(14, 0.5), Trail 1.5x ATR, TP 2.0R — Long+Short
+   $38,819 | 83 trades | 53.0% WR | PF 4.550 | DD 16.5%
+   Avg Winner: $1,175 | Avg Loser: -$347
+   NOTE: Low WR but HUGE profit factor — winners are 3.4x losers
+   Pine script: backtest/mes_keltner_optimized.pine
+
+2. KC(15, 0.5), Trail 1.5x ATR, TP 2.0R — Long+Short
+   $38,046 | 85 trades | 52.9% WR | PF 4.472 | DD 16.2%
+
+3. KC(15, 0.5), Trail 2.0x ATR, TP 1.5R — Long+Short  
+   $37,920 | 73 trades | 63.0% WR | PF 4.343 | DD 21.6%
+
+4. KC(16, 0.5), Trail 1.75x ATR, TP 1.8R — Long+Short
+   $37,262 | 80 trades | 56.2% WR | PF 4.191 | DD 18.2%
+
+5. KC(15, 0.75), Trail 2.0x ATR, TP 1.5R — Long+Short
+   $34,596 | 72 trades | 62.5% WR | PF 3.815 | DD 21.8%
+
+============================================================
+KEY FINDINGS
+============================================================
+
+1. MES responds to VERY TIGHT Keltner channels (mult 0.5-0.75) unlike MGC which
+   used 1.25-1.5. This makes sense — S&P has tighter ranges and more frequent
+   breakouts than gold.
+
+2. The S&P REQUIRES both long+short trading. Long-only strategies all lost money
+   due to the significant selloffs in the data period. Gold was long-biased.
+
+3. Win rate is lower (~53%) but profit factor is MUCH higher (4.5 vs 2.5) because
+   the strategy lets winners run (2.0R TP) while cutting losers fast (1.5x ATR trail).
+   The avg winner/loser ratio of 3.4:1 is excellent.
+
+4. ADX filter has NO effect on MES — the best strategies all performed identically
+   with ADX>0, >5, and >10. Can be removed.
+
+5. Strategies that FAILED on MES:
+   - MA Ribbon, Dual MA Crossover, Momentum ROC — all massive losers
+   - Fibonacci Pullback — poor results  
+   - Volatility Contraction — too few signals
+   - Higher Highs pattern — negative expectancy
+
+6. P&L comparison (annualized):
+   - MGC Keltner: ~$8,463/yr (2yr: $16,926)
+   - MES Keltner: ~$38,819/yr (1yr data — needs more history to confirm)
+   - MES generates ~4.6x the P&L but with lower win rate
+
+RECOMMENDATION:
+  The MES Keltner KC(14, 0.5) strategy is very promising but needs validation
+  on more data. The tight channel + wide TP approach is a different style than
+  MGC (high WR vs high R:R). Consider paper trading to validate before live.

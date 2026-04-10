@@ -1,0 +1,1 @@
+{"timestamp": "2026-03-02T05:21:17.563065", "trade_id": "EMA Momentum_052054_0", "strategy": "EMA Momentum", "action": "BUY", "contracts": 1, "entry": 5413.5, "stop": 5388.113230940567, "target": 5513.260307178299, "reason": "9/21 EMA cross up (trend=5400.90)", "rr_ratio": 3.929618099284245}

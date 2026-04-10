@@ -1,0 +1,47 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0
+// © MES 4H RSI(3) Mean Reversion Strategy
+//@version=5
+strategy("MES RSI(3) Mean Reversion", overlay=true, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=0.62, slippage=1)
+
+// === Inputs ===
+rsi_period = input.int(3, "RSI Period", minval=2, maxval=10)
+oversold = input.int(10, "Oversold Level", minval=1, maxval=30)
+overbought = input.int(90, "Overbought Level", minval=70, maxval=99)
+exit_level = input.int(50, "Exit Level", minval=30, maxval=70)
+
+// === RSI ===
+rsiVal = ta.rsi(close, rsi_period)
+
+// === Strategy Logic ===
+// Use previous bar's RSI to avoid lookahead
+prevRSI = rsiVal[1]
+
+longEntry = prevRSI < oversold
+shortEntry = prevRSI > overbought
+exitLong = prevRSI > exit_level
+exitShort = prevRSI < exit_level
+
+if longEntry and strategy.position_size <= 0
+    if strategy.position_size < 0
+        strategy.close("Short")
+    strategy.entry("Long", strategy.long)
+
+if shortEntry and strategy.position_size >= 0
+    if strategy.position_size > 0
+        strategy.close("Long")
+    strategy.entry("Short", strategy.short)
+
+if exitLong and strategy.position_size > 0 and not shortEntry
+    strategy.close("Long")
+
+if exitShort and strategy.position_size < 0 and not longEntry
+    strategy.close("Short")
+
+// === Plot ===
+hline(oversold, "Oversold", color.green, linestyle=hline.style_dotted)
+hline(overbought, "Overbought", color.red, linestyle=hline.style_dotted)
+hline(exit_level, "Exit", color.gray, linestyle=hline.style_dotted)
+
+// Plot RSI in separate pane
+plot(rsiVal, "RSI", color=rsiVal < oversold ? color.green : rsiVal > overbought ? color.red : color.blue)
+bgcolor(longEntry ? color.new(color.green, 85) : shortEntry ? color.new(color.red, 85) : na)

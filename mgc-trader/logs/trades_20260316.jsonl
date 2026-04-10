@@ -1,0 +1,1 @@
+{"timestamp": "2026-03-16T08:41:06.057327", "trade_id": "EMA Momentum_084042_0", "strategy": "EMA Momentum", "action": "SELL", "contracts": 1, "entry": 4997.7, "stop": 5037.1848435489665, "target": 4909.2454693531, "reason": "9/21 EMA cross down (trend=5013.66) [COMEX RTH]", "rr_ratio": 2.240214793739885}

@@ -1,0 +1,35 @@
+//@version=5
+strategy("MGC Optimized Keltner", overlay=true, initial_capital=100000, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=0.62, slippage=1)
+
+// Optimized Parameters
+kcLen = input.int(20, "KC Length")
+kcMult = input.float(1.5, "KC Multiplier")
+adxThresh = input.float(10, "ADX Threshold")
+trailMult = input.float(4.0, "Trail ATR Mult")
+tpR = input.float(0.7, "Take Profit (R)")
+beR = input.float(1.0, "Breakeven (R)")
+
+// Keltner Channel
+basis = ta.ema(close, kcLen)
+atrVal = ta.atr(kcLen)
+upper = basis + kcMult * atrVal
+lower = basis - kcMult * atrVal
+
+// ADX
+[diPlus, diMinus, adxVal] = ta.dmi(14, 14)
+
+// Plots
+plot(basis, "Basis", color.gray)
+p1 = plot(upper, "Upper", color.orange)
+p2 = plot(lower, "Lower", color.orange)
+fill(p1, p2, color=color.new(color.orange, 90))
+
+// Entry
+longSignal = close[1] > upper[1] and adxVal > adxThresh
+
+if longSignal and strategy.position_size == 0
+    risk = trailMult * atrVal
+    sl = close - risk
+    tp = close + tpR * risk
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Exit", "Long", stop=sl, limit=tp, trail_points=risk / syminfo.mintick, trail_offset=risk / syminfo.mintick)

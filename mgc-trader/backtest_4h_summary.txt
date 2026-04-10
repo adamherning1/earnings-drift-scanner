@@ -1,0 +1,18 @@
+MGC 4H Strategy Backtest Summary
+Data: 2025-02-20 18:00:00-05:00 to 2026-02-20 15:00:00-05:00 (1756 bars)
+Generated: 2026-02-20 14:24
+
+Strategy                     P&L ($)   Trades     Win%       PF   MaxDD%   Sharpe
+-------------------------------------------------------------------------------------
+Optimized Keltner          19,981.22       77    71.4%    2.569    2.67%     3.37
+Keltner + Momentum          8,087.00      102    72.5%    1.439    3.83%     1.33
+Keltner Breakout            7,770.69      106    72.6%    1.399    3.83%     1.25
+Keltner Reentry x1          7,770.69      106    72.6%    1.399    3.83%     1.25
+Keltner + Session           7,409.68       97    73.2%    1.416    4.13%     1.22
+Adaptive Keltner            7,215.13      101    72.3%    1.426    3.14%     1.36
+Dual TF Keltner             5,319.44       94    72.3%    1.291    3.83%     0.88
+Inside Bar + Keltner        3,141.73       41    78.0%    1.530    4.17%     0.81
+EMA Momentum                2,964.52       21    85.7%    2.896    0.79%     1.86
+Donchian Breakout               0.00        0     0.0%    0.000    0.00%     0.00
+
+Optimized params: KC(20, 1.5), trail=4.0, TP=0.7R

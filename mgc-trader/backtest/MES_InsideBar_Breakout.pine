@@ -1,0 +1,53 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0
+// © MES 4H Inside Bar Breakout Strategy
+//@version=5
+strategy("MES Inside Bar Breakout", overlay=true, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=0.62, slippage=1)
+
+// === Inputs ===
+atr_period = input.int(14, "ATR Period", minval=5, maxval=30)
+stop_mult = input.float(2.0, "ATR Stop Multiplier", minval=0.5, maxval=5.0, step=0.5)
+target_mult = input.float(3.0, "ATR Target Multiplier", minval=1.0, maxval=8.0, step=0.5)
+
+// === ATR ===
+atrVal = ta.atr(atr_period)
+
+// === Inside Bar Detection ===
+isInsideBar = high[1] <= high[2] and low[1] >= low[2]
+
+// === Entry Signals ===
+longSignal = isInsideBar and close > high[1]
+shortSignal = isInsideBar and close < low[1]
+
+// === Variables for stops/targets ===
+var float longStop = na
+var float longTarget = na
+var float shortStop = na
+var float shortTarget = na
+
+if longSignal and strategy.position_size <= 0
+    if strategy.position_size < 0
+        strategy.close("Short")
+    strategy.entry("Long", strategy.long)
+    longStop := close - stop_mult * atrVal
+    longTarget := close + target_mult * atrVal
+
+if shortSignal and strategy.position_size >= 0
+    if strategy.position_size > 0
+        strategy.close("Long")
+    strategy.entry("Short", strategy.short)
+    shortStop := close + stop_mult * atrVal
+    shortTarget := close - target_mult * atrVal
+
+// === Exit Logic ===
+if strategy.position_size > 0
+    strategy.exit("Long Exit", "Long", stop=longStop, limit=longTarget)
+
+if strategy.position_size < 0
+    strategy.exit("Short Exit", "Short", stop=shortStop, limit=shortTarget)
+
+// === Plot ===
+plotshape(isInsideBar, "Inside Bar", shape.diamond, location.abovebar, color.yellow, size=size.tiny)
+plot(strategy.position_size > 0 ? longStop : na, "Long Stop", color.red, style=plot.style_linebr)
+plot(strategy.position_size > 0 ? longTarget : na, "Long Target", color.green, style=plot.style_linebr)
+plot(strategy.position_size < 0 ? shortStop : na, "Short Stop", color.red, style=plot.style_linebr)
+plot(strategy.position_size < 0 ? shortTarget : na, "Short Target", color.green, style=plot.style_linebr)

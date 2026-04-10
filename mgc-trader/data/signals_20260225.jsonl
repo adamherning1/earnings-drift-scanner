@@ -1,0 +1,2 @@
+{"ts": "2026-02-25T09:25:32.615561", "strategy": "ORB", "action": "BUY", "price": 5232.0, "stop": 5215.27, "target": 5264.6, "risk_pts": 16.73, "reward_pts": 32.6, "rr_ratio": 1.95, "reason": "ORB breakout above 5226.90", "taken": true, "skip_reason": null, "signal_num": 1}
+{"ts": "2026-02-25T22:45:29.495996", "strategy": "EMA Momentum", "action": "SELL", "price": 5214.1, "stop": 5233.68, "target": 5144.97, "risk_pts": 19.58, "reward_pts": 69.13, "rr_ratio": 3.53, "reason": "9/21 EMA cross down (trend=5211.81)", "taken": true, "skip_reason": null, "signal_num": 2}

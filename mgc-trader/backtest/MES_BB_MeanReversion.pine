@@ -1,0 +1,50 @@
+// This Pine Script™ is subject to the terms of the Mozilla Public License 2.0
+// © MES 4H Bollinger Band Mean Reversion Strategy
+//@version=5
+strategy("MES BB Mean Reversion", overlay=true, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=0.62, slippage=1)
+
+// === Inputs ===
+bb_period = input.int(15, "BB Period", minval=5, maxval=50)
+bb_mult = input.float(1.5, "BB Multiplier", minval=0.5, maxval=4.0, step=0.1)
+
+// === Bollinger Bands ===
+basis = ta.sma(close, bb_period)
+dev = bb_mult * ta.stdev(close, bb_period)
+upper = basis + dev
+lower = basis - dev
+
+// === Plot ===
+plot(basis, "Basis", color=color.orange)
+p1 = plot(upper, "Upper", color=color.red)
+p2 = plot(lower, "Lower", color=color.green)
+fill(p1, p2, color=color.new(color.blue, 90))
+
+// === Strategy Logic ===
+// Long: close touches/crosses below lower band (mean reversion buy)
+// Short: close touches/crosses above upper band (mean reversion sell)
+// Exit long: close reaches middle band OR upper band (reverse)
+// Exit short: close reaches middle band OR lower band (reverse)
+
+longCondition = close <= lower
+shortCondition = close >= upper
+exitLongCondition = close >= basis
+exitShortCondition = close <= basis
+
+if longCondition and strategy.position_size <= 0
+    if strategy.position_size < 0
+        strategy.close("Short")
+    strategy.entry("Long", strategy.long)
+
+if shortCondition and strategy.position_size >= 0
+    if strategy.position_size > 0
+        strategy.close("Long")
+    strategy.entry("Short", strategy.short)
+
+if exitLongCondition and strategy.position_size > 0 and not shortCondition
+    strategy.close("Long")
+
+if exitShortCondition and strategy.position_size < 0 and not longCondition
+    strategy.close("Short")
+
+// === Labels ===
+bgcolor(longCondition ? color.new(color.green, 85) : shortCondition ? color.new(color.red, 85) : na)

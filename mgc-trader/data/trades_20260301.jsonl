@@ -1,0 +1,1 @@
+{"event": "entry", "ts": "2026-03-01T22:05:44.353154", "trade_id": "EMA Momentum_220544_0", "strategy": "EMA Momentum", "action": "BUY", "contracts": 2, "entry_price": 5377.9, "stop_price": 5354.72, "tp_price": 5446.23, "risk_per_contract": 231.78, "total_risk": 463.56, "trade_num": 1}

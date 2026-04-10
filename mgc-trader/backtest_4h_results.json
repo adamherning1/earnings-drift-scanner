@@ -1,0 +1,98 @@
+{
+  "Keltner Breakout": {
+    "total_pnl": 7770.69,
+    "num_trades": 106,
+    "win_rate": 72.64,
+    "profit_factor": 1.399,
+    "max_drawdown_pct": 3.83,
+    "sharpe": 1.25,
+    "avg_duration_bars": 6.6
+  },
+  "Keltner Reentry x1": {
+    "total_pnl": 7770.69,
+    "num_trades": 106,
+    "win_rate": 72.64,
+    "profit_factor": 1.399,
+    "max_drawdown_pct": 3.83,
+    "sharpe": 1.25,
+    "avg_duration_bars": 6.6
+  },
+  "Donchian Breakout": {
+    "total_pnl": 0,
+    "num_trades": 0,
+    "win_rate": 0,
+    "profit_factor": 0,
+    "max_drawdown_pct": 0,
+    "sharpe": 0,
+    "avg_duration_bars": 0
+  },
+  "EMA Momentum": {
+    "total_pnl": 2964.52,
+    "num_trades": 21,
+    "win_rate": 85.71,
+    "profit_factor": 2.896,
+    "max_drawdown_pct": 0.79,
+    "sharpe": 1.86,
+    "avg_duration_bars": 4.6
+  },
+  "Keltner + Momentum": {
+    "total_pnl": 8087.0,
+    "num_trades": 102,
+    "win_rate": 72.55,
+    "profit_factor": 1.439,
+    "max_drawdown_pct": 3.83,
+    "sharpe": 1.33,
+    "avg_duration_bars": 6.7
+  },
+  "Adaptive Keltner": {
+    "total_pnl": 7215.13,
+    "num_trades": 101,
+    "win_rate": 72.28,
+    "profit_factor": 1.426,
+    "max_drawdown_pct": 3.14,
+    "sharpe": 1.36,
+    "avg_duration_bars": 6.6
+  },
+  "Keltner + Session": {
+    "total_pnl": 7409.68,
+    "num_trades": 97,
+    "win_rate": 73.2,
+    "profit_factor": 1.416,
+    "max_drawdown_pct": 4.13,
+    "sharpe": 1.22,
+    "avg_duration_bars": 6.6
+  },
+  "Dual TF Keltner": {
+    "total_pnl": 5319.44,
+    "num_trades": 94,
+    "win_rate": 72.34,
+    "profit_factor": 1.291,
+    "max_drawdown_pct": 3.83,
+    "sharpe": 0.88,
+    "avg_duration_bars": 6.4
+  },
+  "Inside Bar + Keltner": {
+    "total_pnl": 3141.73,
+    "num_trades": 41,
+    "win_rate": 78.05,
+    "profit_factor": 1.53,
+    "max_drawdown_pct": 4.17,
+    "sharpe": 0.81,
+    "avg_duration_bars": 5.0
+  },
+  "Optimized Keltner": {
+    "total_pnl": 19981.22,
+    "num_trades": 77,
+    "win_rate": 71.43,
+    "profit_factor": 2.569,
+    "max_drawdown_pct": 2.67,
+    "sharpe": 3.37,
+    "avg_duration_bars": 11.0,
+    "params": {
+      "kc_len": 20,
+      "kc_mult": 1.5,
+      "trail_mult": 4.0,
+      "tp_r": 0.7
+    }
+  }
+}

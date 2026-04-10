@@ -1,0 +1,2 @@
+{"event": "entry", "ts": "2026-02-24T10:10:35.991950", "trade_id": "ORB_101035_0", "strategy": "ORB", "action": "BUY", "contracts": 3, "entry_price": 5183.5, "stop_price": 5170.82, "tp_price": 5208.85, "risk_per_contract": 126.77, "total_risk": 380.31, "trade_num": 1}
+{"event": "entry", "ts": "2026-02-24T15:15:38.709659", "trade_id": "EMA Momentum_151538_1", "strategy": "EMA Momentum", "action": "SELL", "contracts": 3, "entry_price": 5153.2, "stop_price": 5165.53, "tp_price": 5128.54, "risk_per_contract": 123.29, "total_risk": 369.86, "trade_num": 2}

@@ -1,0 +1,412 @@
+{
+  "Keltner Breakout (10,1.25) [long_only]": {
+    "total_pnl": -6334.86,
+    "num_trades": 54,
+    "win_rate": 57.41,
+    "profit_factor": 0.724,
+    "max_dd_pct": 1577.93,
+    "avg_winner": 534.71,
+    "avg_loser": -996.13,
+    "avg_duration": 15.9
+  },
+  "Keltner Breakout (10,1.25) [both]": {
+    "total_pnl": -2912.39,
+    "num_trades": 99,
+    "win_rate": 63.64,
+    "profit_factor": 0.898,
+    "max_dd_pct": 226.68,
+    "avg_winner": 407.05,
+    "avg_loser": -793.23,
+    "avg_duration": 11.5
+  },
+  "Keltner Reentry x1 [long_only]": {
+    "total_pnl": -6334.86,
+    "num_trades": 54,
+    "win_rate": 57.41,
+    "profit_factor": 0.724,
+    "max_dd_pct": 1577.93,
+    "avg_winner": 534.71,
+    "avg_loser": -996.13,
+    "avg_duration": 15.9
+  },
+  "Keltner Reentry x1 [both]": {
+    "total_pnl": -6334.86,
+    "num_trades": 54,
+    "win_rate": 57.41,
+    "profit_factor": 0.724,
+    "max_dd_pct": 1577.93,
+    "avg_winner": 534.71,
+    "avg_loser": -996.13,
+    "avg_duration": 15.9
+  },
+  "Optimized Keltner (20,1.5) [long_only]": {
+    "total_pnl": -3002.79,
+    "num_trades": 39,
+    "win_rate": 48.72,
+    "profit_factor": 0.883,
+    "max_dd_pct": 452.12,
+    "avg_winner": 1196.62,
+    "avg_loser": -1286.93,
+    "avg_duration": 23.9
+  },
+  "Optimized Keltner (20,1.5) [both]": {
+    "total_pnl": 3508.78,
+    "num_trades": 69,
+    "win_rate": 56.52,
+    "profit_factor": 1.118,
+    "max_dd_pct": 72.11,
+    "avg_winner": 850.77,
+    "avg_loser": -989.04,
+    "avg_duration": 17.5
+  },
+  "VWAP Trend Follow [long_only]": {
+    "total_pnl": -1198.02,
+    "num_trades": 54,
+    "win_rate": 61.11,
+    "profit_factor": 0.885,
+    "max_dd_pct": 948.17,
+    "avg_winner": 279.33,
+    "avg_loser": -496.0,
+    "avg_duration": 14.0
+  },
+  "VWAP Trend Follow [both]": {
+    "total_pnl": -6136.18,
+    "num_trades": 74,
+    "win_rate": 56.76,
+    "profit_factor": 0.648,
+    "max_dd_pct": 722.99,
+    "avg_winner": 268.94,
+    "avg_loser": -544.74,
+    "avg_duration": 11.9
+  },
+  "Momentum Breakout [long_only]": {
+    "total_pnl": -14025.19,
+    "num_trades": 46,
+    "win_rate": 54.35,
+    "profit_factor": 0.311,
+    "max_dd_pct": 0,
+    "avg_winner": 253.04,
+    "avg_loser": -969.11,
+    "avg_duration": 12.3
+  },
+  "Momentum Breakout [both]": {
+    "total_pnl": -27782.61,
+    "num_trades": 89,
+    "win_rate": 49.44,
+    "profit_factor": 0.273,
+    "max_dd_pct": 4062.26,
+    "avg_winner": 237.15,
+    "avg_loser": -849.27,
+    "avg_duration": 9.7
+  },
+  "Range Expansion [long_only]": {
+    "total_pnl": 292.47,
+    "num_trades": 85,
+    "win_rate": 62.35,
+    "profit_factor": 1.041,
+    "max_dd_pct": 90.77,
+    "avg_winner": 140.89,
+    "avg_loser": -224.22,
+    "avg_duration": 5.8
+  },
+  "Range Expansion [both]": {
+    "total_pnl": -3682.74,
+    "num_trades": 132,
+    "win_rate": 59.85,
+    "profit_factor": 0.762,
+    "max_dd_pct": 952.1,
+    "avg_winner": 149.51,
+    "avg_loser": -292.34,
+    "avg_duration": 5.4
+  },
+  "MA Ribbon (8/13/21) [long_only]": {
+    "total_pnl": -14107.51,
+    "num_trades": 53,
+    "win_rate": 52.83,
+    "profit_factor": 0.205,
+    "max_dd_pct": 0,
+    "avg_winner": 129.98,
+    "avg_loser": -709.87,
+    "avg_duration": 7.9
+  },
+  "MA Ribbon (8/13/21) [both]": {
+    "total_pnl": -17475.39,
+    "num_trades": 92,
+    "win_rate": 54.35,
+    "profit_factor": 0.319,
+    "max_dd_pct": 10128.82,
+    "avg_winner": 163.84,
+    "avg_loser": -611.13,
+    "avg_duration": 7.1
+  },
+  "Fib Pullback [long_only]": {
+    "total_pnl": -2699.97,
+    "num_trades": 34,
+    "win_rate": 41.18,
+    "profit_factor": 0.483,
+    "max_dd_pct": 949.29,
+    "avg_winner": 180.34,
+    "avg_loser": -261.24,
+    "avg_duration": 9.4
+  },
+  "Fib Pullback [both]": {
+    "total_pnl": -5547.71,
+    "num_trades": 57,
+    "win_rate": 40.35,
+    "profit_factor": 0.463,
+    "max_dd_pct": 0,
+    "avg_winner": 207.56,
+    "avg_loser": -303.58,
+    "avg_duration": 9.3
+  },
+  "Volatility Contraction [long_only]": {
+    "total_pnl": -5226.32,
+    "num_trades": 6,
+    "win_rate": 16.67,
+    "profit_factor": 0.004,
+    "max_dd_pct": 0,
+    "avg_winner": 19.86,
+    "avg_loser": -1049.24,
+    "avg_duration": 5.5
+  },
+  "Volatility Contraction [both]": {
+    "total_pnl": -7466.99,
+    "num_trades": 14,
+    "win_rate": 28.57,
+    "profit_factor": 0.051,
+    "max_dd_pct": 0,
+    "avg_winner": 101.27,
+    "avg_loser": -787.21,
+    "avg_duration": 5.9
+  },
+  "Opening Range Breakout [long_only]": {
+    "total_pnl": -101.65,
+    "num_trades": 16,
+    "win_rate": 56.25,
+    "profit_factor": 0.954,
+    "max_dd_pct": 120.57,
+    "avg_winner": 233.03,
+    "avg_loser": -314.13,
+    "avg_duration": 8.9
+  },
+  "Opening Range Breakout [both]": {
+    "total_pnl": 381.77,
+    "num_trades": 31,
+    "win_rate": 64.52,
+    "profit_factor": 1.106,
+    "max_dd_pct": 86.02,
+    "avg_winner": 198.57,
+    "avg_loser": -326.33,
+    "avg_duration": 7.2
+  },
+  "Dual MA Cross + ADX [long_only]": {
+    "total_pnl": -2682.59,
+    "num_trades": 16,
+    "win_rate": 50.0,
+    "profit_factor": 0.326,
+    "max_dd_pct": 0,
+    "avg_winner": 161.87,
+    "avg_loser": -497.2,
+    "avg_duration": 10.4
+  },
+  "Dual MA Cross + ADX [both]": {
+    "total_pnl": -4247.63,
+    "num_trades": 21,
+    "win_rate": 52.38,
+    "profit_factor": 0.335,
+    "max_dd_pct": 0,
+    "avg_winner": 194.39,
+    "avg_loser": -638.59,
+    "avg_duration": 19.6
+  },
+  "Higher Highs (3x) [long_only]": {
+    "total_pnl": -2024.68,
+    "num_trades": 58,
+    "win_rate": 55.17,
+    "profit_factor": 0.71,
+    "max_dd_pct": 491.18,
+    "avg_winner": 155.08,
+    "avg_loser": -268.74,
+    "avg_duration": 8.7
+  },
+  "Higher Highs (3x) [both]": {
+    "total_pnl": -5659.89,
+    "num_trades": 75,
+    "win_rate": 49.33,
+    "profit_factor": 0.528,
+    "max_dd_pct": 1794.99,
+    "avg_winner": 171.12,
+    "avg_loser": -315.57,
+    "avg_duration": 9.6
+  },
+  "Donchian Breakout (20) [long_only]": {
+    "total_pnl": 5696.01,
+    "num_trades": 1,
+    "win_rate": 100.0,
+    "profit_factor": 5696010.0,
+    "max_dd_pct": 0,
+    "avg_winner": 5696.01,
+    "avg_loser": 0,
+    "avg_duration": 1259.0
+  },
+  "Donchian Breakout (20) [both]": {
+    "total_pnl": -18972.16,
+    "num_trades": 44,
+    "win_rate": 0.0,
+    "profit_factor": 0.0,
+    "max_dd_pct": 0,
+    "avg_winner": 0,
+    "avg_loser": -431.19,
+    "avg_duration": 23.0
+  },
+  "Momentum ROC(5) Tight [long_only]": {
+    "total_pnl": -12677.93,
+    "num_trades": 92,
+    "win_rate": 60.87,
+    "profit_factor": 0.326,
+    "max_dd_pct": 0,
+    "avg_winner": 109.56,
+    "avg_loser": -522.59,
+    "avg_duration": 5.7
+  },
+  "Momentum ROC(5) Tight [both]": {
+    "total_pnl": -28371.1,
+    "num_trades": 163,
+    "win_rate": 57.06,
+    "profit_factor": 0.261,
+    "max_dd_pct": 5170.7,
+    "avg_winner": 107.56,
+    "avg_loser": -548.2,
+    "avg_duration": 5.8
+  },
+  "Range Exp (1.3x, 3.0 trail) [long_only]": {
+    "total_pnl": 4591.64,
+    "num_trades": 57,
+    "win_rate": 61.4,
+    "profit_factor": 1.574,
+    "max_dd_pct": 38.76,
+    "avg_winner": 359.62,
+    "avg_loser": -363.41,
+    "avg_duration": 14.8
+  },
+  "Range Exp (1.3x, 3.0 trail) [both]": {
+    "total_pnl": -6443.68,
+    "num_trades": 57,
+    "win_rate": 47.37,
+    "profit_factor": 0.656,
+    "max_dd_pct": 774.94,
+    "avg_winner": 454.91,
+    "avg_loser": -624.2,
+    "avg_duration": 18.9
+  },
+  "Dual MA (5/13) ADX15 [long_only]": {
+    "total_pnl": -7377.66,
+    "num_trades": 33,
+    "win_rate": 60.61,
+    "profit_factor": 0.28,
+    "max_dd_pct": 0,
+    "avg_winner": 143.21,
+    "avg_loser": -787.84,
+    "avg_duration": 5.4
+  },
+  "Dual MA (5/13) ADX15 [both]": {
+    "total_pnl": -18493.92,
+    "num_trades": 59,
+    "win_rate": 49.15,
+    "profit_factor": 0.186,
+    "max_dd_pct": 0,
+    "avg_winner": 145.43,
+    "avg_loser": -757.05,
+    "avg_duration": 6.2
+  },
+  "Donchian (10) [long_only]": {
+    "total_pnl": 5172.2,
+    "num_trades": 3,
+    "win_rate": 33.33,
+    "profit_factor": 6.135,
+    "max_dd_pct": 0,
+    "avg_winner": 6179.51,
+    "avg_loser": -503.65,
+    "avg_duration": 424.0
+  },
+  "Donchian (10) [both]": {
+    "total_pnl": -3709.22,
+    "num_trades": 9,
+    "win_rate": 11.11,
+    "profit_factor": 0.5,
+    "max_dd_pct": 0,
+    "avg_winner": 3704.66,
+    "avg_loser": -926.74,
+    "avg_duration": 143.6
+  },
+  "Higher Highs (2x) [long_only]": {
+    "total_pnl": -4938.96,
+    "num_trades": 82,
+    "win_rate": 60.98,
+    "profit_factor": 0.623,
+    "max_dd_pct": 1603.38,
+    "avg_winner": 163.27,
+    "avg_loser": -409.45,
+    "avg_duration": 8.9
+  },
+  "Higher Highs (2x) [both]": {
+    "total_pnl": -12500.96,
+    "num_trades": 88,
+    "win_rate": 52.27,
+    "profit_factor": 0.424,
+    "max_dd_pct": 1843.91,
+    "avg_winner": 199.86,
+    "avg_loser": -516.54,
+    "avg_duration": 11.9
+  },
+  "Keltner (15,1.0) 2.5trail [long_only]": {
+    "total_pnl": -5060.62,
+    "num_trades": 99,
+    "win_rate": 65.66,
+    "profit_factor": 0.762,
+    "max_dd_pct": 0,
+    "avg_winner": 248.98,
+    "avg_loser": -624.83,
+    "avg_duration": 9.0
+  },
+  "Keltner (15,1.0) 2.5trail [both]": {
+    "total_pnl": 6447.0,
+    "num_trades": 168,
+    "win_rate": 69.64,
+    "profit_factor": 1.29,
+    "max_dd_pct": 112.54,
+    "avg_winner": 245.32,
+    "avg_loser": -436.37,
+    "avg_duration": 7.0
+  },
+  "Keltner (12,1.5) 3.5trail [long_only]": {
+    "total_pnl": -5534.07,
+    "num_trades": 39,
+    "win_rate": 48.72,
+    "profit_factor": 0.777,
+    "max_dd_pct": 805.91,
+    "avg_winner": 1013.09,
+    "avg_loser": -1239.13,
+    "avg_duration": 22.3
+  },
+  "Keltner (12,1.5) 3.5trail [both]": {
+    "total_pnl": -1402.83,
+    "num_trades": 67,
+    "win_rate": 56.72,
+    "profit_factor": 0.952,
+    "max_dd_pct": 133.3,
+    "avg_winner": 733.31,
+    "avg_loser": -1009.26,
+    "avg_duration": 17.5
+  },
+  "Grid Best KC(15,0.75) [both]": {
+    "total_pnl": 34595.53,
+    "num_trades": 72,
+    "win_rate": 62.5,
+    "profit_factor": 3.815,
+    "max_dd_pct": 21.81,
+    "avg_winner": 1041.9,
+    "avg_loser": -455.18,
+    "avg_duration": 17.9
+  }
+}

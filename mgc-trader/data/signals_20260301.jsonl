@@ -1,0 +1,1 @@
+{"ts": "2026-03-01T22:05:44.352506", "strategy": "EMA Momentum", "action": "BUY", "price": 5377.9, "stop": 5354.72, "target": 5446.23, "risk_pts": 23.18, "reward_pts": 68.33, "rr_ratio": 2.95, "reason": "9/21 EMA cross up (trend=5362.01)", "taken": true, "skip_reason": null, "signal_num": 1}

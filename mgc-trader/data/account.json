@@ -1,0 +1,39 @@
+{
+  "ts": "2026-03-19T06:45:47.945749",
+  "net_liquidation": 997753.0,
+  "total_cash": 996359.92,
+  "unrealized_pnl": -27.87,
+  "realized_pnl": 0.0,
+  "buying_power": 3970836.56,
+  "last_price": 4573.7,
+  "position_count": 1.0,
+  "open_order_count": 2,
+  "positions": [
+    {
+      "symbol": "MGCJ6",
+      "size": -1.0,
+      "avg_cost": 45626.13,
+      "unrealized_pnl": 0
+    }
+  ],
+  "open_orders": [
+    {
+      "order_id": 11654,
+      "action": "BUY",
+      "type": "STP",
+      "quantity": 1.0,
+      "limit_price": 0.0,
+      "stop_price": 4645.6,
+      "status": "PreSubmitted"
+    },
+    {
+      "order_id": 11655,
+      "action": "BUY",
+      "type": "LMT",
+      "quantity": 1.0,
+      "limit_price": 4444.3,
+      "stop_price": 0.0,
+      "status": "Submitted"
+    }
+  ]
+}

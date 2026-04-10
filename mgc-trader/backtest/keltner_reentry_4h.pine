@@ -1,0 +1,49 @@
+//@version=5
+strategy("MGC Keltner Reentry x1", overlay=true, initial_capital=100000, default_qty_type=strategy.fixed, default_qty_value=1, commission_type=strategy.commission.cash_per_order, commission_value=0.62, slippage=1)
+
+// Inputs
+kcLen = input.int(10, "KC Length")
+kcMult = input.float(1.25, "KC Multiplier")
+adxThresh = input.float(10, "ADX Threshold")
+trailMult = input.float(3.0, "Trail ATR Mult")
+tpR = input.float(0.5, "Take Profit (R)")
+beR = input.float(1.0, "Breakeven (R)")
+maxReentries = input.int(1, "Max Re-entries")
+
+// Keltner Channel
+basis = ta.ema(close, kcLen)
+atrVal = ta.atr(kcLen)
+upper = basis + kcMult * atrVal
+lower = basis - kcMult * atrVal
+
+// ADX
+[diPlus, diMinus, adxVal] = ta.dmi(14, 14)
+
+// Plots
+plot(basis, "Basis", color.gray)
+p1 = plot(upper, "Upper", color.blue)
+p2 = plot(lower, "Lower", color.blue)
+fill(p1, p2, color=color.new(color.blue, 90))
+
+// State
+var int reentryCount = 0
+var bool lastWasStopped = false
+
+// Entry
+longSignal = close[1] > upper[1] and adxVal > adxThresh
+reentrySignal = lastWasStopped and close[1] > upper[1] and reentryCount < maxReentries
+
+if (longSignal or reentrySignal) and strategy.position_size == 0
+    risk = trailMult * atrVal
+    sl = close - risk
+    tp = close + tpR * risk
+    strategy.entry("Long", strategy.long)
+    strategy.exit("Exit", "Long", stop=sl, limit=tp, trail_points=risk / syminfo.mintick, trail_offset=risk / syminfo.mintick)
+    if reentrySignal
+        reentryCount += 1
+    else
+        reentryCount := 0
+
+// Track stops
+if strategy.position_size == 0 and strategy.position_size[1] > 0
+    lastWasStopped := strategy.closedtrades.profit(strategy.closedtrades.size - 1) <= 0

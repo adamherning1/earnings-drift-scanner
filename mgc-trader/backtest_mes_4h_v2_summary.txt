@@ -1,0 +1,46 @@
+MES 4H Strategy Search v2 — Final Results
+==========================================
+257 strategy configurations tested across 9 strategy families.
+68 met winner criteria (PF>=1.5, 40+ trades, DD<25%).
+
+TOP 3 STRATEGIES (including existing Keltner winner)
+=====================================================
+
+#1 — KELTNER CHANNEL (existing winner)
+   PnL: $38,819 | PF: 4.55 | Trades: ~60 | WR: 53% | W/L: 3.4:1
+   Type: Trend-following/breakout using tight KC bands (0.5 mult)
+   Profile: Low win rate, big winners
+   Pine: backtest/MES_Keltner_Optimized.pine (already exists)
+
+#2 — BOLLINGER BAND MEAN REVERSION (BB period=15, mult=1.5)
+   PnL: $32,468 | PF: 7.93 | Trades: 82 | WR: 70.7% | W/L: 3.28:1 | MaxDD: 0.8%
+   Type: Mean reversion — buy at lower BB, sell at upper, exit at middle band
+   Profile: HIGH win rate, excellent risk/reward, incredibly low drawdown
+   Why different: Opposite logic to Keltner — fades moves instead of following them
+   Pine: backtest/MES_BB_MeanReversion.pine
+
+#3 — INSIDE BAR BREAKOUT (ATR stop=2x, target=3x)
+   PnL: $28,037 | PF: 2.80 | Trades: 107 | WR: 34.6% | W/L: 5.30:1 | MaxDD: 4.4%
+   Type: Volatility pattern — trades breakout of inside bar consolidation
+   Profile: Low win rate but HUGE winners (5.3:1 W/L ratio), high trade count
+   Why different: Pure price action pattern, no indicators
+   Pine: backtest/MES_InsideBar_Breakout.pine
+
+HONORABLE MENTION — RSI(3) MEAN REVERSION (os=10, ob=90, exit=50)
+   PnL: $19,242 | PF: 2.92 | Trades: 140 | WR: 59.3% | W/L: 2.0:1 | MaxDD: 4.0%
+   Type: Oscillator-based mean reversion
+   Profile: Highest trade count, balanced win rate, steady equity curve
+   Pine: backtest/MES_RSI3_MeanReversion.pine
+
+DIVERSIFICATION NOTES
+=====================
+- Keltner = trend following (catches big moves)
+- BB MR = mean reversion (profits from oscillation around mean)
+- Inside Bar = volatility breakout (profits from consolidation→expansion)
+- These 3 are genuinely uncorrelated approaches to the same instrument
+
+CAUTION
+=======
+- BB MR's 0.8% max DD seems almost too good — may benefit from the bullish trend in the data
+- All results on ~1 year of data (1,340 4H bars) — would benefit from more history
+- Inside Bar has the most trades (107) giving best statistical significance

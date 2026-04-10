@@ -1,0 +1,17 @@
+2026-03-11 21:23:26,594 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-03-11 21:23:26,596 [mgc-trader] INFO: ============================================================
+2026-03-11 21:23:26,598 [mgc-trader] INFO: MGC Day Trader starting up
+2026-03-11 21:23:26,599 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=3
+2026-03-11 21:23:26,601 [mgc-trader] INFO: ============================================================
+2026-03-11 21:23:26,603 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-03-11 21:23:26,607 [ib_insync.client] INFO: Connected
+2026-03-11 21:23:26,618 [ib_insync.client] DEBUG: <<< 176,20260311 21:23:26 PST
+2026-03-11 21:23:26,622 [ib_insync.client] DEBUG: >>> 71,2,1,
+2026-03-11 21:23:26,623 [ib_insync.client] INFO: Logged on to server version 176
+2026-03-11 21:23:26,626 [ib_insync.client] DEBUG: <<< 4,2,-1,326,Unable to connect as the client id is already in use. Retry with a unique client id.,
+2026-03-11 21:23:26,627 [ib_insync.wrapper] ERROR: Error 326, reqId -1: Unable to connect as the client id is already in use. Retry with a unique client id.
+2026-03-11 21:23:27,134 [ib_insync.client] ERROR: Peer closed connection. clientId 1 already in use?
+2026-03-11 21:23:46,615 [ib_insync.client] INFO: Disconnecting
+2026-03-11 21:23:46,616 [ib_insync.client] ERROR: API connection failed: TimeoutError()
+2026-03-11 21:23:46,618 [mgc-trader.ib] ERROR: Failed to connect to IB: 
+2026-03-11 21:23:46,619 [mgc-trader] ERROR: Failed to connect to IB. Exiting.

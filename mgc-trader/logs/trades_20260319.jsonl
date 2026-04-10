@@ -1,0 +1,1 @@
+{"timestamp": "2026-03-19T06:05:55.179586", "trade_id": "ORB_060531_0", "strategy": "ORB", "action": "SELL", "contracts": 1, "entry": 4579.1, "stop": 4645.600592926039, "target": 4444.349110610942, "reason": "ORB breakdown below 4614.00 (confirmed)", "rr_ratio": 2.0263110967886653}

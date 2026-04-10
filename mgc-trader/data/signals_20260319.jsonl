@@ -1,0 +1,1 @@
+{"ts": "2026-03-19T06:05:31.762157", "strategy": "ORB", "action": "SELL", "price": 4579.1, "stop": 4645.6, "target": 4444.35, "risk_pts": 66.5, "reward_pts": 134.75, "rr_ratio": 2.03, "reason": "ORB breakdown below 4614.00 (confirmed)", "taken": true, "skip_reason": null, "signal_num": 1}

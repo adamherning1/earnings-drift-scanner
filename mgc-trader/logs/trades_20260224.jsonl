@@ -1,0 +1,2 @@
+{"timestamp": "2026-02-24T10:10:41.177701", "trade_id": "ORB_101035_0", "strategy": "ORB", "action": "BUY", "contracts": 3, "entry": 5183.5, "stop": 5170.8229735619125, "target": 5208.854052876175, "reason": "ORB breakout above 5181.50", "rr_ratio": 2.0}
+{"timestamp": "2026-02-24T15:15:43.944610", "trade_id": "EMA Momentum_151538_1", "strategy": "EMA Momentum", "action": "SELL", "contracts": 3, "entry": 5153.2, "stop": 5165.52881384482, "target": 5128.542372310359, "reason": "9/21 EMA cross down (trend=5169.11)", "rr_ratio": 2.0}

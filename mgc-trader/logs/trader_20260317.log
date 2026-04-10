@@ -1,0 +1,44 @@
+2026-03-17 21:15:29,445 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-03-17 21:15:29,448 [mgc-trader] INFO: ============================================================
+2026-03-17 21:15:29,451 [mgc-trader] INFO: MGC Day Trader starting up
+2026-03-17 21:15:29,453 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=3
+2026-03-17 21:15:29,454 [mgc-trader] INFO: ============================================================
+2026-03-17 21:15:29,456 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-03-17 21:15:31,500 [ib_insync.client] INFO: Disconnecting
+2026-03-17 21:15:31,502 [ib_insync.client] ERROR: API connection failed: ConnectionRefusedError(22, 'The remote computer refused the network connection', None, 1225, None)
+2026-03-17 21:15:31,503 [ib_insync.client] ERROR: Make sure API port on TWS/IBG is open
+2026-03-17 21:15:31,504 [mgc-trader.ib] ERROR: Failed to connect to IB: [WinError 1225] The remote computer refused the network connection
+2026-03-17 21:15:31,504 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-03-17 21:30:02,254 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-03-17 21:30:02,255 [mgc-trader] INFO: ============================================================
+2026-03-17 21:30:02,256 [mgc-trader] INFO: MGC Day Trader starting up
+2026-03-17 21:30:02,256 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=3
+2026-03-17 21:30:02,256 [mgc-trader] INFO: ============================================================
+2026-03-17 21:30:02,258 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-03-17 21:30:04,301 [ib_insync.client] INFO: Disconnecting
+2026-03-17 21:30:04,302 [ib_insync.client] ERROR: API connection failed: ConnectionRefusedError(22, 'The remote computer refused the network connection', None, 1225, None)
+2026-03-17 21:30:04,303 [ib_insync.client] ERROR: Make sure API port on TWS/IBG is open
+2026-03-17 21:30:04,303 [mgc-trader.ib] ERROR: Failed to connect to IB: [WinError 1225] The remote computer refused the network connection
+2026-03-17 21:30:04,304 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-03-17 21:42:55,741 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-03-17 21:42:55,742 [mgc-trader] INFO: ============================================================
+2026-03-17 21:42:55,743 [mgc-trader] INFO: MGC Day Trader starting up
+2026-03-17 21:42:55,743 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=3
+2026-03-17 21:42:55,743 [mgc-trader] INFO: ============================================================
+2026-03-17 21:42:55,744 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-03-17 21:42:57,771 [ib_insync.client] INFO: Disconnecting
+2026-03-17 21:42:57,772 [ib_insync.client] ERROR: API connection failed: ConnectionRefusedError(22, 'The remote computer refused the network connection', None, 1225, None)
+2026-03-17 21:42:57,773 [ib_insync.client] ERROR: Make sure API port on TWS/IBG is open
+2026-03-17 21:42:57,774 [mgc-trader.ib] ERROR: Failed to connect to IB: [WinError 1225] The remote computer refused the network connection
+2026-03-17 21:42:57,775 [mgc-trader] ERROR: Failed to connect to IB. Exiting.
+2026-03-17 21:52:19,744 [mgc-trader.data] INFO: Data collector initialized — writing to C:\Users\adamh\.openclaw\workspace\mgc-trader\data
+2026-03-17 21:52:19,745 [mgc-trader] INFO: ============================================================
+2026-03-17 21:52:19,746 [mgc-trader] INFO: MGC Day Trader starting up
+2026-03-17 21:52:19,746 [mgc-trader] INFO: Config: max_daily_loss=$2000, max_trades=30, max_position=3
+2026-03-17 21:52:19,746 [mgc-trader] INFO: ============================================================
+2026-03-17 21:52:19,747 [ib_insync.client] INFO: Connecting to 127.0.0.1:4002 with clientId 1...
+2026-03-17 21:52:21,798 [ib_insync.client] INFO: Disconnecting
+2026-03-17 21:52:21,799 [ib_insync.client] ERROR: API connection failed: ConnectionRefusedError(22, 'The remote computer refused the network connection', None, 1225, None)
+2026-03-17 21:52:21,800 [ib_insync.client] ERROR: Make sure API port on TWS/IBG is open
+2026-03-17 21:52:21,800 [mgc-trader.ib] ERROR: Failed to connect to IB: [WinError 1225] The remote computer refused the network connection
+2026-03-17 21:52:21,801 [mgc-trader] ERROR: Failed to connect to IB. Exiting.

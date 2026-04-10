@@ -1,0 +1,1 @@
+{"timestamp": "2026-03-18T06:21:13.690735", "trade_id": "EMA Momentum_062050_0", "strategy": "EMA Momentum", "action": "SELL", "contracts": 1, "entry": 4866.4, "stop": 4906.179971391326, "target": 4745.860085826023, "reason": "EMA continuation: already aligned bearish (F=4888.71<S=4911.82, trend=4944.12)", "rr_ratio": 3.0301659342132843}

@@ -1,0 +1,1 @@
+{"ts": "2026-03-18T06:20:50.112134", "strategy": "EMA Momentum", "action": "SELL", "price": 4866.4, "stop": 4906.18, "target": 4745.86, "risk_pts": 39.78, "reward_pts": 120.54, "rr_ratio": 3.03, "reason": "EMA continuation: already aligned bearish (F=4888.71<S=4911.82, trend=4944.12)", "taken": true, "skip_reason": null, "signal_num": 1}
