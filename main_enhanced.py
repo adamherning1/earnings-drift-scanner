@@ -6,7 +6,7 @@ import yfinance as yf
 
 app = FastAPI(
     title="Post-Earnings Drift Scanner",
-    description="Find profitable post-earnings opportunities",
+    description="Find profitable post-earnings opportunities - Powered by Claude AI",
     version="2.0.0"
 )
 
@@ -34,13 +34,16 @@ UPCOMING_EARNINGS = [
 def read_root():
     return {
         "service": "Post-Earnings Drift Scanner",
+        "powered_by": "Claude AI by Anthropic",
         "status": "operational",
         "endpoints": {
             "docs": "/docs",
             "upcoming": "/api/upcoming-earnings",
             "analyze": "/api/analyze/{symbol}",
             "opportunities": "/api/opportunities"
-        }
+        },
+        "description": "AI-powered scanner finding post-earnings drift opportunities",
+        "founding_members": "$97/month (limited time)"
     }
 
 @app.get("/api/upcoming-earnings")
