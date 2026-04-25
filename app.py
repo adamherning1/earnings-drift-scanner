@@ -23,9 +23,10 @@ app.add_middleware(
 @app.get("/")
 async def root():
     return {
-        "service": "Earnings Scanner",
-        "status": "live",
-        "version": "1.0.0",
+        "service": "Earnings Scanner API",
+        "status": "operational",
+        "version": "1.1.0",
+        "deployed": datetime.now().isoformat(),
         "endpoints": [
             "/api/health",
             "/api/upcoming", 
