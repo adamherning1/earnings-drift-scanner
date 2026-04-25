@@ -1,0 +1,16 @@
+{
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "https://post-earning-scanner.onrender.com/api/$1"
+    },
+    {
+      "src": "/paper_trading_log",
+      "dest": "/paper_trading_log.md"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/landing_page.html"
+    }
+  ]
+}
