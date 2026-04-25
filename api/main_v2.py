@@ -9,6 +9,7 @@ from pydantic import BaseModel
 from typing import List, Dict, Optional
 from datetime import datetime
 import os
+import asyncio
 
 # Import our hybrid scanner
 from services.hybrid_earnings_scanner import HybridEarningsScanner
