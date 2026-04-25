@@ -31,7 +31,7 @@ services:
     startCommand: cd api && uvicorn main_v2:app --host 0.0.0.0 --port $PORT
     envVars:
       - key: DATABENTO_API_KEY
-        value: db-4pAagaTp8Q3GmwYLxYAny8jvvKPLu
+        value: your_databento_api_key_here
 ```
 
 ### 3. Push to GitHub
