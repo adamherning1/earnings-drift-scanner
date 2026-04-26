@@ -1,7 +1,7 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import '../../globals.css';
+import '../globals.css';
 
 export default function EarningsCalendarPage() {
   const [earnings, setEarnings] = useState([]);
