@@ -13,7 +13,7 @@ load_dotenv()
 app = FastAPI(
     title="Post-Earnings Drift Scanner",
     description="Professional scanner with Massive real-time quotes",
-    version="12.0.0"
+    version="12.1.0"  # Updated with dynamic SUE calculations
 )
 
 app.add_middleware(
