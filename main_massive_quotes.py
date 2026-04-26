@@ -6,6 +6,7 @@ import os
 from dotenv import load_dotenv
 from typing import Dict, List, Optional
 import time
+import json
 
 load_dotenv()
 
@@ -227,9 +228,6 @@ earnings_calendar_cache = {
 def get_upcoming_earnings_from_finnhub():
     """Get real upcoming earnings from Finnhub"""
     try:
-        from finnhub_earnings_service import FinnhubEarningsService
-        from datetime import datetime, timedelta
-        
         # Check cache (refresh every hour)
         now = datetime.now()
         if earnings_calendar_cache["last_updated"] and earnings_calendar_cache["data"]:
@@ -237,12 +235,24 @@ def get_upcoming_earnings_from_finnhub():
             if time_diff < 3600:  # 1 hour cache
                 return earnings_calendar_cache["data"]
         
-        # Fetch fresh data
-        service = FinnhubEarningsService()
+        # Fetch directly from Finnhub API
+        api_key = os.getenv("FINNHUB_API_KEY", "d7n6829r01qppri3n0p0d7n6829r01qppri3n0pg")
         today = now.strftime("%Y-%m-%d")
         next_week = (now + timedelta(days=7)).strftime("%Y-%m-%d")
         
-        calendar = service.get_earnings_calendar(today, next_week)
+        url = f"https://finnhub.io/api/v1/calendar/earnings"
+        params = {
+            "from": today,
+            "to": next_week,
+            "token": api_key
+        }
+        
+        response = requests.get(url, params=params, timeout=10)
+        if response.status_code != 200:
+            return get_mock_upcoming_earnings()
+            
+        data = response.json()
+        calendar = data.get("earningsCalendar", [])
         
         # Format the earnings data
         upcoming = []
@@ -405,23 +415,43 @@ def analyze_stock(symbol: str):
             # Fetch LIVE data for ANY ticker!
             print(f"Fetching LIVE data for {symbol}...")
             
-            # Try Finnhub first (more accurate)
+            # Try Finnhub API directly
             if use_finnhub:
-                finnhub = FinnhubEarningsService()
-                live_data = finnhub.get_company_earnings(symbol)
+                api_key = os.getenv("FINNHUB_API_KEY", "d7n6829r01qppri3n0p0d7n6829r01qppri3n0pg")
+                url = f"https://finnhub.io/api/v1/stock/earnings?symbol={symbol}&token={api_key}"
                 
-                if live_data and live_data.get('total_events', 0) > 0:
-                    historical_data = {symbol: live_data}
-                else:
-                    # Fall back to dynamic service
-                    service = DynamicEarningsService()
-                    live_data = service.get_earnings_data(symbol)
-                    historical_data = {symbol: live_data}
+                try:
+                    response = requests.get(url, timeout=10)
+                    if response.status_code == 200:
+                        earnings = response.json()
+                        if earnings:
+                            # Convert to our format
+                            recent_earnings = []
+                            for e in earnings[:4]:  # Last 4 quarters
+                                if e.get('actual') and e.get('estimate'):
+                                    surprise_pct = ((e['actual'] - e['estimate']) / abs(e['estimate'])) * 100
+                                    recent_earnings.append({
+                                        'date': e.get('period', 'N/A'),
+                                        'actual': e['actual'],
+                                        'estimate': e['estimate'],
+                                        'surprise_pct': surprise_pct
+                                    })
+                            
+                            live_data = {
+                                'total_events': len(earnings),
+                                'recent_earnings': recent_earnings
+                            }
+                            historical_data = {symbol: live_data}
+                        else:
+                            # No earnings data
+                            historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
+                    else:
+                        historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
+                except:
+                    historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
             else:
-                # Use dynamic service
-                service = DynamicEarningsService()
-                live_data = service.get_earnings_data(symbol)
-                historical_data = {symbol: live_data}
+                # Simple fallback
+                historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
         
         # Calculate SUE score from real earnings data
         sue_score = 1.5  # Default
