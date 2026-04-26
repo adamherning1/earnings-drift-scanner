@@ -73,7 +73,7 @@ export default function Dashboard() {
                     <h3>{opp.symbol}</h3>
                     <span className={`confidence ${opp.confidence}`}>{opp.confidence}</span>
                   </div>
-                  <div className="opp-price">${opp.price}</div>
+                  <div className="opp-price">{typeof opp.price === 'string' && opp.price.includes('$') ? opp.price : `$${opp.price}`}</div>
                   <div className="opp-market-cap">{opp.market_cap}</div>
                   <div className="opp-signal">{opp.signal.replace('_', ' ')}</div>
                   <p className="opp-insight">{opp.ai_insight}</p>
