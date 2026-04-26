@@ -290,40 +290,54 @@ def analyze_stock(symbol: str):
     
     price = data["price"]
     
-    # Load REAL historical drift data
+    # Load REAL historical drift data - DYNAMIC for ANY ticker
     try:
         import json
-        # Load comprehensive historical data
+        from dynamic_earnings_service import DynamicEarningsService
+        
+        # First try static data for common tickers (faster)
         try:
             with open('COMPLETE_HISTORICAL_DATA.json', 'r') as f:
-                historical_data = json.load(f)
-                print("Using COMPLETE historical data")
+                static_data = json.load(f)
         except:
-            try:
-                with open('LEGITIMATE_HISTORICAL_DATA.json', 'r') as f:
-                    historical_data = json.load(f)
-                    print("Using LEGITIMATE historical data")
-            except:
-                with open('historical_drift_data.json', 'r') as f:
-                    historical_data = json.load(f)
+            static_data = {}
+        
+        # Check if we have static data for this symbol
+        if symbol in static_data:
+            historical_data = static_data
+            print(f"Using cached data for {symbol}")
+        else:
+            # Fetch LIVE data for ANY ticker!
+            print(f"Fetching LIVE data for {symbol}...")
+            service = DynamicEarningsService()
+            live_data = service.get_earnings_data(symbol)
+            
+            # Format for compatibility
+            historical_data = {symbol: live_data}
         
         sue_score = 2.1 if symbol in ["SNAP", "PINS"] else 1.5
         
         if symbol in historical_data:
             hist = historical_data[symbol]
             
+            # Show recent earnings if available
+            recent_earnings_text = ""
+            if "recent_earnings" in hist and hist["recent_earnings"]:
+                last_earning = hist["recent_earnings"][0]
+                recent_earnings_text = f" (Last: {last_earning['surprise_pct']:+.1f}% surprise)"
+            
             # Use real drift based on surprise direction
             if sue_score > 1.5:  # Positive surprise
                 drift_data = hist["positive_surprise_drift"]
                 expected_drift = drift_data["5_day"]
-                confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM"
-                based_on = f"{hist['events_analyzed']} analyzed earnings events"
+                confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM" if drift_data["sample_size"] > 5 else "LOW"
+                based_on = f"{hist.get('events_analyzed', 0)} analyzed earnings events{recent_earnings_text}"
                 win_rate = drift_data["win_rate"]
             elif sue_score < -1.5:  # Negative surprise
                 drift_data = hist["negative_surprise_drift"]
                 expected_drift = drift_data["5_day"]
-                confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM"
-                based_on = f"{hist['events_analyzed']} analyzed earnings events"
+                confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM" if drift_data["sample_size"] > 5 else "LOW"
+                based_on = f"{hist.get('events_analyzed', 0)} analyzed earnings events{recent_earnings_text}"
                 win_rate = drift_data["win_rate"]
             else:
                 expected_drift = 1.5
