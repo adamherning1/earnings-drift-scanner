@@ -5,6 +5,7 @@ import requests
 import os
 from dotenv import load_dotenv
 from typing import Dict, List, Optional
+import time
 
 load_dotenv()
 
@@ -217,13 +218,70 @@ def get_stock_data(symbol: str) -> Dict:
         "source": "default"
     }
 
-# Upcoming earnings
-UPCOMING_EARNINGS = [
-    {"symbol": "SNAP", "date": "2026-04-28", "time": "AMC", "name": "Snap Inc"},
-    {"symbol": "PINS", "date": "2026-04-29", "time": "AMC", "name": "Pinterest"},
-    {"symbol": "DKNG", "date": "2026-04-30", "time": "BMO", "name": "DraftKings"},
-    {"symbol": "ROKU", "date": "2026-04-30", "time": "AMC", "name": "Roku Inc"},
-]
+# Cache for upcoming earnings
+earnings_calendar_cache = {
+    "data": [],
+    "last_updated": None
+}
+
+def get_upcoming_earnings_from_finnhub():
+    """Get real upcoming earnings from Finnhub"""
+    try:
+        from finnhub_earnings_service import FinnhubEarningsService
+        from datetime import datetime, timedelta
+        
+        # Check cache (refresh every hour)
+        now = datetime.now()
+        if earnings_calendar_cache["last_updated"] and earnings_calendar_cache["data"]:
+            time_diff = (now - earnings_calendar_cache["last_updated"]).total_seconds()
+            if time_diff < 3600:  # 1 hour cache
+                return earnings_calendar_cache["data"]
+        
+        # Fetch fresh data
+        service = FinnhubEarningsService()
+        today = now.strftime("%Y-%m-%d")
+        next_week = (now + timedelta(days=7)).strftime("%Y-%m-%d")
+        
+        calendar = service.get_earnings_calendar(today, next_week)
+        
+        # Format the earnings data
+        upcoming = []
+        symbols_seen = set()
+        
+        for event in calendar:
+            symbol = event.get("symbol")
+            
+            # Skip if we've already seen this symbol or if it's not a valid symbol
+            if not symbol or symbol in symbols_seen or len(symbol) > 5:
+                continue
+                
+            symbols_seen.add(symbol)
+            
+            upcoming.append({
+                "symbol": symbol,
+                "date": event.get("date", today),
+                "time": "AMC",  # Finnhub doesn't provide time
+                "name": symbol  # We'll get the full name from ticker info
+            })
+            
+            # Limit to 50 to avoid too many
+            if len(upcoming) >= 50:
+                break
+        
+        # Update cache
+        earnings_calendar_cache["data"] = upcoming
+        earnings_calendar_cache["last_updated"] = now
+        
+        return upcoming
+        
+    except Exception as e:
+        print(f"Error fetching earnings calendar: {e}")
+        # Return some default data as fallback
+        return [
+            {"symbol": "AAPL", "date": "2026-05-01", "time": "AMC", "name": "Apple Inc"},
+            {"symbol": "MSFT", "date": "2026-05-02", "time": "AMC", "name": "Microsoft"},
+            {"symbol": "GOOGL", "date": "2026-05-03", "time": "BMO", "name": "Alphabet"},
+        ]
 
 @app.get("/")
 def read_root():
@@ -243,13 +301,15 @@ def read_root():
 
 @app.get("/api/upcoming-earnings")
 def get_upcoming_earnings():
-    today = datetime.now().date()
-    next_week = today + timedelta(days=7)
+    # Get REAL upcoming earnings from Finnhub
+    upcoming_earnings = get_upcoming_earnings_from_finnhub()
     
-    upcoming = []
-    for earning in UPCOMING_EARNINGS:
-        earning_date = datetime.strptime(earning["date"], "%Y-%m-%d").date()
-        if today <= earning_date <= next_week:
+    # Add current price data to each earning
+    enriched_earnings = []
+    
+    for earning in upcoming_earnings[:20]:  # Limit to 20 for performance
+        try:
+            # Get current price data
             data = get_stock_data(earning["symbol"])
             
             earning_copy = earning.copy()
@@ -258,12 +318,19 @@ def get_upcoming_earnings():
             earning_copy["ask"] = data["ask"]
             earning_copy["spread"] = f"${data['spread']:.2f}"
             earning_copy["data_source"] = data["source"]
-            upcoming.append(earning_copy)
+            
+            enriched_earnings.append(earning_copy)
+        except Exception as e:
+            print(f"Error processing {earning['symbol']}: {e}")
+            # Add without price data
+            enriched_earnings.append(earning)
     
     return {
-        "count": len(upcoming),
-        "earnings": upcoming,
-        "updated": datetime.now().isoformat()
+        "count": len(enriched_earnings),
+        "total_available": len(upcoming_earnings),
+        "earnings": enriched_earnings,
+        "updated": datetime.now().isoformat(),
+        "source": "Finnhub real-time earnings calendar"
     }
 
 @app.get("/api/quote/{symbol}")

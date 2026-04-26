@@ -6,11 +6,16 @@ import SymbolSearch from '../components/SymbolSearch';
 
 export default function Dashboard() {
   const [opportunities, setOpportunities] = useState([]);
+  const [upcomingEarnings, setUpcomingEarnings] = useState([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
     fetchOpportunities();
-    const interval = setInterval(fetchOpportunities, 60000); // Refresh every minute
+    fetchUpcomingEarnings();
+    const interval = setInterval(() => {
+      fetchOpportunities();
+      fetchUpcomingEarnings();
+    }, 60000); // Refresh every minute
     return () => clearInterval(interval);
   }, []);
 
@@ -26,6 +31,16 @@ export default function Dashboard() {
     }
   };
 
+  const fetchUpcomingEarnings = async () => {
+    try {
+      const res = await fetch('https://post-earning-scanner.onrender.com/api/upcoming-earnings');
+      const data = await res.json();
+      setUpcomingEarnings(data.earnings || []);
+    } catch (error) {
+      console.error('Error fetching earnings calendar:', error);
+    }
+  };
+
   return (
     <div className="dashboard">
       <nav className="nav">
@@ -33,6 +48,7 @@ export default function Dashboard() {
           <h3>Post-Earnings Scanner</h3>
           <div className="nav-links">
             <a href="/dashboard" className="active">Dashboard</a>
+            <a href="/earnings-calendar">Calendar</a>
             <a href="/trades">Trade History</a>
             <a href="/api-docs">API Docs</a>
             <a href="/account">Account</a>
@@ -61,6 +77,25 @@ export default function Dashboard() {
                 <a href="/analyze/AMZN">AMZN</a>
               </p>
             </div>
+          </div>
+
+          <div className="earnings-section">
+            <h2>📅 Upcoming Earnings (Next 7 Days)</h2>
+            {upcomingEarnings.length === 0 ? (
+              <p className="no-earnings">No earnings scheduled for the next 7 days</p>
+            ) : (
+              <div className="earnings-grid">
+                {upcomingEarnings.slice(0, 12).map((earning, idx) => (
+                  <div key={idx} className="earning-card">
+                    <div className="earning-symbol">{earning.symbol}</div>
+                    <div className="earning-date">{new Date(earning.date).toLocaleDateString()}</div>
+                    <div className="earning-price">${earning.current_price ? Number(earning.current_price).toFixed(2) : 'N/A'}</div>
+                    <a href={`/analyze/${earning.symbol}`} className="earning-analyze">Analyze →</a>
+                  </div>
+                ))}
+              </div>
+            )}
+            <a href="/earnings-calendar" className="view-all-earnings">View Full Calendar →</a>
           </div>
 
           {loading ? (
@@ -198,6 +233,91 @@ export default function Dashboard() {
         .popular-stocks a {
           color: #1e3c72;
           text-decoration: none;
+        }
+
+        .earnings-section {
+          background: white;
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          margin-bottom: 3rem;
+        }
+
+        .earnings-section h2 {
+          color: #1e3c72;
+          margin-bottom: 1.5rem;
+        }
+
+        .no-earnings {
+          text-align: center;
+          color: #666;
+          padding: 2rem;
+          background: #f8f9fa;
+          border-radius: 8px;
+        }
+
+        .earnings-grid {
+          display: grid;
+          grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+          gap: 1rem;
+          margin-bottom: 1.5rem;
+        }
+
+        .earning-card {
+          border: 1px solid #e0e0e0;
+          border-radius: 8px;
+          padding: 1rem;
+          text-align: center;
+          transition: all 0.2s;
+          background: #fff;
+        }
+
+        .earning-card:hover {
+          box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+          transform: translateY(-2px);
+        }
+
+        .earning-symbol {
+          font-size: 1.2rem;
+          font-weight: 600;
+          color: #1e3c72;
+          margin-bottom: 0.5rem;
+        }
+
+        .earning-date {
+          font-size: 0.9rem;
+          color: #666;
+          margin-bottom: 0.5rem;
+        }
+
+        .earning-price {
+          font-size: 1.1rem;
+          font-weight: 500;
+          color: #333;
+          margin-bottom: 0.5rem;
+        }
+
+        .earning-analyze {
+          color: #27ae60;
+          text-decoration: none;
+          font-weight: 500;
+          font-size: 0.9rem;
+        }
+
+        .earning-analyze:hover {
+          color: #219a52;
+        }
+
+        .view-all-earnings {
+          display: inline-block;
+          color: #1e3c72;
+          text-decoration: none;
+          font-weight: 500;
+          margin-top: 1rem;
+        }
+
+        .view-all-earnings:hover {
+          text-decoration: underline;
           padding: 0 0.25rem;
           transition: color 0.2s;
         }
