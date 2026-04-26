@@ -30,6 +30,38 @@ MASSIVE_BASE_URL = "https://api.massive.com/v3"
 cache = {}
 CACHE_DURATION = 60  # 1 minute for real-time data
 
+def get_massive_last_quote(symbol: str) -> Optional[Dict]:
+    """Get last quote/trade from Massive API"""
+    try:
+        # Try the simpler last quote endpoint first
+        url = f"{MASSIVE_BASE_URL}/last/quote/{symbol}"
+        params = {"apiKey": MASSIVE_API_KEY}
+        
+        response = requests.get(url, params=params, timeout=5)
+        
+        if response.status_code == 200:
+            data = response.json()
+            
+            if data.get("status") == "OK" and data.get("results"):
+                result = data["results"]
+                # Use the prices from the response
+                bid_price = float(result.get("p", 0))  # Last bid
+                ask_price = float(result.get("P", 0))  # Last ask
+                
+                if bid_price > 0 or ask_price > 0:
+                    return {
+                        "price": (bid_price + ask_price) / 2 if bid_price > 0 and ask_price > 0 else max(bid_price, ask_price),
+                        "bid": bid_price,
+                        "ask": ask_price,
+                        "size": result.get("s", 0),
+                        "timestamp": result.get("t"),
+                        "source": "massive_last"
+                    }
+    except Exception as e:
+        print(f"Last quote error for {symbol}: {e}")
+    
+    return None
+
 def get_massive_quote(symbol: str) -> Optional[Dict]:
     """Get real-time quote from Massive API"""
     cache_key = f"quote:{symbol}"
@@ -41,8 +73,14 @@ def get_massive_quote(symbol: str) -> Optional[Dict]:
         if (now - cached_time).total_seconds() < CACHE_DURATION:
             return data
     
+    # Try the simpler endpoint first
+    last_quote = get_massive_last_quote(symbol)
+    if last_quote:
+        cache[cache_key] = (last_quote, now)
+        return last_quote
+    
     try:
-        # Use the quotes endpoint we found!
+        # Fall back to quotes array endpoint
         url = f"{MASSIVE_BASE_URL}/quotes/{symbol}"
         params = {
             "apiKey": MASSIVE_API_KEY,
