@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from 'react';
 import '../globals.css';
+import SymbolSearch from '../components/SymbolSearch';
 
 export default function Dashboard() {
   const [opportunities, setOpportunities] = useState([]);
@@ -44,6 +45,23 @@ export default function Dashboard() {
         <div className="container">
           <h1>Trading Opportunities</h1>
           <p className="last-update">Last updated: {new Date().toLocaleTimeString()}</p>
+
+          <div className="search-section">
+            <h3>Analyze Any Stock</h3>
+            <p>Enter a ticker symbol to get AI-powered post-earnings drift analysis:</p>
+            <SymbolSearch />
+            <div className="popular-stocks">
+              <p>Popular searches: 
+                <a href="/analyze/AAPL">AAPL</a> • 
+                <a href="/analyze/MSFT">MSFT</a> • 
+                <a href="/analyze/GOOGL">GOOGL</a> • 
+                <a href="/analyze/TSLA">TSLA</a> • 
+                <a href="/analyze/NVDA">NVDA</a> • 
+                <a href="/analyze/META">META</a> • 
+                <a href="/analyze/AMZN">AMZN</a>
+              </p>
+            </div>
+          </div>
 
           {loading ? (
             <div className="loading">Loading opportunities...</div>
@@ -151,6 +169,42 @@ export default function Dashboard() {
         .last-update {
           color: #666;
           margin-bottom: 2rem;
+        }
+
+        .search-section {
+          background: white;
+          padding: 2rem;
+          border-radius: 12px;
+          box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+          margin-bottom: 3rem;
+          text-align: center;
+        }
+
+        .search-section h3 {
+          color: #1e3c72;
+          margin-bottom: 0.5rem;
+        }
+
+        .search-section p {
+          color: #666;
+          margin-bottom: 1.5rem;
+        }
+
+        .popular-stocks {
+          margin-top: 1rem;
+          font-size: 0.9rem;
+        }
+
+        .popular-stocks a {
+          color: #1e3c72;
+          text-decoration: none;
+          padding: 0 0.25rem;
+          transition: color 0.2s;
+        }
+
+        .popular-stocks a:hover {
+          color: #2a5298;
+          text-decoration: underline;
         }
 
         .loading {

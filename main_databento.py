@@ -95,10 +95,18 @@ def analyze_stock(symbol: str):
     """Analyze a stock for post-earnings drift potential"""
     symbol = symbol.upper()
     
-    if symbol not in MOCK_PRICES:
-        raise HTTPException(status_code=404, detail=f"No data found for {symbol}")
-    
-    data = MOCK_PRICES[symbol]
+    # For demo, return mock data for any symbol
+    # In production, this would fetch real data from Databento
+    if symbol in MOCK_PRICES:
+        data = MOCK_PRICES[symbol]
+    else:
+        # Generate mock data for any symbol
+        import random
+        price = round(random.uniform(20, 500), 2)
+        data = {
+            "price": price,
+            "market_cap": round(random.uniform(1e9, 100e9), 0)
+        }
     
     # Mock analysis with realistic values
     analysis = {
