@@ -88,6 +88,16 @@ export default function Dashboard() {
               </div>
             </div>
           </div>
+
+          <div className="disclaimer-section">
+            <h3>⚠️ Risk Disclosure & Disclaimer</h3>
+            <p>
+              This service provides information and analysis for educational purposes only. It is not personalized investment advice or a recommendation to buy or sell securities.
+              Trading involves substantial risk of loss and is not suitable for all investors. Past performance is not indicative of future results.
+              Always conduct your own research and consult with a licensed financial advisor before making investment decisions.
+              We are not registered investment advisors and do not provide personalized investment advice.
+            </p>
+          </div>
         </div>
       </div>
 
@@ -271,6 +281,25 @@ export default function Dashboard() {
         .info-card p {
           color: #666;
           line-height: 1.6;
+        }
+
+        .disclaimer-section {
+          background: #fff3cd;
+          border: 1px solid #ffeaa7;
+          padding: 2rem;
+          border-radius: 12px;
+          margin-top: 3rem;
+        }
+
+        .disclaimer-section h3 {
+          color: #856404;
+          margin-bottom: 1rem;
+        }
+
+        .disclaimer-section p {
+          color: #856404;
+          line-height: 1.6;
+          margin: 0;
         }
       `}</style>
     </div>

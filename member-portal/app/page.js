@@ -126,11 +126,42 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* Disclaimer Section */}
+      <section className="disclaimer-section">
+        <div className="container">
+          <h2>⚠️ Important Risk Disclosure</h2>
+          <p>
+            <strong>NOT FINANCIAL ADVICE:</strong> This service is for informational and educational purposes only. 
+            We are not registered investment advisors, broker-dealers, or financial planners. 
+            No content on this site constitutes a recommendation to buy or sell securities.
+          </p>
+          <p>
+            <strong>TRADING RISKS:</strong> Trading stocks and options involves substantial risk of loss and is not suitable for all investors. 
+            Past performance is not indicative of future results. The high degree of leverage can work against you as well as for you.
+          </p>
+          <p>
+            <strong>NO GUARANTEES:</strong> While our analysis is based on historical data and AI models, 
+            there is no guarantee of profit. Markets can be unpredictable and you may lose some or all of your investment.
+          </p>
+          <p>
+            <strong>YOUR RESPONSIBILITY:</strong> You are solely responsible for your own investment decisions. 
+            Always conduct your own research and consult with a licensed financial advisor before making any investment.
+          </p>
+        </div>
+      </section>
+
       {/* Footer */}
       <footer>
         <div className="container">
           <p>&copy; 2026 Post-Earnings Drift Scanner. All rights reserved.</p>
-          <p>Not financial advice. Past performance doesn't guarantee future results.</p>
+          <p>By using this service, you acknowledge that you have read and understood our risk disclosure.</p>
+          <div className="footer-links">
+            <a href="/terms">Terms of Service</a>
+            <span>|</span>
+            <a href="/privacy">Privacy Policy</a>
+            <span>|</span>
+            <a href="mailto:support@postearningsscanner.com">Contact</a>
+          </div>
         </div>
       </footer>
     </div>

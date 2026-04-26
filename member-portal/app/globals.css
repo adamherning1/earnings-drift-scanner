@@ -218,6 +218,47 @@ footer p {
   opacity: 0.8;
 }
 
+.footer-links {
+  margin-top: 1rem;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.footer-links a {
+  color: white;
+  opacity: 0.8;
+  text-decoration: none;
+}
+
+.footer-links a:hover {
+  opacity: 1;
+}
+
+.disclaimer-section {
+  background: #fff3cd;
+  padding: 80px 20px;
+}
+
+.disclaimer-section h2 {
+  color: #856404;
+  margin-bottom: 2rem;
+}
+
+.disclaimer-section p {
+  color: #856404;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto 1.5rem;
+  text-align: left;
+}
+
+.disclaimer-section strong {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+
 @media (max-width: 768px) {
   h1 {
     font-size: 2rem;
