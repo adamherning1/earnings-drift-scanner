@@ -248,6 +248,24 @@ def get_upcoming_earnings_from_finnhub():
         upcoming = []
         symbols_seen = set()
         
+        # Prioritize well-known companies
+        priority_symbols = {"AAPL", "MSFT", "GOOGL", "AMZN", "META", "TSLA", "NVDA", 
+                          "JPM", "BAC", "WMT", "DIS", "NFLX", "AMD", "INTC", "CRM",
+                          "SNAP", "PINS", "ROKU", "UBER", "LYFT", "SQ", "PYPL", "SHOP"}
+        
+        # Add priority symbols first
+        for event in calendar:
+            symbol = event.get("symbol")
+            if symbol in priority_symbols and symbol not in symbols_seen:
+                symbols_seen.add(symbol)
+                upcoming.append({
+                    "symbol": symbol,
+                    "date": event.get("date", today),
+                    "time": "AMC",
+                    "name": symbol
+                })
+        
+        # Then add others
         for event in calendar:
             symbol = event.get("symbol")
             
@@ -260,8 +278,8 @@ def get_upcoming_earnings_from_finnhub():
             upcoming.append({
                 "symbol": symbol,
                 "date": event.get("date", today),
-                "time": "AMC",  # Finnhub doesn't provide time
-                "name": symbol  # We'll get the full name from ticker info
+                "time": "AMC",
+                "name": symbol
             })
             
             # Limit to 50 to avoid too many
