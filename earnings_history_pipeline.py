@@ -18,6 +18,7 @@ load_dotenv()
 
 # API Configuration
 MASSIVE_API_KEY = os.getenv("MASSIVE_API_KEY", "your_key_here")
+MASSIVE_BASE_URL = "https://api.massive.com"
 ALPHA_VANTAGE_KEY = os.getenv("ALPHA_VANTAGE_KEY", "demo")  # Free tier available
 
 class EarningsHistoryPipeline:
@@ -38,11 +39,72 @@ class EarningsHistoryPipeline:
         return universe
     
     def fetch_earnings_history(self, symbol: str) -> List[Dict]:
-        """Fetch historical earnings data from Alpha Vantage (free)"""
+        """Fetch historical earnings data from Massive's Benzinga endpoint"""
         earnings_events = []
         
         try:
-            # Alpha Vantage earnings endpoint
+            # Use Massive's Benzinga earnings endpoint!
+            url = f"{MASSIVE_BASE_URL}/v1/partners/benzinga/earnings"
+            params = {
+                "ticker": symbol,
+                "limit": 50000,  # Get all available history
+                "sort": "date.desc"  # Most recent first
+            }
+            headers = {
+                "Authorization": f"Bearer {self.massive_key}"
+            }
+            
+            response = requests.get(url, params=params, headers=headers, timeout=10)
+            
+            if response.status_code == 200:
+                data = response.json()
+                
+                # Parse Benzinga earnings format
+                if isinstance(data, list):
+                    earnings_list = data
+                elif isinstance(data, dict) and "data" in data:
+                    earnings_list = data["data"]
+                else:
+                    earnings_list = []
+                
+                for earning in earnings_list:
+                    # Extract date (might be in different formats)
+                    date = earning.get("date") or earning.get("report_date") or earning.get("announcement_date")
+                    
+                    # Extract EPS values
+                    actual = float(earning.get("eps", 0) or earning.get("actual_eps", 0) or earning.get("reported_eps", 0))
+                    estimate = float(earning.get("eps_est", 0) or earning.get("estimate_eps", 0) or earning.get("consensus_eps", 0))
+                    
+                    if date and (actual != 0 or estimate != 0):
+                        event = {
+                            "symbol": symbol,
+                            "date": date[:10] if date else None,  # YYYY-MM-DD format
+                            "actual_eps": actual,
+                            "estimate_eps": estimate,
+                            "surprise": actual - estimate,
+                            "surprise_pct": ((actual - estimate) / abs(estimate) * 100) if estimate != 0 else 0
+                        }
+                        earnings_events.append(event)
+            
+            elif response.status_code == 401:
+                print(f"Authentication error for {symbol} - check API key")
+            else:
+                print(f"Error {response.status_code} fetching earnings for {symbol}")
+                # Fallback to Alpha Vantage if Massive fails
+                return self.fetch_earnings_history_alphavantage(symbol)
+            
+        except Exception as e:
+            print(f"Error fetching Massive earnings for {symbol}: {e}")
+            # Fallback to Alpha Vantage
+            return self.fetch_earnings_history_alphavantage(symbol)
+            
+        return earnings_events
+    
+    def fetch_earnings_history_alphavantage(self, symbol: str) -> List[Dict]:
+        """Fallback to Alpha Vantage for earnings data"""
+        earnings_events = []
+        
+        try:
             url = "https://www.alphavantage.co/query"
             params = {
                 "function": "EARNINGS",
@@ -71,7 +133,7 @@ class EarningsHistoryPipeline:
             time.sleep(12)  # 5 requests per minute
             
         except Exception as e:
-            print(f"Error fetching earnings for {symbol}: {e}")
+            print(f"Error fetching Alpha Vantage earnings for {symbol}: {e}")
             
         return earnings_events
     
