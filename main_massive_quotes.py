@@ -293,7 +293,17 @@ def analyze_stock(symbol: str):
     # Load REAL historical drift data - DYNAMIC for ANY ticker
     try:
         import json
-        from dynamic_earnings_service import DynamicEarningsService
+        # Try multiple services for best accuracy
+        try:
+            from finnhub_earnings_service import FinnhubEarningsService
+            use_finnhub = True
+        except:
+            use_finnhub = False
+            
+        try:
+            from dynamic_earnings_service import DynamicEarningsService
+        except:
+            pass
         
         # First try static data for common tickers (faster)
         try:
@@ -309,11 +319,24 @@ def analyze_stock(symbol: str):
         else:
             # Fetch LIVE data for ANY ticker!
             print(f"Fetching LIVE data for {symbol}...")
-            service = DynamicEarningsService()
-            live_data = service.get_earnings_data(symbol)
             
-            # Format for compatibility
-            historical_data = {symbol: live_data}
+            # Try Finnhub first (more accurate)
+            if use_finnhub:
+                finnhub = FinnhubEarningsService()
+                live_data = finnhub.get_company_earnings(symbol)
+                
+                if live_data and live_data.get('total_events', 0) > 0:
+                    historical_data = {symbol: live_data}
+                else:
+                    # Fall back to dynamic service
+                    service = DynamicEarningsService()
+                    live_data = service.get_earnings_data(symbol)
+                    historical_data = {symbol: live_data}
+            else:
+                # Use dynamic service
+                service = DynamicEarningsService()
+                live_data = service.get_earnings_data(symbol)
+                historical_data = {symbol: live_data}
         
         sue_score = 2.1 if symbol in ["SNAP", "PINS"] else 1.5
         
