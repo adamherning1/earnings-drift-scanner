@@ -1,7 +1,4 @@
-from fastapi import FastAPI
+# Import the real app from main_massive_quotes.py
+from main_massive_quotes import app
 
-app = FastAPI()
-
-@app.get("/")
-def read_root():
-    return {"message": "Earnings Scanner API is live!"}
+# This file exists for compatibility but the real app is in main_massive_quotes.py
