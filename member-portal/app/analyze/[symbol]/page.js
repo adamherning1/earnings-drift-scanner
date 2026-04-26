@@ -47,7 +47,7 @@ export default function AnalyzePage() {
         <div className="analysis-grid">
           <div className="analysis-card">
             <h3>Current Price</h3>
-            <div className="price">${analysis.current_price}</div>
+            <div className="price">${Number(analysis.current_price).toFixed(2)}</div>
             <div className="market-cap">{analysis.market_cap}</div>
           </div>
 
