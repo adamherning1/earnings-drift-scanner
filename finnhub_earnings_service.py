@@ -9,7 +9,7 @@ from typing import Dict, List, Optional
 
 class FinnhubEarningsService:
     def __init__(self):
-        self.api_key = os.getenv("FINNHUB_API_KEY", "your_free_key_here")
+        self.api_key = os.getenv("FINNHUB_API_KEY", "d7n6829r01qppri3n0p0d7n6829r01qppri3n0pg")
         self.base_url = "https://finnhub.io/api/v1"
         self.cache = {}
         
