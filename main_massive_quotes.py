@@ -12,8 +12,8 @@ load_dotenv()
 
 app = FastAPI(
     title="Post-Earnings Drift Scanner",
-    description="Professional scanner with Massive real-time quotes",
-    version="12.1.0"  # Updated with dynamic SUE calculations
+    description="Professional scanner with Massive real-time quotes and Finnhub earnings",
+    version="13.0.0"  # CRITICAL: Finnhub integration fixed
 )
 
 app.add_middleware(
