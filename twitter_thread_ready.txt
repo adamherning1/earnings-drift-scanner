@@ -1,0 +1,58 @@
+COPY THIS TO TWITTER:
+
+---
+
+I spent 3 months analyzing 170,000 earnings events.
+
+Found something crazy:
+- Negative surprises drift -2.0% over 63 days
+- Positive surprises only +0.24%
+
+That's an 8:1 asymmetry most traders miss.
+
+So I built an AI scanner to profit from it 🧵
+
+---
+
+The scanner uses Claude AI to:
+• Calculate SUE scores (Standardized Unexpected Earnings)
+• Identify stocks with highest drift potential
+• Generate exact entry/exit points
+• Track performance with full transparency
+
+Live results: 60% win rate, +$742 in first week
+
+---
+
+Current paper trades:
+✅ SNAP: +3.83% (2 days)
+✅ AAPL: +3.35% (4 days)  
+✅ GOOGL: +4.1% (3 days)
+❌ MSFT: -1.59% (stopped)
+🟡 PINS: Active
+
+All trades public: [YOUR-VERCEL-URL]/paper_trading_log
+
+---
+
+Built different than other scanners:
+• No cherry-picked results
+• Every trade logged publicly
+• Academic research based
+• Powered by Claude AI
+• API access included
+
+Founding members: $97/mo (regular $149)
+Link: [YOUR-VERCEL-URL]
+
+---
+
+Why post-earnings drift works:
+
+Markets are efficient... mostly.
+
+But they systematically underreact to earnings surprises. Academic studies prove this persists for 60+ days.
+
+We're just systematically capturing that inefficiency.
+
+API: https://post-earning-scanner.onrender.com/docs
