@@ -388,17 +388,10 @@ def analyze_stock(symbol: str):
     # Load REAL historical drift data - DYNAMIC for ANY ticker
     try:
         import json
-        # Try multiple services for best accuracy
-        try:
-            from finnhub_earnings_service import FinnhubEarningsService
-            use_finnhub = True
-        except:
-            use_finnhub = False
+        # Always try Finnhub first since we have the API key
+        use_finnhub = True
             
-        try:
-            from dynamic_earnings_service import DynamicEarningsService
-        except:
-            pass
+        # Removed dynamic_earnings_service import - using direct API calls instead
         
         # First try static data for common tickers (faster)
         try:
