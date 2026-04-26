@@ -118,10 +118,10 @@ class MassiveEarningsPipeline:
         analyzed_events = []
         
         for earning in earnings_list[:20]:  # Last 20 quarters
-            # Extract earnings data (field names depend on actual response)
-            date = earning.get("date") or earning.get("report_date") or earning.get("earnings_date")
-            actual_eps = earning.get("eps_actual") or earning.get("actual_eps") or earning.get("reported_eps")
-            estimate_eps = earning.get("eps_estimate") or earning.get("consensus_eps") or earning.get("estimated_eps")
+            # Extract earnings data using CORRECT Massive/Benzinga field names
+            date = earning.get("date")  # YYYY-MM-DD format
+            actual_eps = earning.get("actual_eps")  # reported EPS
+            estimate_eps = earning.get("estimated_eps")  # analyst consensus
             
             if not all([date, actual_eps is not None, estimate_eps is not None]):
                 continue

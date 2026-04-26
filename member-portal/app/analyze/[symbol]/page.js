@@ -100,11 +100,19 @@ export default function AnalyzePage() {
             </div>
             <div className="detail-item">
               <span>Options Volume:</span>
-              <span>{analysis.analysis?.options_volume}</span>
+              <span>{analysis.analysis?.options_activity}</span>
             </div>
             <div className="detail-item">
-              <span>Short Interest:</span>
-              <span>{analysis.analysis?.short_interest}</span>
+              <span>Based On:</span>
+              <span style={{fontWeight: 'bold', color: '#27ae60'}}>{analysis.analysis?.based_on}</span>
+            </div>
+            <div className="detail-item">
+              <span>Historical Win Rate:</span>
+              <span style={{fontWeight: 'bold', color: '#1e3c72'}}>{analysis.analysis?.historical_win_rate}</span>
+            </div>
+            <div className="detail-item">
+              <span>Confidence:</span>
+              <span>{analysis.analysis?.drift_confidence}</span>
             </div>
           </div>
         </div>
