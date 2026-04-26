@@ -338,7 +338,9 @@ def analyze_stock(symbol: str):
                 live_data = service.get_earnings_data(symbol)
                 historical_data = {symbol: live_data}
         
-        sue_score = 2.1 if symbol in ["SNAP", "PINS"] else 1.5
+        # Calculate SUE score from real earnings data
+        sue_score = 1.5  # Default
+        last_surprise_pct = 0
         
         if symbol in historical_data:
             hist = historical_data[symbol]
@@ -347,7 +349,24 @@ def analyze_stock(symbol: str):
             recent_earnings_text = ""
             if "recent_earnings" in hist and hist["recent_earnings"]:
                 last_earning = hist["recent_earnings"][0]
-                recent_earnings_text = f" (Last: {last_earning['surprise_pct']:+.1f}% surprise)"
+                last_surprise_pct = last_earning.get('surprise_pct', 0)
+                recent_earnings_text = f" (Last: {last_surprise_pct:+.1f}% surprise)"
+                
+                # Calculate SUE score based on actual surprise
+                if last_surprise_pct > 20:
+                    sue_score = 2.5
+                elif last_surprise_pct > 10:
+                    sue_score = 2.1
+                elif last_surprise_pct > 5:
+                    sue_score = 1.8
+                elif last_surprise_pct < -20:
+                    sue_score = -2.5
+                elif last_surprise_pct < -10:
+                    sue_score = -2.1
+                elif last_surprise_pct < -5:
+                    sue_score = -1.8
+                else:
+                    sue_score = 0.5  # Neutral
             
             # Use real drift based on surprise direction
             if sue_score > 1.5:  # Positive surprise
@@ -399,7 +418,8 @@ def analyze_stock(symbol: str):
         "spread": data["spread"],
         "data_quality": data["source"],
         "analysis": {
-            "sue_score": sue_score,
+            "sue_score": round(sue_score, 2),
+            "last_surprise": f"{last_surprise_pct:+.1f}%" if 'last_surprise_pct' in locals() and last_surprise_pct != 0 else "N/A",
             "historical_drift": "Positive" if expected_drift > 0 else "Negative",
             "avg_post_earnings_move": f"{expected_drift}%",
             "drift_confidence": confidence,

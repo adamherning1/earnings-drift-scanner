@@ -91,6 +91,10 @@ export default function AnalyzePage() {
               <span>{analysis.analysis?.sue_score}</span>
             </div>
             <div className="detail-item">
+              <span>Last Surprise:</span>
+              <span style={{fontWeight: 'bold', color: analysis.analysis?.last_surprise?.includes('-') ? '#e74c3c' : '#27ae60'}}>{analysis.analysis?.last_surprise || 'N/A'}</span>
+            </div>
+            <div className="detail-item">
               <span>Historical Drift:</span>
               <span>{analysis.analysis?.historical_drift}</span>
             </div>
