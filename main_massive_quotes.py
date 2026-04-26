@@ -293,8 +293,14 @@ def analyze_stock(symbol: str):
     # Load REAL historical drift data
     try:
         import json
-        with open('historical_drift_data.json', 'r') as f:
-            historical_data = json.load(f)
+        # Try LEGITIMATE data first
+        try:
+            with open('LEGITIMATE_HISTORICAL_DATA.json', 'r') as f:
+                historical_data = json.load(f)
+                print("Using LEGITIMATE historical data")
+        except:
+            with open('historical_drift_data.json', 'r') as f:
+                historical_data = json.load(f)
         
         sue_score = 2.1 if symbol in ["SNAP", "PINS"] else 1.5
         
