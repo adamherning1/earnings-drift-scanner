@@ -29,26 +29,37 @@ cache = {}
 CACHE_DURATION = 300  # 5 minutes
 
 def get_massive_quote(symbol: str):
-    """Get quote from Massive API"""
+    """Get quote from Massive API (formerly Polygon)"""
     try:
-        url = "https://api.massive.io/v1/stock/quote"
-        headers = {
-            "Authorization": f"Bearer {MASSIVE_API_KEY}",
-            "Content-Type": "application/json"
-        }
-        params = {"ticker": symbol}
+        # Massive uses the same endpoints as Polygon
+        url = f"https://api.polygon.io/v2/aggs/ticker/{symbol}/prev"
+        params = {"apiKey": MASSIVE_API_KEY}
         
-        response = requests.get(url, headers=headers, params=params, timeout=10)
+        response = requests.get(url, params=params, timeout=10)
         
         if response.status_code == 200:
             data = response.json()
-            if data.get("success"):
-                quote = data.get("data", {})
+            if data.get("status") == "OK" and data.get("results"):
+                result = data["results"][0]
+                prev_close = result['c']
+                
+                # Get current price using real-time endpoint
+                rt_url = f"https://api.polygon.io/v2/last/trade/{symbol}"
+                rt_response = requests.get(rt_url, params=params)
+                rt_data = rt_response.json()
+                
+                if rt_data.get("status") == "OK" and rt_data.get("results"):
+                    current_price = rt_data["results"]["p"]
+                else:
+                    current_price = prev_close
+                
+                change_percent = ((current_price - prev_close) / prev_close) * 100 if prev_close else 0
+                
                 return {
-                    "price": float(quote.get("price", 0)),
-                    "change_percent": float(quote.get("change_percent", 0)),
-                    "volume": int(quote.get("volume", 0)),
-                    "name": quote.get("name", symbol)
+                    "price": float(current_price),
+                    "change_percent": change_percent,
+                    "volume": int(result.get('v', 0)),
+                    "name": symbol
                 }
         else:
             print(f"Massive API error: {response.status_code} - {response.text}")
