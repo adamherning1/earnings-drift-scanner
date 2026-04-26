@@ -481,29 +481,33 @@ def analyze_stock(symbol: str):
                 elif last_surprise_pct < -5:
                     sue_score = -1.8
                 else:
-                    sue_score = 0.5  # Neutral
+                    sue_score = 1.5  # Neutral
             
             # Use real drift based on surprise direction
             if sue_score > 1.5:  # Positive surprise
                 drift_data = hist["positive_surprise_drift"]
                 expected_drift = drift_data["5_day"]
                 confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM" if drift_data["sample_size"] > 5 else "LOW"
-                based_on = f"{hist.get('events_analyzed', 0)} analyzed earnings events{recent_earnings_text}"
+                based_on = f"{hist.get('total_events', hist.get('events_analyzed', 0))} analyzed earnings events{recent_earnings_text}"
                 win_rate = drift_data["win_rate"]
             elif sue_score < -1.5:  # Negative surprise
                 drift_data = hist["negative_surprise_drift"]
                 expected_drift = drift_data["5_day"]
                 confidence = "HIGH" if drift_data["sample_size"] > 10 else "MEDIUM" if drift_data["sample_size"] > 5 else "LOW"
-                based_on = f"{hist.get('events_analyzed', 0)} analyzed earnings events{recent_earnings_text}"
+                based_on = f"{hist.get('total_events', hist.get('events_analyzed', 0))} analyzed earnings events{recent_earnings_text}"
                 win_rate = drift_data["win_rate"]
             else:
-                expected_drift = 1.5
+                expected_drift = 0.9  # Small neutral drift
                 confidence = "LOW"
-                based_on = "Neutral surprise - limited edge"
+                events_count = hist.get('total_events', hist.get('events_analyzed', 0))
+                if events_count > 0:
+                    based_on = f"{events_count} analyzed earnings events - neutral surprise{recent_earnings_text}"
+                else:
+                    based_on = "Neutral surprise - limited edge"
                 win_rate = 50
             
-            # If no real earnings data, generate varied scores based on symbol
-            if not hist.get('recent_earnings'):
+            # Only use hash-based scores if we have NO earnings data at all
+            if not hist.get('recent_earnings') or len(hist.get('recent_earnings', [])) == 0:
                 hash_val = sum(ord(c) for c in symbol)
                 sue_score = 0.5 + (hash_val % 40) / 10  # Range: 0.5 to 4.5
                 last_surprise_pct = (sue_score - 1.5) * 10  # Convert to %
