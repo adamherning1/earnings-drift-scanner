@@ -1,9 +1,5 @@
 {
   "name": "post-earnings-scanner",
   "version": "1.0.0",
-  "description": "Post-Earnings Drift Scanner Landing Page",
-  "scripts": {
-    "dev": "echo 'Static site - no dev server needed'",
-    "build": "echo 'Static site - no build needed'"
-  }
+  "description": "Post-Earnings Drift Scanner Landing Page"
 }

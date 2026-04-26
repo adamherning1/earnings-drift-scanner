@@ -1,0 +1,8 @@
+*.py
+requirements.txt
+api/
+__pycache__/
+.env
+*.pyc
+venv/
+.python-version
