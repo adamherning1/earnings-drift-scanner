@@ -17,7 +17,7 @@ export default function AnalyzePage() {
 
   const fetchAnalysis = async () => {
     try {
-      const res = await fetch(`https://post-earning-scanner.onrender.com/api/analyze/${params.symbol}`);
+      const res = await fetch(`https://post-earnings-scanner-v2.onrender.com/api/analyze/${params.symbol}`);
       const data = await res.json();
       setAnalysis(data);
       setLoading(false);

@@ -13,7 +13,7 @@ export default function EarningsCalendarPage() {
 
   const fetchUpcomingEarnings = async () => {
     try {
-      const res = await fetch('https://post-earning-scanner.onrender.com/api/upcoming-earnings');
+      const res = await fetch('https://post-earnings-scanner-v2.onrender.com/api/upcoming-earnings');
       const data = await res.json();
       setEarnings(data.earnings || []);
       setLoading(false);

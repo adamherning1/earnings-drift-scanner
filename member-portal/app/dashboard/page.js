@@ -21,7 +21,7 @@ export default function Dashboard() {
 
   const fetchOpportunities = async () => {
     try {
-      const res = await fetch('https://post-earning-scanner.onrender.com/api/opportunities');
+      const res = await fetch('https://post-earnings-scanner-v2.onrender.com/api/opportunities');
       const data = await res.json();
       setOpportunities(data.opportunities || []);
       setLoading(false);
@@ -33,7 +33,7 @@ export default function Dashboard() {
 
   const fetchUpcomingEarnings = async () => {
     try {
-      const res = await fetch('https://post-earning-scanner.onrender.com/api/upcoming-earnings');
+      const res = await fetch('https://post-earnings-scanner-v2.onrender.com/api/upcoming-earnings');
       const data = await res.json();
       setUpcomingEarnings(data.earnings || []);
     } catch (error) {
