@@ -626,3 +626,12 @@ def health_check():
         "cache_entries": len(cache),
         "timestamp": datetime.now().isoformat()
     }
+
+@app.get("/api/version")
+def get_version():
+    return {
+        "version": "13.0.0",
+        "finnhub_enabled": True,
+        "deployment_test": "If you see this, the new code is deployed!",
+        "timestamp": datetime.now().isoformat()
+    }
