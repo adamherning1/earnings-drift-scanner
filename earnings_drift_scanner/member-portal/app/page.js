@@ -153,14 +153,14 @@ export default function HomePage() {
       {/* Footer */}
       <footer>
         <div className="container">
-          <p>&copy; 2026 Post-Earnings Drift Scanner. All rights reserved.</p>
+          <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
           <p>By using this service, you acknowledge that you have read and understood our risk disclosure.</p>
           <div className="footer-links">
             <a href="/terms">Terms of Service</a>
             <span>|</span>
             <a href="/privacy">Privacy Policy</a>
             <span>|</span>
-            <a href="mailto:support@postearningsscanner.com">Contact</a>
+            <a href="mailto:support@driftanalytics.io">Contact</a>
           </div>
         </div>
       </footer>
