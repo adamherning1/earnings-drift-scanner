@@ -400,16 +400,12 @@ def analyze_stock(symbol: str):
         except:
             static_data = {}
         
-        # Check if we have static data for this symbol
-        if symbol in static_data:
-            historical_data = static_data
-            print(f"Using cached data for {symbol}")
-        else:
-            # Fetch LIVE data for ANY ticker!
-            print(f"Fetching LIVE data for {symbol}...")
-            
-            # Try Finnhub API directly
-            if use_finnhub:
+        # Always try Finnhub first for real-time data
+        print(f"Fetching LIVE data for {symbol}...")
+        historical_data = {}
+        
+        # Try Finnhub API directly
+        if use_finnhub:
                 api_key = os.getenv("FINNHUB_API_KEY", "d7n6829r01qppri3n0p0d7n6829r01qppri3n0pg")
                 url = f"https://finnhub.io/api/v1/stock/earnings?symbol={symbol}&token={api_key}"
                 
