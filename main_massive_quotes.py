@@ -635,3 +635,40 @@ def get_version():
         "deployment_test": "If you see this, the new code is deployed!",
         "timestamp": datetime.now().isoformat()
     }
+
+@app.get("/api/debug/finnhub")
+def debug_finnhub():
+    """Debug Finnhub API connection"""
+    import os
+    api_key = os.getenv("FINNHUB_API_KEY")
+    has_key = bool(api_key)
+    key_length = len(api_key) if api_key else 0
+    
+    # Try to call Finnhub
+    test_result = "Not tested"
+    error_msg = None
+    earnings_data = None
+    
+    if api_key:
+        try:
+            url = f"https://finnhub.io/api/v1/stock/earnings?symbol=AAPL&token={api_key}"
+            response = requests.get(url, timeout=10)
+            test_result = f"Status: {response.status_code}"
+            
+            if response.status_code == 200:
+                earnings_data = response.json()
+                test_result = f"Success! Got {len(earnings_data)} earnings events"
+            else:
+                error_msg = response.text[:200]
+        except Exception as e:
+            test_result = "Failed"
+            error_msg = str(e)
+    
+    return {
+        "has_finnhub_key": has_key,
+        "key_length": key_length,
+        "test_result": test_result,
+        "error": error_msg,
+        "earnings_count": len(earnings_data) if earnings_data else 0,
+        "first_earning": earnings_data[0] if earnings_data else None
+    }
