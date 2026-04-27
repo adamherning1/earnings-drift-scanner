@@ -438,9 +438,6 @@ def analyze_stock(symbol: str):
                         historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
                 except:
                     historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
-            else:
-                # Simple fallback
-                historical_data = {symbol: {'total_events': 0, 'recent_earnings': []}}
         
         # Calculate SUE score from real earnings data
         sue_score = 1.5  # Default
