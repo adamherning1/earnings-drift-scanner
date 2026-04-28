@@ -69,7 +69,7 @@ def get_massive_last_quote(symbol: str) -> Optional[Dict]:
     
     return None
 
-def get_massive_quote(symbol: str) -> Optional[Dict]:
+def get_finnhub_quote(symbol: str) -> Optional[Dict]:
     """Get real-time quote from Massive API"""
     cache_key = f"quote:{symbol}"
     now = datetime.now()
