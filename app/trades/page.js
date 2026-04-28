@@ -130,6 +130,7 @@ export default function TradesPage() {
         <div className="container">
           <h1>Paper Trading History</h1>
           <p className="disclaimer">All trades shown are paper trades for demonstration purposes only.</p>
+          <p className="disclaimer" style={{color: '#ff9800', marginTop: '0.5rem'}}>Note: Stock prices shown are examples. Connect Massive API for real-time quotes.</p>
 
           <div className="stats-grid">
             <div className="stat-card">
