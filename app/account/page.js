@@ -92,7 +92,7 @@ export default function AccountPage() {
             <div className="preferences">
               <label className="checkbox-label">
                 <input type="checkbox" defaultChecked />
-                <span>Email alerts for high-confidence opportunities (SUE > 2.0)</span>
+                <span>Email alerts for high-confidence opportunities (SUE &gt; 2.0)</span>
               </label>
               <label className="checkbox-label">
                 <input type="checkbox" defaultChecked />
