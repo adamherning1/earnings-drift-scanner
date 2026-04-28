@@ -8,6 +8,10 @@ import finnhub
 import os
 from typing import List, Dict, Optional
 import json
+try:
+    from recent_earnings_data import RECENT_EARNINGS
+except ImportError:
+    RECENT_EARNINGS = []
 
 # Initialize Finnhub client
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "ct6b609r01qoukbmfpugct6b609r01qoukbmfpv0")
@@ -187,11 +191,35 @@ class OpportunityScanner:
         else:
             return "Mid Cap"
             
-    def scan_opportunities(self, max_days_old: int = 5) -> List[Dict]:
+    def scan_opportunities(self, max_days_old: int = 10) -> List[Dict]:
         """Main scanning function - find all recent earnings with drift potential"""
         opportunities = []
         
-        print(f"Scanning {len(self.watchlist)} symbols for post-earnings opportunities...")
+        # First, add known recent earnings
+        for earnings in RECENT_EARNINGS:
+            days_old = (datetime.now() - datetime.strptime(earnings['date'], "%Y-%m-%d")).days
+            if days_old <= max_days_old:
+                # Calculate SUE from the known surprise
+                historical_surprises = self.get_historical_surprises(earnings['symbol'])
+                sue_score = self.calculate_sue_score(
+                    earnings['actual_eps'],
+                    earnings['estimate_eps'],
+                    historical_surprises
+                )
+                
+                # Score this opportunity
+                opportunity = self.score_opportunity(
+                    earnings['symbol'],
+                    {
+                        'date': earnings['date'],
+                        'actual_eps': earnings['actual_eps'],
+                        'estimate_eps': earnings['estimate_eps']
+                    }
+                )
+                opportunities.append(opportunity)
+        
+        # Then scan watchlist for any we missed
+        print(f"Scanning {len(self.watchlist)} symbols for additional opportunities...")
         
         for symbol in self.watchlist:
             try:

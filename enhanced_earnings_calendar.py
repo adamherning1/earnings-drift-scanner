@@ -9,31 +9,31 @@ import os
 
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "ct6b609r01qoukbmfpugct6b609r01qoukbmfpv0")
 
-# Known upcoming earnings for late April/early May 2026
+# Known upcoming earnings for May 2026
 # This would normally come from a database or paid API
 KNOWN_EARNINGS = [
-    # This week
-    {"date": "2026-04-28", "symbol": "SNAP", "time": "AMC", "company": "Snap Inc", "epsEstimate": 0.15},
-    {"date": "2026-04-28", "symbol": "ENB", "time": "BMO", "company": "Enbridge", "epsEstimate": 0.59},
-    {"date": "2026-04-29", "symbol": "PINS", "time": "AMC", "company": "Pinterest", "epsEstimate": 0.31},
-    {"date": "2026-04-29", "symbol": "AMD", "time": "AMC", "company": "AMD", "epsEstimate": 0.92},
-    {"date": "2026-04-29", "symbol": "SBUX", "time": "AMC", "company": "Starbucks", "epsEstimate": 0.79},
-    {"date": "2026-04-30", "symbol": "PYPL", "time": "AMC", "company": "PayPal", "epsEstimate": 1.48},
-    {"date": "2026-04-30", "symbol": "SPOT", "time": "BMO", "company": "Spotify", "epsEstimate": 0.84},
-    {"date": "2026-05-01", "symbol": "SQ", "time": "AMC", "company": "Block (Square)", "epsEstimate": 0.52},
-    {"date": "2026-05-01", "symbol": "ABNB", "time": "AMC", "company": "Airbnb", "epsEstimate": 0.75},
-    {"date": "2026-05-01", "symbol": "DASH", "time": "AMC", "company": "DoorDash", "epsEstimate": -0.12},
-    {"date": "2026-05-02", "symbol": "AAPL", "time": "AMC", "company": "Apple", "epsEstimate": 1.52},
-    {"date": "2026-05-02", "symbol": "AMZN", "time": "AMC", "company": "Amazon", "epsEstimate": 0.84},
+    # This week (April 28 - May 2)
+    {"date": "2026-04-29", "symbol": "MSFT", "time": "AMC", "company": "Microsoft", "epsEstimate": 2.94},
+    {"date": "2026-04-29", "symbol": "GOOGL", "time": "AMC", "company": "Alphabet", "epsEstimate": 1.51},
+    {"date": "2026-04-30", "symbol": "META", "time": "AMC", "company": "Meta Platforms", "epsEstimate": 4.32},
+    {"date": "2026-04-30", "symbol": "AMD", "time": "AMC", "company": "AMD", "epsEstimate": 0.92},
+    {"date": "2026-05-01", "symbol": "AMZN", "time": "AMC", "company": "Amazon", "epsEstimate": 0.84},
+    {"date": "2026-05-01", "symbol": "AAPL", "time": "AMC", "company": "Apple", "epsEstimate": 1.52},
+    {"date": "2026-05-02", "symbol": "COIN", "time": "AMC", "company": "Coinbase", "epsEstimate": 1.95},
+    {"date": "2026-05-02", "symbol": "DKNG", "time": "BMO", "company": "DraftKings", "epsEstimate": -0.15},
     
-    # Next week  
-    {"date": "2026-05-05", "symbol": "DIS", "time": "AMC", "company": "Disney", "epsEstimate": 1.11},
+    # Next week (May 5-9)
+    {"date": "2026-05-05", "symbol": "PYPL", "time": "AMC", "company": "PayPal", "epsEstimate": 1.48},
+    {"date": "2026-05-05", "symbol": "PINS", "time": "AMC", "company": "Pinterest", "epsEstimate": 0.31},
+    {"date": "2026-05-06", "symbol": "SNAP", "time": "AMC", "company": "Snap Inc", "epsEstimate": 0.15},
     {"date": "2026-05-06", "symbol": "UBER", "time": "BMO", "company": "Uber", "epsEstimate": 0.21},
-    {"date": "2026-05-06", "symbol": "NET", "time": "AMC", "company": "Cloudflare", "epsEstimate": 0.12},
-    {"date": "2026-05-07", "symbol": "RBLX", "time": "AMC", "company": "Roblox", "epsEstimate": -0.29},
-    {"date": "2026-05-07", "symbol": "PLTR", "time": "BMO", "company": "Palantir", "epsEstimate": 0.08},
-    {"date": "2026-05-08", "symbol": "COIN", "time": "AMC", "company": "Coinbase", "epsEstimate": 0.95},
-    {"date": "2026-05-08", "symbol": "ARM", "time": "AMC", "company": "Arm Holdings", "epsEstimate": 0.26},
+    
+    {"date": "2026-05-07", "symbol": "DIS", "time": "AMC", "company": "Disney", "epsEstimate": 1.11},
+    {"date": "2026-05-07", "symbol": "NET", "time": "AMC", "company": "Cloudflare", "epsEstimate": 0.12},
+    {"date": "2026-05-08", "symbol": "RBLX", "time": "AMC", "company": "Roblox", "epsEstimate": -0.29},
+    {"date": "2026-05-08", "symbol": "PLTR", "time": "BMO", "company": "Palantir", "epsEstimate": 0.08},
+    {"date": "2026-05-09", "symbol": "SQ", "time": "AMC", "company": "Block (Square)", "epsEstimate": 0.52},
+    {"date": "2026-05-09", "symbol": "ABNB", "time": "AMC", "company": "Airbnb", "epsEstimate": 0.75},
 ]
 
 def get_enhanced_upcoming_earnings():
