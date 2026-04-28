@@ -45,13 +45,14 @@ export default function Dashboard() {
     <div className="dashboard">
       <nav className="nav">
         <div className="container nav-content">
-          <h3>Post-Earnings Scanner</h3>
+          <h3>Drift Analytics</h3>
           <div className="nav-links">
             <a href="/dashboard" className="active">Dashboard</a>
             <a href="/earnings-calendar">Calendar</a>
             <a href="/trades">Trade History</a>
             <a href="/api-docs">API Docs</a>
             <a href="/account">Account</a>
+            <a href="/membership" className="cta-nav">Upgrade</a>
             <a href="/logout">Logout</a>
           </div>
         </div>

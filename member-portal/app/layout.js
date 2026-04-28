@@ -1,6 +1,6 @@
 export const metadata = {
-  title: 'Post-Earnings Drift Scanner - Member Portal',
-  description: 'AI-powered trading signals based on post-earnings drift',
+  title: 'Drift Analytics - AI-Powered Earnings Analysis',
+  description: 'Professional post-earnings drift scanner powered by AI. Track earnings surprises and market reactions.',
 }
 
 export default function RootLayout({ children }) {
