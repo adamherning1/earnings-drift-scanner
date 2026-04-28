@@ -67,32 +67,32 @@ export default function AccountPage() {
           </div>
 
           {hasApiAccess && (
-          <div className="account-card">
-            <h2>API Usage</h2>
-            <div className="account-info">
-              <div className="info-row">
-                <span className="label">API Calls This Month:</span>
-                <span className="value">{user.apiCalls} / {user.apiLimit}</span>
+            <div className="account-card">
+              <h2>API Usage</h2>
+              <div className="account-info">
+                <div className="info-row">
+                  <span className="label">API Calls This Month:</span>
+                  <span className="value">{user.apiCalls} / {user.apiLimit}</span>
+                </div>
+                <div className="usage-bar">
+                  <div className="usage-fill" style={{width: `${(user.apiCalls / user.apiLimit) * 100}%`}}></div>
+                </div>
+                <p className="usage-note">Resets on {user.nextBilling}</p>
               </div>
-              <div className="usage-bar">
-                <div className="usage-fill" style={{width: `${(user.apiCalls / user.apiLimit) * 100}%`}}></div>
-              </div>
-              <p className="usage-note">Resets on {user.nextBilling}</p>
             </div>
           )}
 
           {hasApiAccess && (
-          <div className="account-card">
-            <h2>API Key</h2>
-            <div className="api-key-section">
-              <code className="api-key">sk_live_51N..............................</code>
-              <button className="btn-primary">Regenerate Key</button>
+            <div className="account-card">
+              <h2>API Key</h2>
+              <div className="api-key-section">
+                <code className="api-key">sk_live_51N..............................</code>
+                <button className="btn-primary">Regenerate Key</button>
+              </div>
+              <p className="disclaimer">Keep your API key secure. Do not share it publicly.</p>
             </div>
-            <p className="disclaimer">Keep your API key secure. Do not share it publicly.</p>
-          </div>
           )}
 
-          
           {!hasApiAccess && (
             <div className="account-card upgrade-prompt">
               <h2>🚀 Upgrade to Professional</h2>
@@ -107,7 +107,8 @@ export default function AccountPage() {
             </div>
           )}
 
-          
+          <div className="account-card">
+            <h2>Notification Preferences</h2>
             <div className="preferences">
               <label className="checkbox-label">
                 <input type="checkbox" defaultChecked />
@@ -125,9 +126,18 @@ export default function AccountPage() {
             <button className="btn-primary">Save Preferences</button>
           </div>
 
-          <p className="disclaimer">
-            Questions? Contact support@driftanalytics.io
-          </p>
+          <footer className="legal-footer">
+            <div className="footer-content">
+              <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
+              <div className="footer-links">
+                <a href="/terms">Terms of Service</a>
+                <span className="separator">|</span>
+                <a href="/privacy">Privacy Policy</a>
+                <span className="separator">|</span>
+                <a href="/membership">Pricing</a>
+              </div>
+            </div>
+          </footer>
         </div>
       </div>
     </div>
