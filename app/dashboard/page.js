@@ -476,6 +476,19 @@ export default function Dashboard() {
           margin: 0;
         }
       `}</style>
-    </div>
+    
+          <footer className="legal-footer">
+            <div className="footer-content">
+              <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
+              <div className="footer-links">
+                <a href="/terms">Terms of Service</a>
+                <span className="separator">|</span>
+                <a href="/privacy">Privacy Policy</a>
+                <span className="separator">|</span>
+                <a href="/membership">Pricing</a>
+              </div>
+            </div>
+          </footer>
+        </div>
   );
 }

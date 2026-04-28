@@ -135,6 +135,7 @@ export default function MembershipPage() {
           <div className="guarantee-section">
             <h3>30-Day Money Back Guarantee</h3>
             <p>Not satisfied? Get a full refund within 30 days. No questions asked.</p>
+            <p className="cancel-policy">After 30 days, cancel anytime and keep access until the end of your billing period.</p>
           </div>
 
           <div className="faq-section">
@@ -156,6 +157,14 @@ export default function MembershipPage() {
                 <h4>Is there a setup fee?</h4>
                 <p>No setup fees. Start with a free trial and cancel anytime if it's not for you.</p>
               </div>
+              <div className="faq-item">
+                <h4>What happens if I cancel?</h4>
+                <p>Within the first 30 days: Full refund, immediate cancellation. After 30 days: You keep access until the end of your current billing period. No future charges.</p>
+              </div>
+              <div className="faq-item">
+                <h4>Can I reactivate later?</h4>
+                <p>Yes! Your account data is saved for 90 days after cancellation. Just log back in and resubscribe to pick up where you left off.</p>
+              </div>
             </div>
           </div>
 
@@ -165,6 +174,19 @@ export default function MembershipPage() {
           </p>
         </div>
       </div>
-    </div>
+    
+          <footer className="legal-footer">
+            <div className="footer-content">
+              <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
+              <div className="footer-links">
+                <a href="/terms">Terms of Service</a>
+                <span className="separator">|</span>
+                <a href="/privacy">Privacy Policy</a>
+                <span className="separator">|</span>
+                <a href="/membership">Pricing</a>
+              </div>
+            </div>
+          </footer>
+        </div>
   );
 }
