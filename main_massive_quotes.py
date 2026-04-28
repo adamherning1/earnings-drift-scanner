@@ -7,6 +7,7 @@ from dotenv import load_dotenv
 from typing import Dict, List, Optional
 import time
 import json
+from dynamic_opportunities import get_dynamic_opportunities
 
 load_dotenv()
 
@@ -306,25 +307,36 @@ def analyze_stock(symbol: str):
 
 @app.get("/api/opportunities")
 def get_opportunities():
-    symbols = ["SNAP", "PINS", "DKNG", "ROKU", "AAPL", "MSFT"]
-    opportunities = []
-    
-    for symbol in symbols:
-        data = get_stock_data(symbol)
+    """Get dynamic opportunities based on real earnings surprises"""
+    try:
+        # Get dynamic opportunities from our scanner
+        dynamic_data = get_dynamic_opportunities()
         
-        if data["price"] > 0:
-            # Calculate opportunity score
-            liquidity_score = 1 - (data["spread"] / data["price"]) if data["price"] > 0 else 0
+        # If we have real opportunities, return them
+        if dynamic_data["opportunities"]:
+            return dynamic_data
             
-            opportunity = {
-                "symbol": symbol,
-                "price": data["price"],
-                "bid_ask_spread": f"${data['spread']:.2f}",
-                "liquidity_score": f"{liquidity_score * 100:.1f}%",
-                "signal": "POST_EARNINGS" if symbol in ["SNAP", "PINS"] else "MONITORING",
-                "confidence": "HIGH" if liquidity_score > 0.95 else "MEDIUM",
-                "data_source": data["source"]
-            }
+        # Otherwise fall back to some default monitoring stocks
+        symbols = ["SNAP", "PINS", "DKNG", "ROKU", "AAPL", "MSFT"]
+        opportunities = []
+        
+        for symbol in symbols:
+            data = get_stock_data(symbol)
+            
+            if data["price"] > 0:
+                # Calculate opportunity score
+                liquidity_score = 1 - (data["spread"] / data["price"]) if data["price"] > 0 else 0
+                
+                opportunity = {
+                    "symbol": symbol,
+                    "price": data["price"],
+                    "bid_ask_spread": f"${data['spread']:.2f}",
+                    "liquidity_score": f"{liquidity_score * 100:.1f}%",
+                    "signal": "MONITORING",
+                    "confidence": "MEDIUM",
+                    "data_source": data["source"],
+                    "ai_insight": f"{symbol} on watchlist for next earnings"
+                }
             opportunities.append(opportunity)
     
     return {
