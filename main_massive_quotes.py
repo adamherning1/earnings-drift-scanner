@@ -8,6 +8,7 @@ from typing import Dict, List, Optional
 import time
 import json
 from dynamic_opportunities import get_dynamic_opportunities
+from enhanced_earnings_calendar import get_enhanced_upcoming_earnings
 
 load_dotenv()
 
@@ -175,14 +176,8 @@ def read_root():
 
 @app.get("/api/upcoming-earnings")
 def get_upcoming_earnings():
-    earnings = get_upcoming_earnings_from_finnhub()
-    
-    # Add current prices to each earning
-    for earning in earnings:
-        if "symbol" in earning:
-            data = get_stock_data(earning["symbol"])
-            earning["current_price"] = data["price"]
-            earning["price_source"] = data["source"]
+    # Use enhanced calendar that combines multiple sources
+    earnings = get_enhanced_upcoming_earnings()
     
     return {
         "count": len(earnings),
