@@ -352,13 +352,21 @@ def get_opportunities():
                     "data_source": data["source"],
                     "ai_insight": f"{symbol} on watchlist for next earnings"
                 }
-            opportunities.append(opportunity)
-    
-    return {
-        "count": len(opportunities),
-        "opportunities": opportunities,
-        "scan_time": datetime.now().isoformat()
-    }
+                opportunities.append(opportunity)
+        
+        return {
+            "count": len(opportunities),
+            "opportunities": opportunities,
+            "scan_time": datetime.now().isoformat()
+        }
+    except Exception as e:
+        print(f"Error in get_opportunities: {e}")
+        return {
+            "count": 0,
+            "opportunities": [],
+            "scan_time": datetime.now().isoformat(),
+            "error": str(e)
+        }
 
 @app.get("/health")
 def health_check():
