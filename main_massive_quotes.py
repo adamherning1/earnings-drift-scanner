@@ -7,8 +7,19 @@ from dotenv import load_dotenv
 from typing import Dict, List, Optional
 import time
 import json
-from dynamic_opportunities import get_dynamic_opportunities
-from enhanced_earnings_calendar import get_enhanced_upcoming_earnings
+# Import error handling for new modules
+try:
+    from dynamic_opportunities import get_dynamic_opportunities
+except ImportError:
+    print("Warning: dynamic_opportunities module not found, using fallback")
+    def get_dynamic_opportunities():
+        return {"opportunities": [], "count": 0}
+
+try:
+    from enhanced_earnings_calendar import get_enhanced_upcoming_earnings
+except ImportError:
+    print("Warning: enhanced_earnings_calendar module not found, using fallback")
+    get_enhanced_upcoming_earnings = None
 
 load_dotenv()
 
@@ -176,8 +187,17 @@ def read_root():
 
 @app.get("/api/upcoming-earnings")
 def get_upcoming_earnings():
-    # Use enhanced calendar that combines multiple sources
-    earnings = get_enhanced_upcoming_earnings()
+    # Use enhanced calendar if available, otherwise fall back
+    if get_enhanced_upcoming_earnings:
+        earnings = get_enhanced_upcoming_earnings()
+    else:
+        earnings = get_upcoming_earnings_from_finnhub()
+        # Add current prices to each earning
+        for earning in earnings:
+            if "symbol" in earning:
+                data = get_stock_data(earning["symbol"])
+                earning["current_price"] = data["price"]
+                earning["price_source"] = data["source"]
     
     return {
         "count": len(earnings),

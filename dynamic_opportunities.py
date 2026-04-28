@@ -11,7 +11,11 @@ import json
 
 # Initialize Finnhub client
 FINNHUB_API_KEY = os.getenv("FINNHUB_API_KEY", "ct6b609r01qoukbmfpugct6b609r01qoukbmfpv0")
-finnhub_client = finnhub.Client(api_key=FINNHUB_API_KEY)
+try:
+    finnhub_client = finnhub.Client(api_key=FINNHUB_API_KEY)
+except Exception as e:
+    print(f"Error initializing Finnhub client: {e}")
+    finnhub_client = None
 
 class OpportunityScanner:
     def __init__(self):
