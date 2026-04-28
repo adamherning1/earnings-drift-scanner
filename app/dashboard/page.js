@@ -50,7 +50,6 @@ export default function Dashboard() {
             <a href="/dashboard" className="active">Dashboard</a>
             <a href="/earnings-calendar">Calendar</a>
             <a href="/trades">Trade History</a>
-            <a href="/api-docs">API Docs</a>
             <a href="/account">Account</a>
             <a href="/membership" className="cta-nav">Upgrade</a>
             <a href="/logout">Logout</a>

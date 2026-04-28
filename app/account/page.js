@@ -14,6 +14,9 @@ export default function AccountPage() {
     apiLimit: 1000
   });
 
+  // Check if user plan includes API access
+  const hasApiAccess = user.plan === 'Professional' || user.plan === 'Enterprise';
+
   return (
     <div className="dashboard">
       <nav className="nav">
@@ -23,7 +26,6 @@ export default function AccountPage() {
             <a href="/dashboard">Dashboard</a>
             <a href="/earnings-calendar">Calendar</a>
             <a href="/trades">Trade History</a>
-            <a href="/api-docs">API Docs</a>
             <a href="/account" className="active">Account</a>
             <a href="/logout">Logout</a>
           </div>
@@ -64,6 +66,7 @@ export default function AccountPage() {
             </div>
           </div>
 
+          {hasApiAccess && (
           <div className="account-card">
             <h2>API Usage</h2>
             <div className="account-info">
@@ -76,8 +79,9 @@ export default function AccountPage() {
               </div>
               <p className="usage-note">Resets on {user.nextBilling}</p>
             </div>
-          </div>
+          )}
 
+          {hasApiAccess && (
           <div className="account-card">
             <h2>API Key</h2>
             <div className="api-key-section">
@@ -86,9 +90,24 @@ export default function AccountPage() {
             </div>
             <p className="disclaimer">Keep your API key secure. Do not share it publicly.</p>
           </div>
+          )}
 
-          <div className="account-card">
-            <h2>Notification Preferences</h2>
+          
+          {!hasApiAccess && (
+            <div className="account-card upgrade-prompt">
+              <h2>🚀 Upgrade to Professional</h2>
+              <p>Unlock API access and integrate Drift Analytics into your trading systems.</p>
+              <ul className="upgrade-benefits">
+                <li>• 10,000 API calls per month</li>
+                <li>• Real-time webhook notifications</li>
+                <li>• Historical data export</li>
+                <li>• Priority support</li>
+              </ul>
+              <a href="/membership" className="btn-primary">View Upgrade Options</a>
+            </div>
+          )}
+
+          
             <div className="preferences">
               <label className="checkbox-label">
                 <input type="checkbox" defaultChecked />

@@ -119,7 +119,6 @@ export default function TradesPage() {
             <a href="/dashboard">Dashboard</a>
             <a href="/earnings-calendar">Calendar</a>
             <a href="/trades" className="active">Trade History</a>
-            <a href="/api-docs">API Docs</a>
             <a href="/account">Account</a>
             <a href="/logout">Logout</a>
           </div>
