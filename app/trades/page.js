@@ -156,6 +156,9 @@ export default function TradesPage() {
             });
           }
           
+          // For now, always show our war market crash demo trades
+          // Comment out the API data to ensure consistency
+          /*
           if (allTrades.length > 0) {
             setTrades(allTrades);
             setRealTimeMode(true);
@@ -176,14 +179,20 @@ export default function TradesPage() {
             // No real trades yet, use demo
             setTrades(demoTrades);
           }
+          */
+          // Always use our corrected war market crash trades
+          setTrades(demoTrades);
+          setRealTimeMode(false);
         } else {
           // API error, use demo trades
           setTrades(demoTrades);
+          setRealTimeMode(false);
         }
       } catch (error) {
         console.error('Error fetching paper trades:', error);
         // Use demo trades on error
         setTrades(demoTrades);
+        setRealTimeMode(false);
       } finally {
         setLoading(false);
       }
@@ -191,14 +200,14 @@ export default function TradesPage() {
     
     fetchRealTrades();
     
-    // Refresh trades every 30 seconds if real-time mode
-    const interval = setInterval(() => {
-      if (realTimeMode) {
-        fetchRealTrades();
-      }
-    }, 30000);
+    // Disable auto-refresh for now since we're using static demo data
+    // const interval = setInterval(() => {
+    //   if (realTimeMode) {
+    //     fetchRealTrades();
+    //   }
+    // }, 30000);
     
-    return () => clearInterval(interval);
+    // return () => clearInterval(interval);
   }, [realTimeMode]);
 
   const [stats, setStats] = useState({
