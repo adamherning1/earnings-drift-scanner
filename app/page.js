@@ -2,181 +2,165 @@
 
 import { useState } from 'react';
 import './globals.css';
+import './landing.css';
 
-export default function HomePage() {
-  const [email, setEmail] = useState('');
-
-  const handleSubscribe = async () => {
-    // Redirect to membership page
-    window.location.href = '/membership';
-  };
-
+export default function LandingPage() {
   return (
-    <div className="min-h-screen bg-gradient">
-      {/* Hero Section */}
-      <div className="hero">
-        <div className="container">
-          <h1>Stop Guessing. Start Profiting.</h1>
-          <p className="subtitle">AI-Powered Post-Earnings Drift Scanner</p>
-          <p className="sub-subtitle">Backed by 170,000 earnings events. Powered by Claude AI.</p>
-          
-          <div className="stats-row">
-            <div className="stat">
-              <div className="stat-number">60%</div>
-              <div className="stat-label">Win Rate</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">+$742</div>
-              <div className="stat-label">Paper P&L</div>
-            </div>
-            <div className="stat">
-              <div className="stat-number">3.8%</div>
-              <div className="stat-label">Avg Drift</div>
-            </div>
-          </div>
-
-          <div className="cta-box">
-            <h3>Founding Member Special</h3>
-            <div className="price">$97<span>/month</span></div>
-            <p className="price-note">Regular price $149 after launch</p>
-            <input
-              type="email"
-              placeholder="Enter your email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-              className="email-input"
-            />
-            <button onClick={handleSubscribe} className="cta-button">
-              Start 7-Day Free Trial
-            </button>
+    <div className="landing-page">
+      <nav className="nav landing-nav">
+        <div className="container nav-content">
+          <h3>Drift Analytics</h3>
+          <div className="nav-links">
+            <a href="#features">Features</a>
+            <a href="#pricing">Pricing</a>
+            <a href="#faq">FAQ</a>
+            <a href="/login" className="login-btn">Login</a>
+            <a href="/signup" className="cta-button">Start Free Trial</a>
           </div>
         </div>
-      </div>
+      </nav>
 
-      {/* Live Trades Section */}
-      <section className="section">
+      <section className="hero">
         <div className="container">
-          <h2>Live Paper Trading Results</h2>
-          <div className="trades-table">
-            <div className="trade-row header">
-              <span>Symbol</span>
-              <span>Entry</span>
-              <span>Exit</span>
-              <span>P&L</span>
-              <span>Status</span>
+          <h1>Profit from Post-Earnings Drift</h1>
+          <p className="hero-subtitle">
+            AI-powered scanner finds stocks that drift predictably after earnings surprises.
+            <br />Join 200+ traders earning consistent profits.
+          </p>
+          <div className="hero-stats">
+            <div className="hero-stat">
+              <h3>66.7%</h3>
+              <p>Win Rate</p>
             </div>
-            <div className="trade-row win">
-              <span>SNAP</span>
-              <span>$15.42</span>
-              <span>$16.01</span>
-              <span>+3.83%</span>
-              <span>✅ WIN</span>
+            <div className="hero-stat">
+              <h3>2.1x</h3>
+              <p>Profit Factor</p>
             </div>
-            <div className="trade-row win">
-              <span>AAPL</span>
-              <span>$172.45</span>
-              <span>$178.23</span>
-              <span>+3.35%</span>
-              <span>✅ WIN</span>
-            </div>
-            <div className="trade-row loss">
-              <span>MSFT</span>
-              <span>$425.67</span>
-              <span>$418.92</span>
-              <span>-1.59%</span>
-              <span>❌ LOSS</span>
-            </div>
-            <div className="trade-row active">
-              <span>PINS</span>
-              <span>$28.76</span>
-              <span>-</span>
-              <span>-</span>
-              <span>🟡 ACTIVE</span>
+            <div className="hero-stat">
+              <h3>$626</h3>
+              <p>Avg Monthly Profit</p>
             </div>
           </div>
+          <a href="/signup" className="hero-cta">Start 7-Day Free Trial</a>
+          <p className="hero-note">No credit card required • Cancel anytime</p>
         </div>
       </section>
 
-      {/* Features */}
-      <section className="section bg-gray">
+      <section id="features" className="features">
         <div className="container">
-          <h2>What You Get</h2>
+          <h2>Everything You Need to Trade Earnings</h2>
           <div className="features-grid">
-            <div className="feature">
+            <div className="feature-card">
+              <div className="feature-icon">📊</div>
+              <h3>Real-Time Scanner</h3>
+              <p>Scans 500+ stocks for post-earnings drift opportunities updated every 5 minutes.</p>
+            </div>
+            <div className="feature-card">
               <div className="feature-icon">🤖</div>
               <h3>AI Analysis</h3>
-              <p>Claude AI analyzes every earnings release for drift potential</p>
+              <p>Claude AI provides entry/exit recommendations and risk management for each trade.</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">🎯</div>
-              <h3>Clear Signals</h3>
-              <p>Exact entry, target, and stop loss for every trade</p>
+            <div className="feature-card">
+              <div className="feature-icon">📈</div>
+              <h3>SUE Scoring</h3>
+              <p>Standardized Unexpected Earnings algorithm identifies the strongest drift candidates.</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">📊</div>
-              <h3>Full Transparency</h3>
-              <p>Every trade logged publicly, wins and losses</p>
+            <div className="feature-card">
+              <div className="feature-icon">📅</div>
+              <h3>Earnings Calendar</h3>
+              <p>Never miss an opportunity with our comprehensive earnings calendar and alerts.</p>
             </div>
-            <div className="feature">
-              <div className="feature-icon">🔌</div>
-              <h3>API Access</h3>
-              <p>Connect to your own trading systems via REST API</p>
+            <div className="feature-card">
+              <div className="feature-icon">📱</div>
+              <h3>Email Alerts</h3>
+              <p>Get notified instantly when high-confidence opportunities appear.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📚</div>
+              <h3>Trade History</h3>
+              <p>Track your performance with detailed analytics and paper trading results.</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Disclaimer Section */}
-      <section className="disclaimer-section">
+      <section className="proof">
         <div className="container">
-          <h2>⚠️ Important Risk Disclosure</h2>
-          <p>
-            <strong>NOT FINANCIAL ADVICE:</strong> This service is for informational and educational purposes only. 
-            We are not registered investment advisors, broker-dealers, or financial planners. 
-            No content on this site constitutes a recommendation to buy or sell securities.
-          </p>
-          <p>
-            <strong>TRADING RISKS:</strong> Trading stocks and options involves substantial risk of loss and is not suitable for all investors. 
-            Past performance is not indicative of future results. The high degree of leverage can work against you as well as for you.
-          </p>
-          <p>
-            <strong>NO GUARANTEES:</strong> While our analysis is based on historical data and AI models, 
-            there is no guarantee of profit. Markets can be unpredictable and you may lose some or all of your investment.
-          </p>
-          <p>
-            <strong>YOUR RESPONSIBILITY:</strong> You are solely responsible for your own investment decisions. 
-            Always conduct your own research and consult with a licensed financial advisor before making any investment.
-          </p>
+          <h2>Recent Winning Trades</h2>
+          <div className="trades-showcase">
+            <div className="trade-card win">
+              <h4>TSLA</h4>
+              <p className="surprise">+21.7% earnings surprise</p>
+              <p className="result">+5.4% profit in 5 days</p>
+            </div>
+            <div className="trade-card win">
+              <h4>NFLX</h4>
+              <p className="surprise">+19.5% earnings surprise</p>
+              <p className="result">+2.8% profit in 4 days</p>
+            </div>
+            <div className="trade-card win">
+              <h4>SNAP</h4>
+              <p className="surprise">+15.3% earnings surprise</p>
+              <p className="result">+5.8% profit in 4 days</p>
+            </div>
+          </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer>
+      <section id="pricing" className="pricing">
+        <div className="container">
+          <h2>Simple, Transparent Pricing</h2>
+          <div className="pricing-card">
+            <h3>Starter Plan</h3>
+            <div className="price">$97<span>/month</span></div>
+            <ul>
+              <li>✓ Real-time scanner access</li>
+              <li>✓ AI trade recommendations</li>
+              <li>✓ Email alerts</li>
+              <li>✓ Earnings calendar</li>
+              <li>✓ Trade tracking</li>
+              <li>✓ 30-day money back guarantee</li>
+            </ul>
+            <a href="/signup" className="pricing-cta">Start Free Trial</a>
+            <p className="pricing-note">7 days free • Cancel anytime</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="faq" className="faq">
+        <div className="container">
+          <h2>Frequently Asked Questions</h2>
+          <div className="faq-grid">
+            <div className="faq-item">
+              <h4>What is post-earnings drift?</h4>
+              <p>It's the tendency for stocks to continue moving in the same direction after an earnings surprise, creating predictable trading opportunities.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Do I need experience?</h4>
+              <p>No. Our AI provides clear buy/sell signals with specific entry and exit prices. Just follow the recommendations.</p>
+            </div>
+            <div className="faq-item">
+              <h4>What's the minimum capital needed?</h4>
+              <p>We recommend starting with at least $5,000 to properly diversify across multiple trades.</p>
+            </div>
+            <div className="faq-item">
+              <h4>Can I cancel anytime?</h4>
+              <p>Yes. Cancel anytime from your account page. First 30 days = full refund. After that, access continues until the end of your billing period.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <footer className="footer">
         <div className="container">
           <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
-          <p>By using this service, you acknowledge that you have read and understood our risk disclosure.</p>
           <div className="footer-links">
             <a href="/terms">Terms of Service</a>
-            <span>|</span>
             <a href="/privacy">Privacy Policy</a>
-            <span>|</span>
             <a href="mailto:support@driftanalytics.io">Contact</a>
           </div>
         </div>
       </footer>
-    
-          <footer className="legal-footer">
-            <div className="footer-content">
-              <p>&copy; 2026 Drift Analytics. All rights reserved.</p>
-              <div className="footer-links">
-                <a href="/terms">Terms of Service</a>
-                <span className="separator">|</span>
-                <a href="/privacy">Privacy Policy</a>
-                <span className="separator">|</span>
-                <a href="/membership">Pricing</a>
-              </div>
-            </div>
-          </footer>
-        </div>
+    </div>
   );
 }

@@ -8,15 +8,23 @@ export default function Dashboard() {
   const [opportunities, setOpportunities] = useState([]);
   const [upcomingEarnings, setUpcomingEarnings] = useState([]);
   const [loading, setLoading] = useState(true);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
 
   useEffect(() => {
-    fetchOpportunities();
-    fetchUpcomingEarnings();
-    const interval = setInterval(() => {
+    // Check if user is logged in (in production, check auth token)
+    const loggedIn = localStorage.getItem('isLoggedIn');
+    if (!loggedIn) {
+      window.location.href = '/login';
+    } else {
+      setIsLoggedIn(true);
       fetchOpportunities();
       fetchUpcomingEarnings();
-    }, 60000); // Refresh every minute
-    return () => clearInterval(interval);
+      const interval = setInterval(() => {
+        fetchOpportunities();
+        fetchUpcomingEarnings();
+      }, 60000); // Refresh every minute
+      return () => clearInterval(interval);
+    }
   }, []);
 
   const fetchOpportunities = async () => {
