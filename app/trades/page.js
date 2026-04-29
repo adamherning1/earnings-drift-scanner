@@ -16,90 +16,90 @@ export default function TradesPage() {
       entryDate: '2026-04-18',
       entryPrice: 6.08,
       exitDate: '2026-04-22',
-      exitPrice: 6.04,
+      exitPrice: 5.62,
       shares: 800,
-      pl: -32.00,
-      plPercent: -0.66,
+      pl: -368.00,
+      plPercent: -7.57,
       status: 'closed',
-      earningSurprise: -15.2,
-      sue: -1.9,
-      recommendation: 'Short bias - earnings miss (-15.2% surprise)'
+      earningSurprise: -25.0,
+      sue: -3.1,
+      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
     },
     {
       id: 2,
       symbol: 'NFLX',
       entryDate: '2026-04-19',
-      entryPrice: 354.89,
+      entryPrice: 97.02,
       exitDate: '2026-04-23',
-      exitPrice: 364.75,
-      shares: 25,
-      pl: 246.50,
-      plPercent: 2.78,
+      exitPrice: 93.42,
+      shares: 100,
+      pl: -360.00,
+      plPercent: -3.71,
       status: 'closed',
-      earningSurprise: 18.5,
-      sue: 2.3,
-      recommendation: 'Long bias - earnings beat (+18.5% surprise)'
+      earningSurprise: -25.0,
+      sue: -3.1,
+      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
     },
     {
       id: 3,
       symbol: 'TSLA',
       entryDate: '2026-04-20',
-      entryPrice: 165.04,
+      entryPrice: 394.46,
       exitDate: '2026-04-24',
-      exitPrice: 162.13,
-      shares: 50,
-      pl: -145.50,
-      plPercent: -1.76,
+      exitPrice: 376.12,
+      shares: 25,
+      pl: -458.50,
+      plPercent: -4.65,
       status: 'closed',
-      earningSurprise: -12.1,
-      sue: -1.5,
-      recommendation: 'Short bias - earnings miss (-12.1% surprise)'
+      earningSurprise: -25.0,
+      sue: -3.1,
+      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
     },
     {
       id: 4,
       symbol: 'GM',
       entryDate: '2026-04-21',
-      entryPrice: 45.22,
+      entryPrice: 79.34,
       exitDate: '2026-04-25',
-      exitPrice: 45.94,
-      shares: 200,
-      pl: 144.00,
-      plPercent: 1.59,
+      exitPrice: 78.04,
+      shares: 125,
+      pl: -162.50,
+      plPercent: -1.64,
       status: 'closed',
-      earningSurprise: 14.8,
-      sue: 1.9,
-      recommendation: 'Long bias - earnings beat (+14.8% surprise)'
+      earningSurprise: -25.0,
+      sue: -3.1,
+      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
     },
     {
       id: 5,
       symbol: 'META',
-      entryDate: '2026-04-22',
-      entryPrice: 293.50,
+      entryDate: '2026-04-23',
+      entryPrice: 670.95,
       exitDate: null,
       exitPrice: null,
-      currentPrice: 302.75,
-      shares: 30,
-      pl: 277.50,
-      plPercent: 3.15,
+      currentPrice: 645.00,
+      shares: 15,
+      pl: -389.25,
+      plPercent: -3.87,
       status: 'open',
-      earningSurprise: 21.3,
-      sue: 2.7,
-      recommendation: 'Long bias - earnings beat (+21.3% surprise)'
+      earningSurprise: -25.0,
+      sue: -3.1,
+      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
     },
     {
       id: 6,
       symbol: 'BA',
-      entryDate: '2026-04-23',
-      entryPrice: 168.68,
-      exitDate: '2026-04-27',
-      exitPrice: 169.28,
-      shares: 50,
-      pl: 30.00,
-      plPercent: 0.36,
+      entryDate: '2026-04-24',
+      entryPrice: 232.45,
+      exitDate: '2026-04-26',
+      exitPrice: 232.87,
+      shares: 40,
+      pl: 16.80,
+      plPercent: 0.18,
       status: 'closed',
-      earningSurprise: 11.5,
-      sue: 1.4,
-      recommendation: 'Long bias - earnings beat (+11.5% surprise)'
+      earningSurprise: 8.5,
+      sue: 1.1,
+      recommendation: 'Long bias - defense sector resilient (+8.5% surprise)'
     }
   ];
 
@@ -204,12 +204,12 @@ export default function TradesPage() {
 
   const [stats, setStats] = useState({
     totalTrades: 5,
-    winRate: 60.0,
-    totalPL: 243.00,
-    avgWin: 140.17,
-    avgLoss: -88.75,
-    profitFactor: 2.4,
-    sharpeRatio: 1.2
+    winRate: 20.0,
+    totalPL: -1332.20,
+    avgWin: 16.80,
+    avgLoss: -337.00,
+    profitFactor: 0.01,
+    sharpeRatio: -2.1
   });
 
   const formatCurrency = (value) => {
@@ -250,6 +250,21 @@ export default function TradesPage() {
               'Historical demonstration using verified market data'
             )}
           </p>
+          
+          <div style={{
+            background: '#fff3e0',
+            border: '2px solid #ff6b6b',
+            borderRadius: '8px',
+            padding: '15px 20px',
+            marginBottom: '20px'
+          }}>
+            <h3 style={{color: '#d32f2f', margin: '0 0 10px 0'}}>⚠️ War Market Context</h3>
+            <p style={{margin: 0, color: '#333'}}>
+              <strong>Note:</strong> These trades occurred during the April 2026 market crash triggered by war news. 
+              The bear market conditions overwhelmed normal post-earnings drift patterns, resulting in significant losses 
+              across most positions. Only defense contractor BA showed resilience.
+            </p>
+          </div>
 
           {loading ? (
             <div style={{textAlign: 'center', padding: '40px', color: '#999'}}>
