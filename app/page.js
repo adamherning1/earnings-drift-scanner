@@ -61,24 +61,24 @@ export default function LandingPage() {
               <p>Claude AI analyzes historical patterns and provides statistical observations about past drift behavior.</p>
             </div>
             <div className="feature-card">
+              <div className="feature-icon">🎯</div>
+              <h3>Statistical Observations</h3>
+              <p>See average drift magnitude, duration, and occurrence rates based on historical data.</p>
+            </div>
+            <div className="feature-card">
+              <div className="feature-icon">📱</div>
+              <h3>Market Updates</h3>
+              <p>Receive notifications when new earnings results are released for tracked stocks.</p>
+            </div>
+            <div className="feature-card">
               <div className="feature-icon">📈</div>
-              <h3>SUE Scoring</h3>
-              <p>Standardized Unexpected Earnings algorithm identifies the strongest drift candidates.</p>
+              <h3>Performance Tracking</h3>
+              <p>Monitor hypothetical results and historical accuracy of drift patterns.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">📅</div>
               <h3>Earnings Calendar</h3>
-              <p>Never miss an opportunity with our comprehensive earnings calendar and alerts.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">📱</div>
-              <h3>Email Alerts</h3>
-              <p>Get notified instantly when high-confidence opportunities appear.</p>
-            </div>
-            <div className="feature-card">
-              <div className="feature-icon">📚</div>
-              <h3>Trade History</h3>
-              <p>Track your performance with detailed analytics and paper trading results.</p>
+              <p>Track upcoming earnings dates for 500+ companies with historical context.</p>
             </div>
           </div>
         </div>
@@ -115,10 +115,10 @@ export default function LandingPage() {
             <div className="price">$97<span>/month</span></div>
             <ul>
               <li>✓ Real-time scanner access</li>
-              <li>✓ AI trade recommendations</li>
-              <li>✓ Email alerts</li>
+              <li>✓ Historical pattern analysis</li>
+              <li>✓ Market update notifications</li>
               <li>✓ Earnings calendar</li>
-              <li>✓ Trade tracking</li>
+              <li>✓ Performance tracking</li>
               <li>✓ 30-day money back guarantee</li>
             </ul>
             <a href="/signup" className="pricing-cta">Start Free Trial</a>
