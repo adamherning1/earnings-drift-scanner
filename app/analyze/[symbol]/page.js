@@ -74,7 +74,7 @@ export default function AnalyzePage() {
             </div>
             <div className="setup-item">
               <span className="label">Average drift duration:</span>
-              <span className="value">{analysis.analysis?.avg_drift_duration || '2-5 trading days'}</span>
+              <span className="value">{analysis.analysis?.avg_drift_duration || '3-30 trading days'}</span>
             </div>
             <div className="setup-item">
               <span className="label">1-standard-deviation downside move:</span>
