@@ -14,14 +14,19 @@ export default function LoginPage() {
     setError('');
     setLoading(true);
 
-    // For demo purposes - in production this would call your auth API
-    if (email && password) {
-      // Simulate API call
+    // Admin login check
+    if (email === 'admin@driftanalytics.io' && password === 'DriftAdmin2026!') {
+      // Admin login successful
       setTimeout(() => {
-        // Set logged in status
         localStorage.setItem('isLoggedIn', 'true');
+        localStorage.setItem('userRole', 'admin');
+        localStorage.setItem('userName', 'Adam');
         window.location.href = '/dashboard';
       }, 1000);
+    } else if (email && password) {
+      // Regular user login would go here in production
+      setError('Invalid email or password');
+      setLoading(false);
     } else {
       setError('Please enter your email and password');
       setLoading(false);
