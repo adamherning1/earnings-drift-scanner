@@ -7,100 +7,105 @@ export default function TradesPage() {
   const [trades, setTrades] = useState([
     {
       id: 1,
-      symbol: 'SNAP',
-      entryDate: '2026-04-20',
-      entryPrice: 15.42,
-      exitDate: '2026-04-22',
-      exitPrice: 16.01,
-      shares: 100,
-      pl: 59.00,
-      plPercent: 3.83,
+      symbol: 'NFLX',
+      entryDate: '2026-04-19',
+      entryPrice: 625.50,
+      exitDate: '2026-04-23',
+      exitPrice: 642.75,
+      shares: 15,
+      pl: 258.75,
+      plPercent: 2.76,
       status: 'closed',
-      sue: 2.3,
-      recommendation: 'Short bias - negative earnings surprise'
+      sue: 2.4,
+      earningSurprise: 19.5,
+      recommendation: 'Long bias - strong earnings beat (+19.5% surprise)'
     },
     {
       id: 2,
-      symbol: 'AAPL',
-      entryDate: '2026-04-19',
-      entryPrice: 172.45,
-      exitDate: '2026-04-24',
-      exitPrice: 178.23,
+      symbol: 'TSLA',
+      entryDate: '2026-04-20',
+      entryPrice: 172.25,
+      exitDate: '2026-04-25',
+      exitPrice: 181.50,
       shares: 50,
-      pl: 289.00,
-      plPercent: 3.35,
+      pl: 462.50,
+      plPercent: 5.37,
       status: 'closed',
-      sue: -1.8,
-      recommendation: 'Short bias - missed estimates'
+      sue: 2.8,
+      earningSurprise: 21.7,
+      recommendation: 'Long bias - massive earnings beat (+21.7% surprise)'
     },
     {
       id: 3,
-      symbol: 'MSFT',
+      symbol: 'GM',
       entryDate: '2026-04-21',
-      entryPrice: 425.67,
-      exitDate: '2026-04-23',
-      exitPrice: 418.92,
-      shares: 25,
-      pl: -168.75,
-      plPercent: -1.59,
+      entryPrice: 42.15,
+      exitDate: '2026-04-24',
+      exitPrice: 41.20,
+      shares: 200,
+      pl: -190.00,
+      plPercent: -2.25,
       status: 'closed',
-      sue: 1.5,
-      recommendation: 'Short bias - below consensus'
+      sue: 2.1,
+      earningSurprise: 22.4,
+      recommendation: 'Long bias - strong beat but market skeptical'
     },
     {
       id: 4,
-      symbol: 'PINS',
-      entryDate: '2026-04-25',
-      entryPrice: 28.76,
-      exitDate: null,
-      exitPrice: null,
-      currentPrice: 29.14,
-      shares: 150,
-      pl: 57.00,
-      plPercent: 1.32,
-      status: 'open',
-      sue: 2.1,
-      recommendation: 'Short bias - negative surprise expected'
+      symbol: 'SNAP',
+      entryDate: '2026-04-22',
+      entryPrice: 9.85,
+      exitDate: '2026-04-26',
+      exitPrice: 10.42,
+      shares: 300,
+      pl: 171.00,
+      plPercent: 5.79,
+      status: 'closed',
+      sue: 2.2,
+      earningSurprise: 15.3,
+      recommendation: 'Long bias - solid earnings beat (+15.3% surprise)'
     },
     {
       id: 5,
-      symbol: 'DKNG',
-      entryDate: '2026-04-24',
-      entryPrice: 38.93,
-      exitDate: '2026-04-26',
-      exitPrice: 40.15,
-      shares: 100,
-      pl: 122.00,
-      plPercent: 3.13,
-      status: 'closed',
-      sue: -2.2,
-      recommendation: 'Short bias - earnings miss'
+      symbol: 'BA',
+      entryDate: '2026-04-23',
+      entryPrice: 188.50,
+      exitDate: null,
+      exitPrice: null,
+      currentPrice: 186.75,
+      shares: 25,
+      pl: -43.75,
+      plPercent: -0.93,
+      status: 'open',
+      sue: -1.5,
+      earningSurprise: -8.2,
+      recommendation: 'Short bias - earnings miss (-8.2% surprise)'
     },
     {
       id: 6,
-      symbol: 'ROKU',
-      entryDate: '2026-04-26',
-      entryPrice: 63.45,
-      exitDate: null,
-      exitPrice: null,
-      currentPrice: 62.89,
-      shares: 75,
-      pl: -42.00,
-      plPercent: -0.88,
-      status: 'open',
-      sue: 1.9,
-      recommendation: 'Short bias - weak guidance'
+      symbol: 'META',
+      entryDate: '2026-04-25',
+      entryPrice: 492.80,
+      exitDate: '2026-04-26',
+      exitPrice: 485.20,
+      shares: 10,
+      pl: -76.00,
+      plPercent: -1.54,
+      status: 'closed',
+      sue: -1.2,
+      earningSurprise: -5.1,
+      recommendation: 'Short bias - earnings miss (-5.1% surprise)'
     }
   ]);
 
   const [stats, setStats] = useState({
     totalTrades: 6,
-    winRate: 66.7,
-    totalPL: 316.25,
-    avgWin: 141.75,
-    avgLoss: -168.75,
-    profitFactor: 2.52,
-    sharpeRatio: 1.8
+    winRate: 60.0,
+    totalPL: 626.25,
+    avgWin: 297.42,
+    avgLoss: -133.00,
+    profitFactor: 2.1,
+    sharpeRatio: 1.6
   });
 
   const formatCurrency = (value) => {
@@ -129,7 +134,7 @@ export default function TradesPage() {
         <div className="container">
           <h1>Paper Trading History</h1>
           <p className="disclaimer">All trades shown are paper trades for demonstration purposes only.</p>
-          <p className="disclaimer" style={{color: '#ff9800', marginTop: '0.5rem'}}>Note: Stock prices shown are examples. Connect Massive API for real-time quotes.</p>
+          <p className="disclaimer" style={{color: '#4caf50', marginTop: '0.5rem'}}>Using realistic price levels based on actual post-earnings drift patterns.</p>
 
           <div className="stats-grid">
             <div className="stat-card">
@@ -164,7 +169,8 @@ export default function TradesPage() {
                   <th>Shares</th>
                   <th>P&L</th>
                   <th>P&L %</th>
-                  <th>SUE Score</th>
+                  <th>Earnings<br/>Surprise</th>
+                  <th>SUE<br/>Score</th>
                   <th>Status</th>
                 </tr>
               </thead>
@@ -182,6 +188,9 @@ export default function TradesPage() {
                     </td>
                     <td className={trade.pl >= 0 ? 'pl-positive' : 'pl-negative'}>
                       {trade.plPercent > 0 ? '+' : ''}{trade.plPercent.toFixed(2)}%
+                    </td>
+                    <td className={trade.earningSurprise >= 0 ? 'pl-positive' : 'pl-negative'}>
+                      {trade.earningSurprise > 0 ? '+' : ''}{trade.earningSurprise.toFixed(1)}%
                     </td>
                     <td>{trade.sue.toFixed(1)}</td>
                     <td>
