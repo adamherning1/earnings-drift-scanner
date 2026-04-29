@@ -42,7 +42,7 @@ export default function LandingPage() {
             </div>
           </div>
           <a href="/signup" className="hero-cta">Start 7-Day Free Trial</a>
-          <p className="hero-note">No credit card required • Cancel anytime</p>
+          <p className="hero-note">Credit card required • Cancel anytime</p>
         </div>
       </section>
 
