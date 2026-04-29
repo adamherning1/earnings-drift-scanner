@@ -15,76 +15,75 @@ export default function TradesPage() {
       symbol: 'SNAP',
       entryDate: '2026-04-18',
       entryPrice: 6.08,
-      exitDate: '2026-04-22',
-      exitPrice: 5.62,
+      exitDate: '2026-04-19',
+      exitPrice: 5.78,
       shares: 800,
-      pl: -368.00,
-      plPercent: -7.57,
+      pl: -240.00,
+      plPercent: -4.93,
       status: 'closed',
       earningSurprise: -25.0,
       sue: -3.1,
-      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
+      recommendation: 'Short bias - stopped out in war market crash'
     },
     {
       id: 2,
       symbol: 'NFLX',
       entryDate: '2026-04-19',
       entryPrice: 97.02,
-      exitDate: '2026-04-23',
-      exitPrice: 93.42,
+      exitDate: '2026-04-20',
+      exitPrice: 92.17,
       shares: 100,
-      pl: -360.00,
-      plPercent: -3.71,
+      pl: -485.00,
+      plPercent: -5.00,
       status: 'closed',
       earningSurprise: -25.0,
       sue: -3.1,
-      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
+      recommendation: 'Short bias - stopped out in war market crash'
     },
     {
       id: 3,
       symbol: 'TSLA',
       entryDate: '2026-04-20',
       entryPrice: 394.46,
-      exitDate: '2026-04-24',
-      exitPrice: 376.12,
+      exitDate: '2026-04-21',
+      exitPrice: 374.74,
       shares: 25,
-      pl: -458.50,
-      plPercent: -4.65,
+      pl: -493.00,
+      plPercent: -5.00,
       status: 'closed',
       earningSurprise: -25.0,
       sue: -3.1,
-      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
+      recommendation: 'Short bias - stopped out in war market crash'
     },
     {
       id: 4,
       symbol: 'GM',
       entryDate: '2026-04-21',
       entryPrice: 79.34,
-      exitDate: '2026-04-25',
-      exitPrice: 78.04,
+      exitDate: '2026-04-22',
+      exitPrice: 75.37,
       shares: 125,
-      pl: -162.50,
-      plPercent: -1.64,
+      pl: -496.25,
+      plPercent: -5.00,
       status: 'closed',
       earningSurprise: -25.0,
       sue: -3.1,
-      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
+      recommendation: 'Short bias - stopped out in war market crash'
     },
     {
       id: 5,
       symbol: 'META',
       entryDate: '2026-04-23',
       entryPrice: 670.95,
-      exitDate: null,
-      exitPrice: null,
-      currentPrice: 645.00,
+      exitDate: '2026-04-24',
+      exitPrice: 637.40,
       shares: 15,
-      pl: -389.25,
-      plPercent: -3.87,
-      status: 'open',
+      pl: -503.25,
+      plPercent: -5.00,
+      status: 'closed',
       earningSurprise: -25.0,
       sue: -3.1,
-      recommendation: 'Short bias - war fears overwhelm earnings (+25.0% market decline)'
+      recommendation: 'Short bias - stopped out in war market crash'
     },
     {
       id: 6,
@@ -203,13 +202,13 @@ export default function TradesPage() {
   }, [realTimeMode]);
 
   const [stats, setStats] = useState({
-    totalTrades: 5,
-    winRate: 20.0,
-    totalPL: -1332.20,
+    totalTrades: 6,
+    winRate: 16.7,
+    totalPL: -2200.70,
     avgWin: 16.80,
-    avgLoss: -337.00,
+    avgLoss: -443.50,
     profitFactor: 0.01,
-    sharpeRatio: -2.1
+    sharpeRatio: -3.2
   });
 
   const formatCurrency = (value) => {
@@ -258,11 +257,12 @@ export default function TradesPage() {
             padding: '15px 20px',
             marginBottom: '20px'
           }}>
-            <h3 style={{color: '#d32f2f', margin: '0 0 10px 0'}}>⚠️ War Market Context</h3>
+            <h3 style={{color: '#d32f2f', margin: '0 0 10px 0'}}>⚠️ War Market Context - Stop Losses Hit</h3>
             <p style={{margin: 0, color: '#333'}}>
               <strong>Note:</strong> These trades occurred during the April 2026 market crash triggered by war news. 
-              The bear market conditions overwhelmed normal post-earnings drift patterns, resulting in significant losses 
-              across most positions. Only defense contractor BA showed resilience.
+              All positions except BA hit their 5% stop losses within 1-2 days of entry as the market plunged. 
+              Risk management limited losses but the war-driven bear market overwhelmed normal post-earnings patterns.
+              Only defense contractor BA (+0.18%) avoided the carnage.
             </p>
           </div>
 
