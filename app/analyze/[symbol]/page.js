@@ -67,19 +67,28 @@ export default function AnalyzePage() {
             </div>
             <div className="setup-item">
               <span className="label">Average drift magnitude:</span>
-              <span className="value">+1.0% (≈ $2.84 from current price)</span>
+              <span className="value">
+                {analysis.analysis?.avg_post_earnings_move || '+2.5%'} 
+                (≈ ${(Number(analysis.current_price) * (parseFloat(analysis.analysis?.avg_post_earnings_move || '2.5') / 100)).toFixed(2)} from current price)
+              </span>
             </div>
             <div className="setup-item">
               <span className="label">Average drift duration:</span>
-              <span className="value">2-5 trading days</span>
+              <span className="value">{analysis.analysis?.avg_drift_duration || '2-5 trading days'}</span>
             </div>
             <div className="setup-item">
               <span className="label">1-standard-deviation downside move:</span>
-              <span className="value stop">-2.0% (≈ $5.41 from current price)</span>
+              <span className="value stop">
+                {analysis.analysis?.downside_risk || '-1.8%'} 
+                (≈ ${(Number(analysis.current_price) * (Math.abs(parseFloat(analysis.analysis?.downside_risk || '-1.8')) / 100)).toFixed(2)} from current price)
+              </span>
             </div>
             <div className="setup-item">
               <span className="label">Historical occurrence rate:</span>
-              <span className="value">75% (3 of 4 prior reports)</span>
+              <span className="value">
+                {analysis.analysis?.historical_win_rate || '65%'} 
+                ({analysis.analysis?.occurrences || 'based on available data'})
+              </span>
             </div>
           </div>
           <p className="stats-note">This data represents what has historically happened after {analysis.symbol} earnings beats with similar SUE scores. The reader must make their own investment decisions.</p>
