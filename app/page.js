@@ -58,7 +58,7 @@ export default function LandingPage() {
             <div className="feature-card">
               <div className="feature-icon">🤖</div>
               <h3>AI Analysis</h3>
-              <p>Claude AI provides entry/exit recommendations and risk management for each trade.</p>
+              <p>Claude AI analyzes historical patterns and provides statistical observations about past drift behavior.</p>
             </div>
             <div className="feature-card">
               <div className="feature-icon">📈</div>
@@ -137,7 +137,7 @@ export default function LandingPage() {
             </div>
             <div className="faq-item">
               <h4>Do I need experience?</h4>
-              <p>No. Our AI provides clear buy/sell signals with specific entry and exit prices. Just follow the recommendations.</p>
+              <p>Some trading knowledge is helpful. We provide historical statistics and data analysis to inform your own research and decision-making process.</p>
             </div>
             <div className="faq-item">
               <h4>What's the minimum capital needed?</h4>
