@@ -26,6 +26,7 @@ export default function AccountPage() {
             <a href="/dashboard">Dashboard</a>
             <a href="/earnings-calendar">Calendar</a>
             <a href="/trades">Trade History</a>
+            <a href="/education">Education</a>
             <a href="/account" className="active">Account</a>
             <a href="/logout">Logout</a>
           </div>

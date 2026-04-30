@@ -21,6 +21,7 @@ export default function MembershipPage() {
           <div className="nav-links">
             <a href="/">Home</a>
             <a href="/dashboard">Dashboard</a>
+            <a href="/education">Education</a>
             <a href="/membership" className="active">Membership</a>
           </div>
         </div>
