@@ -8,6 +8,10 @@ env/
 venv/
 .env
 
+# Node
+node_modules/
+.next/
+
 # Earnings cache (dynamic data)
 earnings_cache/
 
