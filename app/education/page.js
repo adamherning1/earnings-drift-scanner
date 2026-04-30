@@ -3,6 +3,7 @@
 import Link from 'next/link';
 import '../globals.css';
 
+// Force Vercel rebuild - Education page deployment fix
 export default function EducationPage() {
   return (
     <div className="container">
