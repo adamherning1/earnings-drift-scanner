@@ -64,6 +64,7 @@ export default function AccountPage() {
             <div className="button-group">
               <button className="btn-secondary">Update Payment Method</button>
               <button className="btn-danger">Cancel Subscription</button>
+              <a href="/security" className="btn-primary" style={{marginLeft: 'auto'}}>Security Settings →</a>
             </div>
           </div>
 

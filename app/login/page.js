@@ -6,6 +6,8 @@ import '../globals.css';
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [twoFactorCode, setTwoFactorCode] = useState('');
+  const [showTwoFactor, setShowTwoFactor] = useState(false);
   const [error, setError] = useState('');
   const [loading, setLoading] = useState(false);
 
@@ -16,11 +18,50 @@ export default function LoginPage() {
 
     // Admin login check
     if (email === 'admin@driftanalytics.io' && password === 'DriftAdmin2026!') {
-      // Admin login successful
+      // Check if 2FA is enabled
+      const is2FAEnabled = localStorage.getItem('2fa_enabled') === 'true';
+      
+      if (is2FAEnabled && !showTwoFactor) {
+        // Show 2FA input
+        setShowTwoFactor(true);
+        setLoading(false);
+        return;
+      }
+      
+      // If 2FA is shown, verify the code
+      if (is2FAEnabled && showTwoFactor) {
+        try {
+          const secret = localStorage.getItem('2fa_secret');
+          const response = await fetch('/api/auth/2fa-verify', {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ 
+              email: email,
+              token: twoFactorCode,
+              secret: secret
+            })
+          });
+          
+          const data = await response.json();
+          
+          if (!data.success) {
+            setError('Invalid 2FA code. Please try again.');
+            setLoading(false);
+            return;
+          }
+        } catch (err) {
+          setError('2FA verification failed. Please try again.');
+          setLoading(false);
+          return;
+        }
+      }
+      
+      // Login successful
       setTimeout(() => {
         localStorage.setItem('isLoggedIn', 'true');
         localStorage.setItem('userRole', 'admin');
         localStorage.setItem('userName', 'Adam');
+        localStorage.setItem('userEmail', email);
         window.location.href = '/dashboard';
       }, 1000);
     } else if (email && password) {
@@ -77,6 +118,22 @@ export default function LoginPage() {
               />
             </div>
 
+            {showTwoFactor && (
+              <div className="form-group">
+                <label htmlFor="twoFactorCode">2FA Code</label>
+                <input
+                  type="text"
+                  id="twoFactorCode"
+                  value={twoFactorCode}
+                  onChange={(e) => setTwoFactorCode(e.target.value)}
+                  placeholder="000000"
+                  maxLength="6"
+                  required
+                />
+                <p className="input-hint">Enter the 6-digit code from your authenticator app</p>
+              </div>
+            )}
+
             <div className="form-options">
               <label className="checkbox-label">
                 <input type="checkbox" />
@@ -86,7 +143,7 @@ export default function LoginPage() {
             </div>
 
             <button type="submit" className="auth-submit" disabled={loading}>
-              {loading ? 'Logging in...' : 'Log In'}
+              {loading ? 'Logging in...' : showTwoFactor ? 'Verify & Log In' : 'Log In'}
             </button>
           </form>
 

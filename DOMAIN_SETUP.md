@@ -1,44 +1,51 @@
-# Drift Analytics Domain Setup
+# Setting up driftanalytics.io on Vercel
 
-## Domain Information
-- **Domain**: driftanalytics.io
-- **Registrar**: Namecheap
-- **Purchased**: April 27, 2026
-- **Cost**: $34.98/year
-- **Privacy**: Free WHOIS privacy included
+## Step 1: Add Domain in Vercel
 
-## Next Steps
+1. Go to https://vercel.com/dashboard
+2. Click on your project: "earnings-drift-scanner"
+3. Go to "Settings" tab
+4. Click on "Domains" in the left sidebar
+5. Enter: driftanalytics.io
+6. Click "Add"
 
-### 1. Point Domain to Vercel
-1. Log into Namecheap
-2. Go to Domain List → Manage → Advanced DNS
-3. Delete any existing records
-4. Add these DNS records:
-   - Type: A, Host: @, Value: 76.76.21.21
-   - Type: CNAME, Host: www, Value: cname.vercel-dns.com
+Vercel will show you DNS records to add.
 
-### 2. Add Domain to Vercel
-1. Go to your Vercel dashboard
-2. Select the earnings-drift-scanner project
-3. Go to Settings → Domains
-4. Add domain: driftanalytics.io
-5. Add domain: www.driftanalytics.io
+## Step 2: Configure DNS Records
 
-### 3. Update All Branding
-Files to update with "Drift Analytics":
-- member-portal/app/page.js (homepage)
-- member-portal/app/dashboard/page.js
-- member-portal/app/layout.js (site title)
-- All navigation headers
-- Footer copyright
+Where you bought the domain (likely Namecheap, GoDaddy, or similar), add these records:
 
-### 4. Business Info for Stripe
-- Business Name: Drift Analytics
-- Website: https://driftanalytics.io
-- Support Email: support@driftanalytics.io
-- Business Category: Software/Financial Services
+### For apex domain (driftanalytics.io):
+- Type: A
+- Name: @ (or leave blank)
+- Value: 76.76.21.21
 
-### 5. Email Setup (Later)
-- Google Workspace: $6/month
-- Or Namecheap email: $11.88/year
-- Forward to personal email initially
+### For www subdomain (www.driftanalytics.io):
+- Type: CNAME
+- Name: www
+- Value: cname.vercel-dns.com
+
+## Step 3: Wait for Propagation
+
+- DNS changes can take 5-48 hours to propagate
+- Vercel will automatically provision SSL certificates
+- You'll see a green checkmark in Vercel when ready
+
+## Step 4: Update Environment Variables
+
+After domain is connected, update any hardcoded URLs in the code from:
+- https://earnings-drift-scanner.vercel.app
+to:
+- https://driftanalytics.io
+
+## Current Status
+- Domain purchased: ✅ (April 27, 2026)
+- Vercel deployment: ✅ (earnings-drift-scanner.vercel.app)
+- DNS configuration: ⏳ Pending
+- SSL certificate: ⏳ Will auto-provision after DNS
+
+## Testing
+Once DNS propagates, test:
+1. https://driftanalytics.io (should load)
+2. https://www.driftanalytics.io (should redirect to apex)
+3. https://earnings-drift-scanner.vercel.app (old URL should still work)
